@@ -1,0 +1,24 @@
+platform :ios, '13.2'
+
+# add pods for desired Firebase products
+# https://firebase.google.com/docs/ios/setup#available-pods
+
+target 'Made-App' do
+  use_frameworks!
+
+  # Pods for Made-App
+  pod 'Alamofire', '5.2.2'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
+
+  target 'Made-AppTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'Made-AppUITests' do
+    # Pods for testing
+  end
+
+end
