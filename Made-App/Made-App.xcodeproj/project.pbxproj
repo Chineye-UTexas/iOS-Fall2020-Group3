@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35E9A4F3253E9DB2008A9C68 /* SinglePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9A4F2253E9DB2008A9C68 /* SinglePostViewController.swift */; };
+		35E9A4F8253E9DDD008A9C68 /* CommentPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9A4F7253E9DDD008A9C68 /* CommentPageViewController.swift */; };
+		35E9A500253E9E02008A9C68 /* ReviewPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9A4FF253E9E02008A9C68 /* ReviewPageViewController.swift */; };
 		35EC4E29252F9E100093E430 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E28252F9E100093E430 /* AppDelegate.swift */; };
 		35EC4E2B252F9E100093E430 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E2A252F9E100093E430 /* SceneDelegate.swift */; };
 		35EC4E2D252F9E100093E430 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E2C252F9E100093E430 /* ViewController.swift */; };
@@ -43,6 +46,9 @@
 /* Begin PBXFileReference section */
 		17013FE31B35600939AADA9F /* Pods-Made-AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Made-AppTests.release.xcconfig"; path = "Target Support Files/Pods-Made-AppTests/Pods-Made-AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		23029750A5BCCCF4198CA317 /* Pods-Made-App-Made-AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Made-App-Made-AppUITests.release.xcconfig"; path = "Target Support Files/Pods-Made-App-Made-AppUITests/Pods-Made-App-Made-AppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		35E9A4F2253E9DB2008A9C68 /* SinglePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePostViewController.swift; sourceTree = "<group>"; };
+		35E9A4F7253E9DDD008A9C68 /* CommentPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentPageViewController.swift; sourceTree = "<group>"; };
+		35E9A4FF253E9E02008A9C68 /* ReviewPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPageViewController.swift; sourceTree = "<group>"; };
 		35EC4E25252F9E100093E430 /* Made-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Made-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35EC4E28252F9E100093E430 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35EC4E2A252F9E100093E430 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +135,9 @@
 				35EC4E2C252F9E100093E430 /* ViewController.swift */,
 				7CC960352536FA8E005B0304 /* LoginViewController.swift */,
 				7CC9603A2536FAA2005B0304 /* RegistrationViewController.swift */,
+				35E9A4F2253E9DB2008A9C68 /* SinglePostViewController.swift */,
+				35E9A4F7253E9DDD008A9C68 /* CommentPageViewController.swift */,
+				35E9A4FF253E9E02008A9C68 /* ReviewPageViewController.swift */,
 				35EC4E2E252F9E100093E430 /* Main.storyboard */,
 				35EC4E31252F9E120093E430 /* Assets.xcassets */,
 				35EC4E33252F9E120093E430 /* LaunchScreen.storyboard */,
@@ -418,11 +427,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35E9A4F3253E9DB2008A9C68 /* SinglePostViewController.swift in Sources */,
 				7CC960362536FA8E005B0304 /* LoginViewController.swift in Sources */,
 				35EC4E2D252F9E100093E430 /* ViewController.swift in Sources */,
 				35EC4E29252F9E100093E430 /* AppDelegate.swift in Sources */,
 				35EC4E2B252F9E100093E430 /* SceneDelegate.swift in Sources */,
 				7CC9603B2536FAA2005B0304 /* RegistrationViewController.swift in Sources */,
+				35E9A4F8253E9DDD008A9C68 /* CommentPageViewController.swift in Sources */,
+				35E9A500253E9E02008A9C68 /* ReviewPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
