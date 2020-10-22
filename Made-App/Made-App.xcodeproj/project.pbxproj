@@ -25,6 +25,7 @@
 		7D7F93987CD060E0CE04169F /* Pods_Made_App_Made_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B203E177730C98313BAC99 /* Pods_Made_App_Made_AppUITests.framework */; };
 		94CD288FC68E732DFB4CB0F0 /* Pods_Made_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABAF8FD187DE2BC481012CFF /* Pods_Made_App.framework */; };
 		DFB04CB16EA250C9EF18D114 /* Pods_Made_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE62E6E043CA951023BDB10 /* Pods_Made_AppTests.framework */; };
+		EED1D5B125410CB9001A7DD1 /* PostFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED1D5B025410CB9001A7DD1 /* PostFormViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		918C2074A62DB5C958AFC054 /* Pods-Made-AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Made-AppTests.debug.xcconfig"; path = "Target Support Files/Pods-Made-AppTests/Pods-Made-AppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ABAF8FD187DE2BC481012CFF /* Pods_Made_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Made_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFE62E6E043CA951023BDB10 /* Pods_Made_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Made_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EED1D5B025410CB9001A7DD1 /* PostFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFormViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +143,7 @@
 				35E9A4F7253E9DDD008A9C68 /* CommentPageViewController.swift */,
 				35E9A4FF253E9E02008A9C68 /* ReviewPageViewController.swift */,
 				35EC4E2E252F9E100093E430 /* Main.storyboard */,
-				35E9A50F253EA952008A9C68 /* CommentReviewTableViewController.swift */,
+				EED1D5B025410CB9001A7DD1 /* PostFormViewController.swift */,
 				35EC4E31252F9E120093E430 /* Assets.xcassets */,
 				35EC4E33252F9E120093E430 /* LaunchScreen.storyboard */,
 				35EC4E36252F9E120093E430 /* Info.plist */,
@@ -435,6 +437,7 @@
 				35E9A510253EA952008A9C68 /* CommentReviewTableViewController.swift in Sources */,
 				35EC4E2D252F9E100093E430 /* ViewController.swift in Sources */,
 				35EC4E29252F9E100093E430 /* AppDelegate.swift in Sources */,
+				EED1D5B125410CB9001A7DD1 /* PostFormViewController.swift in Sources */,
 				35EC4E2B252F9E100093E430 /* SceneDelegate.swift in Sources */,
 				7CC9603B2536FAA2005B0304 /* RegistrationViewController.swift in Sources */,
 				35E9A4F8253E9DDD008A9C68 /* CommentPageViewController.swift in Sources */,
