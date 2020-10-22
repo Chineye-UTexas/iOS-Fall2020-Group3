@@ -17,7 +17,9 @@
 		35EC4E4B252F9E120093E430 /* Made_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E4A252F9E120093E430 /* Made_AppUITests.swift */; };
 		7CC95FC82536DBA2005B0304 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7CC95FC72536DBA2005B0304 /* GoogleService-Info.plist */; };
 		7CC960362536FA8E005B0304 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC960352536FA8E005B0304 /* LoginViewController.swift */; };
-		7CC9603B2536FAA2005B0304 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC9603A2536FAA2005B0304 /* RegistrationViewController.swift */; };
+		7CC960622538E2CE005B0304 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC960612538E2CE005B0304 /* RegistrationViewController.swift */; };
+		7CC960D425400C75005B0304 /* made.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7CC960D225400C74005B0304 /* made.xcdatamodeld */; };
+		7CC960D925401649005B0304 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC960D825401649005B0304 /* UserProfileViewController.swift */; };
 		7D7F93987CD060E0CE04169F /* Pods_Made_App_Made_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B203E177730C98313BAC99 /* Pods_Made_App_Made_AppUITests.framework */; };
 		94CD288FC68E732DFB4CB0F0 /* Pods_Made_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABAF8FD187DE2BC481012CFF /* Pods_Made_App.framework */; };
 		DFB04CB16EA250C9EF18D114 /* Pods_Made_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE62E6E043CA951023BDB10 /* Pods_Made_AppTests.framework */; };
@@ -64,7 +66,9 @@
 		7CC95FC72536DBA2005B0304 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7CC960312536FA3E005B0304 /* Made-App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Made-App.entitlements"; sourceTree = "<group>"; };
 		7CC960352536FA8E005B0304 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		7CC9603A2536FAA2005B0304 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		7CC960612538E2CE005B0304 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		7CC960D325400C75005B0304 /* made.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = made.xcdatamodel; sourceTree = "<group>"; };
+		7CC960D825401649005B0304 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		918C2074A62DB5C958AFC054 /* Pods-Made-AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Made-AppTests.debug.xcconfig"; path = "Target Support Files/Pods-Made-AppTests/Pods-Made-AppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ABAF8FD187DE2BC481012CFF /* Pods_Made_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Made_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFE62E6E043CA951023BDB10 /* Pods_Made_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Made_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,12 +132,14 @@
 				35EC4E2A252F9E100093E430 /* SceneDelegate.swift */,
 				35EC4E2C252F9E100093E430 /* ViewController.swift */,
 				7CC960352536FA8E005B0304 /* LoginViewController.swift */,
-				7CC9603A2536FAA2005B0304 /* RegistrationViewController.swift */,
+				7CC960612538E2CE005B0304 /* RegistrationViewController.swift */,
+				7CC960D825401649005B0304 /* UserProfileViewController.swift */,
 				35EC4E2E252F9E100093E430 /* Main.storyboard */,
 				35EC4E31252F9E120093E430 /* Assets.xcassets */,
 				35EC4E33252F9E120093E430 /* LaunchScreen.storyboard */,
 				35EC4E36252F9E120093E430 /* Info.plist */,
 				7CC95FC72536DBA2005B0304 /* GoogleService-Info.plist */,
+				7CC960D225400C74005B0304 /* made.xcdatamodeld */,
 			);
 			path = "Made-App";
 			sourceTree = "<group>";
@@ -418,11 +424,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CC960D425400C75005B0304 /* made.xcdatamodeld in Sources */,
 				7CC960362536FA8E005B0304 /* LoginViewController.swift in Sources */,
+				7CC960D925401649005B0304 /* UserProfileViewController.swift in Sources */,
 				35EC4E2D252F9E100093E430 /* ViewController.swift in Sources */,
 				35EC4E29252F9E100093E430 /* AppDelegate.swift in Sources */,
 				35EC4E2B252F9E100093E430 /* SceneDelegate.swift in Sources */,
-				7CC9603B2536FAA2005B0304 /* RegistrationViewController.swift in Sources */,
+				7CC960622538E2CE005B0304 /* RegistrationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -763,6 +771,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7CC960D225400C74005B0304 /* made.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7CC960D325400C75005B0304 /* made.xcdatamodel */,
+			);
+			currentVersion = 7CC960D325400C75005B0304 /* made.xcdatamodel */;
+			path = made.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 35EC4E1D252F9E100093E430 /* Project object */;
 }
