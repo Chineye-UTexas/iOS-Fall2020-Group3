@@ -22,26 +22,16 @@ class SettingsViewController: UIViewController {
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
         
-        try! Auth.auth().signOut() //todo add error checks
-        self.performSegue(withIdentifier: "logoutSegue", sender: nil)
-
-       
-//        Auth.auth().signOut() {
-//            user, error in
-//            if let error = error, user == nil {
-//              let alert = UIAlertController(
-//                title: "Sign out failed",
-//                message: error.localizedDescription,
-//                preferredStyle: .alert)
-//              
-//              alert.addAction(UIAlertAction(title:"OK",style:.default))
-//              self.present(alert, animated: true, completion: nil)
-//              return
-//            } else {
-//                
-//                self.performSegue(withIdentifier: "logoutSegue", sender: nil)
-//            }
-//        }
+        do
+        {
+            try Auth.auth().signOut() //todo add error checks
+            self.performSegue(withIdentifier: "logoutSegue", sender: nil)
+            print(Auth.auth().currentUser?.displayName ?? "User" + " logged out")
+        }
+        catch let error as NSError
+        {
+            print(error.localizedDescription)
+        }
 
     }
     
