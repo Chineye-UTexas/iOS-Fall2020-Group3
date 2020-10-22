@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3580F0BB254207A9006349CA /* Chineye.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3580F0BA254207A9006349CA /* Chineye.storyboard */; };
 		35879265254148BC00AEC5EB /* PostFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35879261254148BC00AEC5EB /* PostFormViewController.swift */; };
 		35879266254148BC00AEC5EB /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35879262254148BC00AEC5EB /* Post.swift */; };
 		35879267254148BC00AEC5EB /* CommentReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35879263254148BC00AEC5EB /* CommentReviewTableViewController.swift */; };
@@ -58,6 +59,7 @@
 /* Begin PBXFileReference section */
 		17013FE31B35600939AADA9F /* Pods-Made-AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Made-AppTests.release.xcconfig"; path = "Target Support Files/Pods-Made-AppTests/Pods-Made-AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		23029750A5BCCCF4198CA317 /* Pods-Made-App-Made-AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Made-App-Made-AppUITests.release.xcconfig"; path = "Target Support Files/Pods-Made-App-Made-AppUITests/Pods-Made-App-Made-AppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3580F0BA254207A9006349CA /* Chineye.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chineye.storyboard; sourceTree = "<group>"; };
 		35879261254148BC00AEC5EB /* PostFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostFormViewController.swift; sourceTree = "<group>"; };
 		35879262254148BC00AEC5EB /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		35879263254148BC00AEC5EB /* CommentReviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentReviewTableViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				7CC960612538E2CE005B0304 /* RegistrationViewController.swift */,
 				7CC960D825401649005B0304 /* UserProfileViewController.swift */,
 				35EC4E2E252F9E100093E430 /* Main.storyboard */,
+				3580F0BA254207A9006349CA /* Chineye.storyboard */,
 				35EC4E31252F9E120093E430 /* Assets.xcassets */,
 				35EC4E33252F9E120093E430 /* LaunchScreen.storyboard */,
 				7CC960312536FA3E005B0304 /* Made-App.entitlements */,
@@ -334,6 +337,7 @@
 			files = (
 				35EC4E35252F9E120093E430 /* LaunchScreen.storyboard in Resources */,
 				3587929025415CC700AEC5EB /* FeedTableViewCell.xib in Resources */,
+				3580F0BB254207A9006349CA /* Chineye.storyboard in Resources */,
 				7CC95FC82536DBA2005B0304 /* GoogleService-Info.plist in Resources */,
 				35EC4E32252F9E120093E430 /* Assets.xcassets in Resources */,
 				35EC4E30252F9E100093E430 /* Main.storyboard in Resources */,
