@@ -17,7 +17,7 @@
 		35EC4E29252F9E100093E430 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E28252F9E100093E430 /* AppDelegate.swift */; };
 		35EC4E2B252F9E100093E430 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E2A252F9E100093E430 /* SceneDelegate.swift */; };
 		35EC4E2D252F9E100093E430 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E2C252F9E100093E430 /* ViewController.swift */; };
-		35EC4E30252F9E100093E430 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35EC4E2E252F9E100093E430 /* Main.storyboard */; };
+		35EC4E30252F9E100093E430 /* MeganMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35EC4E2E252F9E100093E430 /* MeganMain.storyboard */; };
 		35EC4E32252F9E120093E430 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35EC4E31252F9E120093E430 /* Assets.xcassets */; };
 		35EC4E35252F9E120093E430 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35EC4E33252F9E120093E430 /* LaunchScreen.storyboard */; };
 		35EC4E40252F9E120093E430 /* Made_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E3F252F9E120093E430 /* Made_AppTests.swift */; };
@@ -61,7 +61,7 @@
 		35EC4E28252F9E100093E430 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35EC4E2A252F9E100093E430 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		35EC4E2C252F9E100093E430 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		35EC4E2F252F9E100093E430 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		35EC4E2F252F9E100093E430 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MeganMain.storyboard; sourceTree = "<group>"; };
 		35EC4E31252F9E120093E430 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35EC4E34252F9E120093E430 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35EC4E36252F9E120093E430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 				35EC4E2C252F9E100093E430 /* ViewController.swift */,
 				7CC960352536FA8E005B0304 /* LoginViewController.swift */,
 				7CC9603A2536FAA2005B0304 /* RegistrationViewController.swift */,
-				35EC4E2E252F9E100093E430 /* Main.storyboard */,
+				35EC4E2E252F9E100093E430 /* MeganMain.storyboard */,
 				13D70247253EA6AA0085B272 /* MadeFeedViewController.swift */,
 				13D70243253E7DE80085B272 /* FeedViewController.swift */,
 				13D70245253E7E650085B272 /* ImageTableViewCell.swift */,
@@ -312,7 +312,7 @@
 				13D7024E253EB12B0085B272 /* FeedTableViewCell.xib in Resources */,
 				7CC95FC82536DBA2005B0304 /* GoogleService-Info.plist in Resources */,
 				35EC4E32252F9E120093E430 /* Assets.xcassets in Resources */,
-				35EC4E30252F9E100093E430 /* Main.storyboard in Resources */,
+				35EC4E30252F9E100093E430 /* MeganMain.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,12 +486,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		35EC4E2E252F9E100093E430 /* Main.storyboard */ = {
+		35EC4E2E252F9E100093E430 /* MeganMain.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				35EC4E2F252F9E100093E430 /* Base */,
 			);
-			name = Main.storyboard;
+			name = MeganMain.storyboard;
 			sourceTree = "<group>";
 		};
 		35EC4E33252F9E120093E430 /* LaunchScreen.storyboard */ = {
