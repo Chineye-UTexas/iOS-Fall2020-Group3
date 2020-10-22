@@ -14,19 +14,10 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet weak var bioLabel: UILabel!
-    @IBOutlet weak var notificationsState: UISwitch!
+    @IBOutlet weak var notificationLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    @IBAction func notificationsToggle(_ sender: Any) {
-        if notificationsState.isOn {
-            // will add implementation to turn off receiving notifications
-            notificationsState.setOn(false, animated: true)
-        } else {
-            // will add implementation to turn on receiving notifications
-            notificationsState.setOn(true, animated: true)
-        }
     }
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
@@ -47,6 +38,7 @@ class SettingsViewController: UIViewController {
             nextVC.username = usernameLabel.text!
             nextVC.password = passwordLabel.text!
             nextVC.bio = bioLabel.text!
+            nextVC.notificationState = notificationLabel.text!
         }
     }
     
