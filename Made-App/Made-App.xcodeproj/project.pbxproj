@@ -13,6 +13,13 @@
 		35879268254148BC00AEC5EB /* CommentPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35879264254148BC00AEC5EB /* CommentPageViewController.swift */; };
 		3587926D254148DE00AEC5EB /* SinglePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3587926C254148DE00AEC5EB /* SinglePostViewController.swift */; };
 		3587927D25414BB500AEC5EB /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3587927C25414BB500AEC5EB /* Comment.swift */; };
+		3587928E25415CC700AEC5EB /* EditSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3587928725415CC600AEC5EB /* EditSettingsViewController.swift */; };
+		3587928F25415CC700AEC5EB /* MadeFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3587928825415CC600AEC5EB /* MadeFeedViewController.swift */; };
+		3587929025415CC700AEC5EB /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3587928925415CC600AEC5EB /* FeedTableViewCell.xib */; };
+		3587929125415CC700AEC5EB /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3587928A25415CC600AEC5EB /* FeedViewController.swift */; };
+		3587929225415CC700AEC5EB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3587928B25415CC600AEC5EB /* SettingsViewController.swift */; };
+		3587929325415CC700AEC5EB /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3587928C25415CC700AEC5EB /* ImageTableViewCell.swift */; };
+		3587929425415CC700AEC5EB /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3587928D25415CC700AEC5EB /* FeedTableViewCell.swift */; };
 		35EC4E29252F9E100093E430 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E28252F9E100093E430 /* AppDelegate.swift */; };
 		35EC4E2B252F9E100093E430 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E2A252F9E100093E430 /* SceneDelegate.swift */; };
 		35EC4E2D252F9E100093E430 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E2C252F9E100093E430 /* ViewController.swift */; };
@@ -57,6 +64,13 @@
 		35879264254148BC00AEC5EB /* CommentPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentPageViewController.swift; sourceTree = "<group>"; };
 		3587926C254148DE00AEC5EB /* SinglePostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePostViewController.swift; sourceTree = "<group>"; };
 		3587927C25414BB500AEC5EB /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		3587928725415CC600AEC5EB /* EditSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditSettingsViewController.swift; sourceTree = "<group>"; };
+		3587928825415CC600AEC5EB /* MadeFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MadeFeedViewController.swift; sourceTree = "<group>"; };
+		3587928925415CC600AEC5EB /* FeedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
+		3587928A25415CC600AEC5EB /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		3587928B25415CC600AEC5EB /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		3587928C25415CC700AEC5EB /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
+		3587928D25415CC700AEC5EB /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		35EC4E25252F9E100093E430 /* Made-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Made-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35EC4E28252F9E100093E430 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35EC4E2A252F9E100093E430 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +153,13 @@
 		35EC4E27252F9E100093E430 /* Made-App */ = {
 			isa = PBXGroup;
 			children = (
+				3587928725415CC600AEC5EB /* EditSettingsViewController.swift */,
+				3587928D25415CC700AEC5EB /* FeedTableViewCell.swift */,
+				3587928925415CC600AEC5EB /* FeedTableViewCell.xib */,
+				3587928A25415CC600AEC5EB /* FeedViewController.swift */,
+				3587928C25415CC700AEC5EB /* ImageTableViewCell.swift */,
+				3587928825415CC600AEC5EB /* MadeFeedViewController.swift */,
+				3587928B25415CC600AEC5EB /* SettingsViewController.swift */,
 				3587926C254148DE00AEC5EB /* SinglePostViewController.swift */,
 				35879264254148BC00AEC5EB /* CommentPageViewController.swift */,
 				35879263254148BC00AEC5EB /* CommentReviewTableViewController.swift */,
@@ -312,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35EC4E35252F9E120093E430 /* LaunchScreen.storyboard in Resources */,
+				3587929025415CC700AEC5EB /* FeedTableViewCell.xib in Resources */,
 				7CC95FC82536DBA2005B0304 /* GoogleService-Info.plist in Resources */,
 				35EC4E32252F9E120093E430 /* Assets.xcassets in Resources */,
 				35EC4E30252F9E100093E430 /* Main.storyboard in Resources */,
@@ -442,18 +464,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3587928F25415CC700AEC5EB /* MadeFeedViewController.swift in Sources */,
 				3587926D254148DE00AEC5EB /* SinglePostViewController.swift in Sources */,
+				3587929425415CC700AEC5EB /* FeedTableViewCell.swift in Sources */,
 				35879265254148BC00AEC5EB /* PostFormViewController.swift in Sources */,
+				3587929325415CC700AEC5EB /* ImageTableViewCell.swift in Sources */,
 				35879268254148BC00AEC5EB /* CommentPageViewController.swift in Sources */,
 				7CC960D425400C75005B0304 /* made.xcdatamodeld in Sources */,
 				7CC960362536FA8E005B0304 /* LoginViewController.swift in Sources */,
+				3587929125415CC700AEC5EB /* FeedViewController.swift in Sources */,
 				7CC960D925401649005B0304 /* UserProfileViewController.swift in Sources */,
 				35EC4E2D252F9E100093E430 /* ViewController.swift in Sources */,
 				35EC4E29252F9E100093E430 /* AppDelegate.swift in Sources */,
 				3587927D25414BB500AEC5EB /* Comment.swift in Sources */,
 				35879266254148BC00AEC5EB /* Post.swift in Sources */,
+				3587929225415CC700AEC5EB /* SettingsViewController.swift in Sources */,
 				35879267254148BC00AEC5EB /* CommentReviewTableViewController.swift in Sources */,
 				35EC4E2B252F9E100093E430 /* SceneDelegate.swift in Sources */,
+				3587928E25415CC700AEC5EB /* EditSettingsViewController.swift in Sources */,
 				7CC960622538E2CE005B0304 /* RegistrationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
