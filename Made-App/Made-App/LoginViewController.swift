@@ -17,30 +17,12 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        Auth.auth().addStateDidChangeListener() {
-          auth, user in
-          
-          if user != nil {
-            self.performSegue(withIdentifier: "loginSegue", sender: nil)
-            self.loginEmail.text = nil
-            self.loginPassword.text = nil
-          }
-        }
     }
     
     @IBAction func loginDidTouch(_ sender: Any) {
-        // make sure email/password are at least 7 char long
-        guard let email = loginEmail.text,
-              let password = loginPassword.text,
-              email.count > 7,
-              password.count > 7
-        else {
-          return
-        }
-        
-        Auth.auth().signIn(withEmail: email, password: password) {
+        print("login")
+        // check credentials & sign in
+        Auth.auth().signIn(withEmail: loginEmail.text!, password: loginPassword.text!) {
           user, error in
           if let error = error, user == nil {
             let alert = UIAlertController(
@@ -50,6 +32,11 @@ class LoginViewController: UIViewController {
             
             alert.addAction(UIAlertAction(title:"OK",style:.default))
             self.present(alert, animated: true, completion: nil)
+            return
+          } else {
+            self.loginEmail.text = nil
+            self.loginPassword.text = nil
+            self.performSegue(withIdentifier: "loginSegue", sender: nil)
           }
         }
     }
