@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SettingsViewController: UIViewController {
 
@@ -13,23 +14,41 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet weak var bioLabel: UILabel!
+    @IBOutlet weak var notificationsState: UISwitch!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func notificationsToggle(_ sender: Any) {
+        if notificationsState.isOn {
+            // will add implementation to turn off receiving notifications
+            notificationsState.setOn(false, animated: true)
+        } else {
+            // will add implementation to turn on receiving notifications
+            notificationsState.setOn(true, animated: true)
+        }
     }
     
-    /*
+    @IBAction func logoutButtonPressed(_ sender: Any) {
+//        do {
+//            Auth.auth().signOut()
+//        } catch (error) {
+//            console.log(error)
+//        }
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "editSettingsSegue",
+        let nextVC = segue.destination as? EditSettingsViewController {
+            nextVC.name = nameLabel.text!
+            nextVC.username = usernameLabel.text!
+            nextVC.password = passwordLabel.text!
+            nextVC.bio = bioLabel.text!
+        }
     }
-    */
+    
 
 }
