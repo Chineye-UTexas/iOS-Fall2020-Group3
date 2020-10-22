@@ -26,7 +26,7 @@ class UserProfileViewController: UIViewController {
         do {
             let fetchedResults = try managedContext.fetch(fetchRequest) as! [User]
             if let aUser = fetchedResults.first {
-                userScreenName.text = "@" + aUser.screenName!
+                userScreenName.text = "Creator " + aUser.screenName!
             }
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
