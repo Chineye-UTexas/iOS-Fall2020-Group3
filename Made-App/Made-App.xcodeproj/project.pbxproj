@@ -10,6 +10,7 @@
 		35E9A4F3253E9DB2008A9C68 /* SinglePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9A4F2253E9DB2008A9C68 /* SinglePostViewController.swift */; };
 		35E9A4F8253E9DDD008A9C68 /* CommentPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9A4F7253E9DDD008A9C68 /* CommentPageViewController.swift */; };
 		35E9A500253E9E02008A9C68 /* ReviewPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9A4FF253E9E02008A9C68 /* ReviewPageViewController.swift */; };
+		35E9A510253EA952008A9C68 /* CommentReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9A50F253EA952008A9C68 /* CommentReviewTableViewController.swift */; };
 		35EC4E29252F9E100093E430 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E28252F9E100093E430 /* AppDelegate.swift */; };
 		35EC4E2B252F9E100093E430 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E2A252F9E100093E430 /* SceneDelegate.swift */; };
 		35EC4E2D252F9E100093E430 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E2C252F9E100093E430 /* ViewController.swift */; };
@@ -49,6 +50,7 @@
 		35E9A4F2253E9DB2008A9C68 /* SinglePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePostViewController.swift; sourceTree = "<group>"; };
 		35E9A4F7253E9DDD008A9C68 /* CommentPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentPageViewController.swift; sourceTree = "<group>"; };
 		35E9A4FF253E9E02008A9C68 /* ReviewPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPageViewController.swift; sourceTree = "<group>"; };
+		35E9A50F253EA952008A9C68 /* CommentReviewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentReviewTableViewController.swift; sourceTree = "<group>"; };
 		35EC4E25252F9E100093E430 /* Made-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Made-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35EC4E28252F9E100093E430 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35EC4E2A252F9E100093E430 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				35E9A4F7253E9DDD008A9C68 /* CommentPageViewController.swift */,
 				35E9A4FF253E9E02008A9C68 /* ReviewPageViewController.swift */,
 				35EC4E2E252F9E100093E430 /* Main.storyboard */,
+				35E9A50F253EA952008A9C68 /* CommentReviewTableViewController.swift */,
 				35EC4E31252F9E120093E430 /* Assets.xcassets */,
 				35EC4E33252F9E120093E430 /* LaunchScreen.storyboard */,
 				35EC4E36252F9E120093E430 /* Info.plist */,
@@ -429,6 +432,7 @@
 			files = (
 				35E9A4F3253E9DB2008A9C68 /* SinglePostViewController.swift in Sources */,
 				7CC960362536FA8E005B0304 /* LoginViewController.swift in Sources */,
+				35E9A510253EA952008A9C68 /* CommentReviewTableViewController.swift in Sources */,
 				35EC4E2D252F9E100093E430 /* ViewController.swift in Sources */,
 				35EC4E29252F9E100093E430 /* AppDelegate.swift in Sources */,
 				35EC4E2B252F9E100093E430 /* SceneDelegate.swift in Sources */,
