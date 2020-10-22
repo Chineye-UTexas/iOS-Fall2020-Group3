@@ -20,16 +20,16 @@ class PostFormViewController: UIViewController {
         //testing saving a post 
         ref = Database.database().reference(withPath: "post")
         
-        childRef = self.ref.child("caption")
+       // childRef = self.ref.child("caption")
         
         // "testing caption"
-        print(childRef);
+       // print(childRef);
         
-        let testPost = post
-        let postRef = self.ref.child(post.caption)
+       // let testPost = post
+       // let postRef = self.ref.child(post.caption)
 
         //key = caption [text]
-        postRef.setValue(testPost)
+        //postRef.setValue(testPost)
         
         ref.observe(.value, with: { snapshot in
           print(snapshot.value as Any)})
@@ -46,9 +46,9 @@ class PostFormViewController: UIViewController {
             let nextVC = segue.destination as? SinglePostViewController
         {
             nextVC.delegate = self
-            caption = nextVC.captionLabel.text
+           // caption = nextVC.captionLabel.text
             print("inside single post VC")
-            print(caption)
+           // print(caption)
 
         }
         

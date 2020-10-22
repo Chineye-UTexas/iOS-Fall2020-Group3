@@ -8,14 +8,16 @@
 import UIKit
 
 class CommentPageViewController: UIViewController {
+    
+    
 
     @IBOutlet weak var commentTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        commentTableView.delegate = self
-        commentTableView.dataSource = self
+      //  commentTableView.delegate = self
+      //  commentTableView.dataSource = self
 
         // Do any additional setup after loading the view.
     }

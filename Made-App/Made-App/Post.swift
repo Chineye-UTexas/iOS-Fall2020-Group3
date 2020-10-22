@@ -15,5 +15,7 @@ class Post {
     var postDate = "" //TODO change to date/time format
     
     init(postID: String, postImageURL: String,
-         postCaption: String, postDate: String)
+         postCaption: String, postDate: String){
+        
+    }
 }

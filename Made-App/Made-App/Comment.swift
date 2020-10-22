@@ -12,6 +12,8 @@ class Comment {
     var commentingUser = ""
     var commentText = ""
     
-    init(commentingUser: String, commentText: String)
+    init(commentingUser: String, commentText: String){
+        
+    }
     
 }
