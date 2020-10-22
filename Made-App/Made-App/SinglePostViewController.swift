@@ -6,16 +6,41 @@
 //
 
 import UIKit
+import Firebase
+
+var commentList:[NSManagedObject] = []
+
 
 class SinglePostViewController: UIViewController {
+    
+    var caption = ""
+    
+    @IBOutlet weak var postImageView: UIImageView!
+    @IBOutlet weak var captionLabel: UILabel!
+    @IBOutlet weak var posterProfilePhoto: UIImageView!
+    @IBOutlet weak var usernameLabel: UILabel!
+    
+    var delegate: UIViewController!
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
     }
     
-
+    
+    @IBAction func testCaption(_ sender: Any) {
+        
+        let otherVC = delegate as! PostFormViewController
+        
+        otherVC.caption = self.caption
+        
+        self.dismiss(animated: true, completion: nil
+    }
+    
     /*
     // MARK: - Navigation
 
