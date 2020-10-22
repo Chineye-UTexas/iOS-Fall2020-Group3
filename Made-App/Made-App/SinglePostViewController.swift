@@ -42,32 +42,32 @@ class SinglePostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var ref: DatabaseReference!
-        ref = Database.database().reference(withPath: "posts")
-        
-        
-        //   let postRef = ref(withPath: "posts")
-           ref?.observeSingleEvent(of: .value, with:
-               { snapshot in
-                   if !snapshot.exists()
-                   {
-                       print("snapshot doesnt exist")
-                       return
-                       
-                   }
-                   print("snapshot exists")
-                   print(snapshot)
-                
-                var dict = snapshot.value as? NSDictionary
-                //guard fetchedUsername =
-                
-                self.posterUsername.text = dict?["userID"] as? String ?? "default username"
-                self.postCaption.text = dict?["caption"] as? String ?? "no caption"
-                self.dateOfPost.text = dict?["date"] as? String ?? "no date" //change to date-time format
-                self.numLikes.text = dict?["numLikes"] as? String ?? "0" + " likes"
-                self.postImage.image = dict?["imageURL"] as? UIImage ?? UIImage(named: "pic-1")
-                
-               })
+//      //  var ref: DatabaseReference!
+//       // ref = Database.database().reference(withPath: "posts")
+//
+//
+//        //   let postRef = ref(withPath: "posts")
+//           ref?.observeSingleEvent(of: .value, with:
+//               { snapshot in
+//                   if !snapshot.exists()
+//                   {
+//                       print("snapshot doesnt exist")
+//                       return
+//
+//                   }
+//                   print("snapshot exists")
+//                   print(snapshot)
+//
+//                var dict = snapshot.value as? NSDictionary
+//                //guard fetchedUsername =
+//
+//                self.posterUsername.text = dict?["userID"] as? String ?? "default username"
+//                self.postCaption.text = dict?["caption"] as? String ?? "no caption"
+//                self.dateOfPost.text = dict?["date"] as? String ?? "no date" //change to date-time format
+//                self.numLikes.text = dict?["numLikes"] as? String ?? "0" + " likes"
+//                self.postImage.image = dict?["imageURL"] as? UIImage ?? UIImage(named: "pic-1")
+//
+//               })
         // Get a reference to the storage service using the default Firebase App
         let storage = Storage.storage()
         // Create a storage reference from our storage service

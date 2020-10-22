@@ -11,6 +11,7 @@
 		3580F12D25420AE8006349CA /* Ira.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3580F12C25420AE7006349CA /* Ira.storyboard */; };
 		3580F13225420AF3006349CA /* Marissa.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3580F13125420AF3006349CA /* Marissa.storyboard */; };
 		3580F16825420B27006349CA /* MeganMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3580F16725420B26006349CA /* MeganMain.storyboard */; };
+		3580F16D25420D09006349CA /* Alpha.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3580F16C25420D09006349CA /* Alpha.storyboard */; };
 		35879265254148BC00AEC5EB /* PostFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35879261254148BC00AEC5EB /* PostFormViewController.swift */; };
 		35879266254148BC00AEC5EB /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35879262254148BC00AEC5EB /* Post.swift */; };
 		35879267254148BC00AEC5EB /* CommentReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35879263254148BC00AEC5EB /* CommentReviewTableViewController.swift */; };
@@ -66,6 +67,7 @@
 		3580F12C25420AE7006349CA /* Ira.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Ira.storyboard; sourceTree = "<group>"; };
 		3580F13125420AF3006349CA /* Marissa.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Marissa.storyboard; sourceTree = "<group>"; };
 		3580F16725420B26006349CA /* MeganMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MeganMain.storyboard; sourceTree = "<group>"; };
+		3580F16C25420D09006349CA /* Alpha.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Alpha.storyboard; path = Base.lproj/Alpha.storyboard; sourceTree = "<group>"; };
 		35879261254148BC00AEC5EB /* PostFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostFormViewController.swift; sourceTree = "<group>"; };
 		35879262254148BC00AEC5EB /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		35879263254148BC00AEC5EB /* CommentReviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentReviewTableViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				7CC960352536FA8E005B0304 /* LoginViewController.swift */,
 				7CC960612538E2CE005B0304 /* RegistrationViewController.swift */,
 				7CC960D825401649005B0304 /* UserProfileViewController.swift */,
+				3580F16C25420D09006349CA /* Alpha.storyboard */,
 				3580F12C25420AE7006349CA /* Ira.storyboard */,
 				3580F16725420B26006349CA /* MeganMain.storyboard */,
 				35EC4E2E252F9E100093E430 /* Main.storyboard */,
@@ -353,6 +356,7 @@
 				35EC4E32252F9E120093E430 /* Assets.xcassets in Resources */,
 				3580F16825420B27006349CA /* MeganMain.storyboard in Resources */,
 				35EC4E30252F9E100093E430 /* Main.storyboard in Resources */,
+				3580F16D25420D09006349CA /* Alpha.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

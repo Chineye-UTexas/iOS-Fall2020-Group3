@@ -12,13 +12,13 @@ class PostFormViewController: UIViewController {
 
     let post = Post(postID: "", postImageURL: "",
     postCaption: "testing caption", postDate: "")
-    var ref: DatabaseReference!
+  //  var ref: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         //testing saving a post 
-        ref = Database.database().reference(withPath: "post")
+       // ref = Database.database().reference(withPath: "post")
         
        // childRef = self.ref.child("caption")
         
@@ -31,8 +31,8 @@ class PostFormViewController: UIViewController {
         //key = caption [text]
         //postRef.setValue(testPost)
         
-        ref.observe(.value, with: { snapshot in
-          print(snapshot.value as Any)})
+//        ref.observe(.value, with: { snapshot in
+//          print(snapshot.value as Any)})
     }
     
     
