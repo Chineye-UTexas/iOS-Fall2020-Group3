@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1352ECC62538C49A007A34AB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1352ECC52538C49A007A34AB /* SettingsViewController.swift */; };
-		139EACD7253E516600992C04 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139EACD6253E516600992C04 /* User.swift */; };
 		139EACD9253E55EC00992C04 /* EditSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139EACD8253E55EC00992C04 /* EditSettingsViewController.swift */; };
 		13D70244253E7DE80085B272 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D70243253E7DE80085B272 /* FeedViewController.swift */; };
 		13D70246253E7E650085B272 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D70245253E7E650085B272 /* ImageTableViewCell.swift */; };
@@ -50,7 +49,6 @@
 
 /* Begin PBXFileReference section */
 		1352ECC52538C49A007A34AB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		139EACD6253E516600992C04 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		139EACD8253E55EC00992C04 /* EditSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSettingsViewController.swift; sourceTree = "<group>"; };
 		13D70243253E7DE80085B272 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		13D70245253E7E650085B272 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
@@ -150,7 +148,6 @@
 				13D70243253E7DE80085B272 /* FeedViewController.swift */,
 				13D70245253E7E650085B272 /* ImageTableViewCell.swift */,
 				139EACD8253E55EC00992C04 /* EditSettingsViewController.swift */,
-				139EACD6253E516600992C04 /* User.swift */,
 				1352ECC52538C49A007A34AB /* SettingsViewController.swift */,
 				35EC4E31252F9E120093E430 /* Assets.xcassets */,
 				35EC4E33252F9E120093E430 /* LaunchScreen.storyboard */,
@@ -449,7 +446,6 @@
 				13D70248253EA6AA0085B272 /* MadeFeedViewController.swift in Sources */,
 				35EC4E2D252F9E100093E430 /* ViewController.swift in Sources */,
 				139EACD9253E55EC00992C04 /* EditSettingsViewController.swift in Sources */,
-				139EACD7253E516600992C04 /* User.swift in Sources */,
 				35EC4E29252F9E100093E430 /* AppDelegate.swift in Sources */,
 				35EC4E2B252F9E100093E430 /* SceneDelegate.swift in Sources */,
 				13D70246253E7E650085B272 /* ImageTableViewCell.swift in Sources */,

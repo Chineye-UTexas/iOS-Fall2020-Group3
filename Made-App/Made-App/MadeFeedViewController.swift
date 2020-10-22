@@ -28,7 +28,7 @@ class MadeFeedViewController: UIViewController, UITableViewDataSource, UITableVi
         models.append(madePost(numLikes: 200, username: "@ira", userProfilePicture: "profilePic", postTitle: "image2"))
         models.append(madePost(numLikes: 200, username: "@marissa", userProfilePicture: "profilePic", postTitle: "image3"))
         models.append(madePost(numLikes: 200, username: "@chineye", userProfilePicture: "profilePic", postTitle: "image4"))
-        models.append(madePost(numLikes: 200, username: "@william", userProfilePicture: "profilePic", postTitle: "image5"))
+        models.append(madePost(numLikes: 200, username: "@mike", userProfilePicture: "profilePic", postTitle: "image5"))
         // Do any additional setup after loading the view.
     }
     

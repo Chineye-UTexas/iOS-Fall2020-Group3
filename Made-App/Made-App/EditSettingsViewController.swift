@@ -13,13 +13,29 @@ class EditSettingsViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var bioTextField: UITextField!
+    var name = ""
+    var username = ""
+    var bio = ""
+    var password = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        nameTextField.text = name
+        usernameTextField.text = username
+        passwordTextField.text = password
+        bioTextField.text = bio
+    }
+    
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        // save values to core data storage of user
+    }
+    
     /*
     // MARK: - Navigation
 
