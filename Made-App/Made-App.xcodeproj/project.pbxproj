@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35310EE52541420400E60D40 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35310EE42541420400E60D40 /* Post.swift */; };
 		35E9A4F3253E9DB2008A9C68 /* SinglePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9A4F2253E9DB2008A9C68 /* SinglePostViewController.swift */; };
 		35E9A4F8253E9DDD008A9C68 /* CommentPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9A4F7253E9DDD008A9C68 /* CommentPageViewController.swift */; };
 		35E9A500253E9E02008A9C68 /* ReviewPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9A4FF253E9E02008A9C68 /* ReviewPageViewController.swift */; };
@@ -48,6 +49,7 @@
 /* Begin PBXFileReference section */
 		17013FE31B35600939AADA9F /* Pods-Made-AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Made-AppTests.release.xcconfig"; path = "Target Support Files/Pods-Made-AppTests/Pods-Made-AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		23029750A5BCCCF4198CA317 /* Pods-Made-App-Made-AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Made-App-Made-AppUITests.release.xcconfig"; path = "Target Support Files/Pods-Made-App-Made-AppUITests/Pods-Made-App-Made-AppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		35310EE42541420400E60D40 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		35E9A4F2253E9DB2008A9C68 /* SinglePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePostViewController.swift; sourceTree = "<group>"; };
 		35E9A4F7253E9DDD008A9C68 /* CommentPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentPageViewController.swift; sourceTree = "<group>"; };
 		35E9A4FF253E9E02008A9C68 /* ReviewPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPageViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35310EE02541415B00E60D40 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				35E9A50F253EA952008A9C68 /* CommentReviewTableViewController.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		35EC4E1C252F9E100093E430 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +127,7 @@
 				35EC4E26252F9E100093E430 /* Products */,
 				B18D3B5DB2EAFF5404CEDF1C /* Pods */,
 				D021F432FDDE727E84C48C30 /* Frameworks */,
+				35310EE02541415B00E60D40 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -148,6 +159,7 @@
 				35EC4E33252F9E120093E430 /* LaunchScreen.storyboard */,
 				35EC4E36252F9E120093E430 /* Info.plist */,
 				7CC95FC72536DBA2005B0304 /* GoogleService-Info.plist */,
+				35310EE42541420400E60D40 /* Post.swift */,
 			);
 			path = "Made-App";
 			sourceTree = "<group>";
@@ -433,6 +445,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35E9A4F3253E9DB2008A9C68 /* SinglePostViewController.swift in Sources */,
+				35310EE52541420400E60D40 /* Post.swift in Sources */,
 				7CC960362536FA8E005B0304 /* LoginViewController.swift in Sources */,
 				35E9A510253EA952008A9C68 /* CommentReviewTableViewController.swift in Sources */,
 				35EC4E2D252F9E100093E430 /* ViewController.swift in Sources */,
