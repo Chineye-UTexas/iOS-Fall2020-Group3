@@ -4,9 +4,11 @@
         <attribute name="bio" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="notifications" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
         <attribute name="screenName" optional="YES" attributeType="String"/>
+        <attribute name="unique" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="User" positionX="-36" positionY="9" width="128" height="103"/>
+        <element name="User" positionX="-36" positionY="9" width="128" height="133"/>
     </elements>
 </model>

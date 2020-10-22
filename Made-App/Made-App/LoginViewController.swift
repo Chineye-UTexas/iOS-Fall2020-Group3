@@ -34,6 +34,7 @@ class LoginViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
             return
           } else {
+            uniqueID = self.loginEmail.text!
             self.loginEmail.text = nil
             self.loginPassword.text = nil
             self.performSegue(withIdentifier: "loginSegue", sender: nil)

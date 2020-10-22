@@ -69,15 +69,18 @@ class RegistrationViewController: UIViewController {
                     return
                   }
                 let managedContext = appDelegate.persistentContainer.viewContext
-                print("before get entity")
                 let entity = NSEntityDescription.entity(forEntityName: "User", in: managedContext)!
                 let user = NSManagedObject(entity: entity, insertInto: managedContext)
-                print("after get user")
                 // figure out where to delete this information .. ? never
-                user.setValue(email, forKey: "name")
+                // if user delete their account -- will worry about later
+                // default vals when user first signs up
+                user.setValue(email, forKey: "unique")
                 uniqueID = email
+                user.setValue(self.newUserPassword.text, forKey: "password")
                 user.setValue(self.newUserScreenName.text, forKey: "screenName")
                 user.setValue(false, forKey: "notifications")
+                user.setValue("", forKey: "bio")
+                user.setValue("", forKey: "name")
                 // save user data to core data
                 do {
                     try managedContext.save()

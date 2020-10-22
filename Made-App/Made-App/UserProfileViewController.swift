@@ -1,6 +1,8 @@
 //
 //  UserProfileViewController.swift
 //  Made-App
+//  Course: CS371L
+//  Group 3
 //
 //  Created by Marissa Jenkins on 10/21/20.
 //
@@ -22,17 +24,21 @@ class UserProfileViewController: UIViewController {
         }
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<NSManagedObject> = NSFetchRequest(entityName: "User")
-        fetchRequest.predicate = NSPredicate(format: "name == %@", uniqueID)
+        fetchRequest.predicate = NSPredicate(format: "unique == %@", uniqueID)
         do {
             let fetchedResults = try managedContext.fetch(fetchRequest) as! [User]
             if let aUser = fetchedResults.first {
-                userScreenName.text = "@" + aUser.screenName!
+                userScreenName.text = "Creator " + aUser.screenName!
             }
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
     
+    // to clean up the core data later we should delete the old info
+    // created while in the set up process
+    // container.viewContext.delete(user)
+    // saveContext()
 
     /*
     // MARK: - Navigation
