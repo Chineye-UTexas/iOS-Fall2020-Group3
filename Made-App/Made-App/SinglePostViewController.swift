@@ -23,7 +23,7 @@ class SinglePostViewController: UIViewController {
 //    }
     
     
-    var caption = ""
+   // var caption = ""
     var models: [madePost] = []
     var testPost = madePost(numLikes: 0, username: "", userProfilePicture: "", postTitle: "")
     
@@ -36,11 +36,39 @@ class SinglePostViewController: UIViewController {
     @IBOutlet weak var postCaption: UILabel!
     @IBOutlet weak var commentsTableView: UITableView!
     
+    // sent from PostFormVC
+    var singlePost = Post(title: "single" )
+    
+    var posterPhoto = UIImage()
+    var posterName: String!
+    var arrayOfImages: [UIImage] = []
+    var date: String!
+    var titleOfPost: String!
+    var likes: String!
+    var caption: String!
+    var comments: UITableView!
+    
     var delegate: UIViewController!
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        postTitle.text = singlePost.title
+        postCaption.text = singlePost.postCaption
+        posterUsername.text = posterName
+        postImage.image = posterPhoto
+        numLikes.text = singlePost.numLikes
+        dateOfPost.text = singlePost.postDate
+        
+        print(singlePost.description == "" ? "desc is empty" : singlePost.description)
+        
+
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(singlePost.description == "" ? "desc is empty" : "desc exists")
         
 //      //  var ref: DatabaseReference!
 //       // ref = Database.database().reference(withPath: "posts")
@@ -73,13 +101,13 @@ class SinglePostViewController: UIViewController {
         // Create a storage reference from our storage service
         let storageRef = storage.reference()
             
-        let post = ["caption" : "testing",
-            "date" : "",
-            "imageURL" : "",
-            "numLikes" : "",
-            "postID" : "001",
-            "userID" : ""
-          ]
+//        let post = ["caption" : "testing",
+//            "date" : "",
+//            "imageURL" : "",
+//            "numLikes" : "",
+//            "postID" : "001",
+//            "userID" : ""
+//          ]
         
         
     

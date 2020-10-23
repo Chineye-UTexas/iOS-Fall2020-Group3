@@ -10,10 +10,9 @@
 		3580F0BB254207A9006349CA /* Chineye.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3580F0BA254207A9006349CA /* Chineye.storyboard */; };
 		3580F12D25420AE8006349CA /* Ira.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3580F12C25420AE7006349CA /* Ira.storyboard */; };
 		3580F13225420AF3006349CA /* Marissa.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3580F13125420AF3006349CA /* Marissa.storyboard */; };
-		3580F16825420B27006349CA /* MeganMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3580F16725420B26006349CA /* MeganMain.storyboard */; };
 		3580F16D25420D09006349CA /* Alpha.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3580F16C25420D09006349CA /* Alpha.storyboard */; };
+		3580F262254220AA006349CA /* MeganMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3580F261254220AA006349CA /* MeganMain.storyboard */; };
 		35879265254148BC00AEC5EB /* PostFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35879261254148BC00AEC5EB /* PostFormViewController.swift */; };
-		35879266254148BC00AEC5EB /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35879262254148BC00AEC5EB /* Post.swift */; };
 		35879267254148BC00AEC5EB /* CommentReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35879263254148BC00AEC5EB /* CommentReviewTableViewController.swift */; };
 		35879268254148BC00AEC5EB /* CommentPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35879264254148BC00AEC5EB /* CommentPageViewController.swift */; };
 		3587926D254148DE00AEC5EB /* SinglePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3587926C254148DE00AEC5EB /* SinglePostViewController.swift */; };
@@ -28,7 +27,6 @@
 		35EC4E29252F9E100093E430 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E28252F9E100093E430 /* AppDelegate.swift */; };
 		35EC4E2B252F9E100093E430 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E2A252F9E100093E430 /* SceneDelegate.swift */; };
 		35EC4E2D252F9E100093E430 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E2C252F9E100093E430 /* ViewController.swift */; };
-		35EC4E30252F9E100093E430 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35EC4E2E252F9E100093E430 /* Main.storyboard */; };
 		35EC4E32252F9E120093E430 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35EC4E31252F9E120093E430 /* Assets.xcassets */; };
 		35EC4E35252F9E120093E430 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35EC4E33252F9E120093E430 /* LaunchScreen.storyboard */; };
 		35EC4E40252F9E120093E430 /* Made_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E3F252F9E120093E430 /* Made_AppTests.swift */; };
@@ -66,10 +64,9 @@
 		3580F0BA254207A9006349CA /* Chineye.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chineye.storyboard; sourceTree = "<group>"; };
 		3580F12C25420AE7006349CA /* Ira.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Ira.storyboard; sourceTree = "<group>"; };
 		3580F13125420AF3006349CA /* Marissa.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Marissa.storyboard; sourceTree = "<group>"; };
-		3580F16725420B26006349CA /* MeganMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MeganMain.storyboard; sourceTree = "<group>"; };
 		3580F16C25420D09006349CA /* Alpha.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Alpha.storyboard; path = Base.lproj/Alpha.storyboard; sourceTree = "<group>"; };
+		3580F261254220AA006349CA /* MeganMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MeganMain.storyboard; path = ../../../../temp/MeganMain.storyboard; sourceTree = "<group>"; };
 		35879261254148BC00AEC5EB /* PostFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostFormViewController.swift; sourceTree = "<group>"; };
-		35879262254148BC00AEC5EB /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		35879263254148BC00AEC5EB /* CommentReviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentReviewTableViewController.swift; sourceTree = "<group>"; };
 		35879264254148BC00AEC5EB /* CommentPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentPageViewController.swift; sourceTree = "<group>"; };
 		3587926C254148DE00AEC5EB /* SinglePostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePostViewController.swift; sourceTree = "<group>"; };
@@ -85,7 +82,6 @@
 		35EC4E28252F9E100093E430 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35EC4E2A252F9E100093E430 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		35EC4E2C252F9E100093E430 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		35EC4E2F252F9E100093E430 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		35EC4E31252F9E120093E430 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35EC4E34252F9E120093E430 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35EC4E36252F9E120093E430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -173,7 +169,6 @@
 				3587926C254148DE00AEC5EB /* SinglePostViewController.swift */,
 				35879264254148BC00AEC5EB /* CommentPageViewController.swift */,
 				35879263254148BC00AEC5EB /* CommentReviewTableViewController.swift */,
-				35879262254148BC00AEC5EB /* Post.swift */,
 				35879261254148BC00AEC5EB /* PostFormViewController.swift */,
 				35EC4E28252F9E100093E430 /* AppDelegate.swift */,
 				35EC4E2A252F9E100093E430 /* SceneDelegate.swift */,
@@ -182,9 +177,8 @@
 				7CC960612538E2CE005B0304 /* RegistrationViewController.swift */,
 				7CC960D825401649005B0304 /* UserProfileViewController.swift */,
 				3580F16C25420D09006349CA /* Alpha.storyboard */,
+				3580F261254220AA006349CA /* MeganMain.storyboard */,
 				3580F12C25420AE7006349CA /* Ira.storyboard */,
-				3580F16725420B26006349CA /* MeganMain.storyboard */,
-				35EC4E2E252F9E100093E430 /* Main.storyboard */,
 				3580F13125420AF3006349CA /* Marissa.storyboard */,
 				3580F0BA254207A9006349CA /* Chineye.storyboard */,
 				35EC4E31252F9E120093E430 /* Assets.xcassets */,
@@ -349,13 +343,12 @@
 			files = (
 				35EC4E35252F9E120093E430 /* LaunchScreen.storyboard in Resources */,
 				3580F13225420AF3006349CA /* Marissa.storyboard in Resources */,
+				3580F262254220AA006349CA /* MeganMain.storyboard in Resources */,
 				3587929025415CC700AEC5EB /* FeedTableViewCell.xib in Resources */,
 				3580F12D25420AE8006349CA /* Ira.storyboard in Resources */,
 				3580F0BB254207A9006349CA /* Chineye.storyboard in Resources */,
 				7CC95FC82536DBA2005B0304 /* GoogleService-Info.plist in Resources */,
 				35EC4E32252F9E120093E430 /* Assets.xcassets in Resources */,
-				3580F16825420B27006349CA /* MeganMain.storyboard in Resources */,
-				35EC4E30252F9E100093E430 /* Main.storyboard in Resources */,
 				3580F16D25420D09006349CA /* Alpha.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,7 +490,6 @@
 				35EC4E2D252F9E100093E430 /* ViewController.swift in Sources */,
 				35EC4E29252F9E100093E430 /* AppDelegate.swift in Sources */,
 				3587927D25414BB500AEC5EB /* Comment.swift in Sources */,
-				35879266254148BC00AEC5EB /* Post.swift in Sources */,
 				3587929225415CC700AEC5EB /* SettingsViewController.swift in Sources */,
 				35879267254148BC00AEC5EB /* CommentReviewTableViewController.swift in Sources */,
 				35EC4E2B252F9E100093E430 /* SceneDelegate.swift in Sources */,
@@ -538,14 +530,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		35EC4E2E252F9E100093E430 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				35EC4E2F252F9E100093E430 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		35EC4E33252F9E120093E430 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -32,7 +32,6 @@ class SettingsViewController: UIViewController {
         {
             print(error.localizedDescription)
         }
-
     }
     
     // MARK: - Navigation
