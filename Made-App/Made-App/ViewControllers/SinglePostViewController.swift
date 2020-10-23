@@ -9,10 +9,26 @@ import UIKit
 import Firebase
 import CoreData
 
-var commentList:[NSManagedObject] = []
+var commentList:[String] = []
 
 
-class SinglePostViewController: UIViewController {
+class SinglePostViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var commentTableView: UITableView!
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        commentList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        //let comment = commentList[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CommentTextCell", for: indexPath as IndexPath)
+        let row = indexPath.row
+        cell.textLabel?.numberOfLines = 6
+        cell.textLabel?.text = commentList[row]
+        return cell
+    }
+    
     
 //    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        // add comment code
@@ -24,7 +40,7 @@ class SinglePostViewController: UIViewController {
     
     
    // var caption = ""
-    var models: [madePost] = []
+    //var models: [madePost] = [] //TODO update madepost struct
     var testPost = madePost(numLikes: 0, username: "", userProfilePicture: "", postTitle: "")
     
     @IBOutlet weak var posterProfilePhoto: UIImageView!
@@ -52,25 +68,27 @@ class SinglePostViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        commentTableView.reloadData()
         
+        
+        // fetch firebase here
+        
+        commentList = singlePost.arrayOfComments
         postTitle.text = singlePost.title
         postCaption.text = singlePost.postCaption
         posterUsername.text = posterName
         postImage.image = posterPhoto
         numLikes.text = singlePost.numLikes
         dateOfPost.text = singlePost.postDate
-        
-        print(singlePost.description == "" ? "desc is empty" : singlePost.description)
-        
-
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(singlePost.description == "" ? "desc is empty" : "desc exists")
-        
-//      //  var ref: DatabaseReference!
+        commentTableView.delegate = self
+        commentTableView.dataSource = self
+                
+        //      //  var ref: DatabaseReference!
 //       // ref = Database.database().reference(withPath: "posts")
 //
 //
@@ -127,6 +145,27 @@ class SinglePostViewController: UIViewController {
       //  self.dismiss(animated: true, completion: nil)
         // Do any additional setup after loading the view.
     }
+    
+    /*
+     Submitting comment
+     */
+
+    @IBOutlet weak var commentTextField: UITextField!
+    
+    @IBAction func submitCommentButton(_ sender: Any) {
+        
+        if(!(commentTextField.text!.isEmpty)){
+            // testing adding comments to table
+            commentList.append(commentTextField.text ?? "example comment")
+            //print(commentList.first!)
+            commentTableView.reloadData()
+        }
+
+    }
+
+    
+
+    
     
     // MARK: - Navigation
 

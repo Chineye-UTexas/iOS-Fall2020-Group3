@@ -12,6 +12,7 @@ import CoreData
 struct Post{
     var title: String
     var arrayOfImages: [UIImage] = []
+    var arrayOfComments: [String] = []
     var category = String()
     var description = String()
     var instructions = String()
@@ -32,7 +33,7 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate 
     
     var nameOfPoster = ""
 //    var newPost = Post(title: "", category: "", description: "")
-    var newPost = Post(title: "test")
+    var newPost = Post(title: "newPost")
 
     @IBOutlet weak var projectTitle: UITextField!
     @IBOutlet weak var projectCategory: UITextField!
@@ -207,7 +208,6 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate 
             nextVC.titleOfPost = self.projectTitle.text
             nextVC.caption = newPost.postCaption
             nextVC.posterName = newPost.nameOfPoster
-            
             // change hard code
             nextVC.posterPhoto = UIImage(named: "pic-1")!
            // nextVC.posterPhoto = newPost.arrayOfImages.first!
