@@ -41,7 +41,7 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
     
    // var caption = ""
     //var models: [madePost] = [] //TODO update madepost struct
-    var testPost = madePost(numLikes: 0, username: "", userProfilePicture: "", postTitle: "")
+    var testPost = madePost(numLikes: 0, username: "", userProfilePicture: "", postTitle: "", projectTitle: "", projectReview: "")
     
     @IBOutlet weak var posterProfilePhoto: UIImageView!
     @IBOutlet weak var posterUsername: UILabel!
