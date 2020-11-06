@@ -9,33 +9,10 @@ import UIKit
 import Firebase
 import CoreData
 import AVFoundation
-// import Foundation?
-//struct Post{
-//    var title: String
-//    var arrayOfImages: [UIImage] = []
-//    var arrayOfComments: [String] = []
-//    var category = String()
-//    var description = String()
-//    var instructions = String()
-//    var postID = String()
-//    var postDate = String()
-//    var postCaption = String()
-//    var nameOfPoster = String()
-//    var unit = String()
-//    var value = String()
-//    var postImageURL = String()
-//    var numLikes = String()
-//
-//}
 
 class PostFormViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var imagePicker : UIImagePickerController = UIImagePickerController()
-
-    
-    // var nameOfPoster = ""
-////    var newPost = Post(title: "", category: "", description: "")
-//    var newPost = Post(title: "newPost")
 
     @IBOutlet weak var projectTitle: UITextField!
     @IBOutlet weak var projectCategory: UITextField!
@@ -45,80 +22,67 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var projectUnit: UITextField!
     var projectImage: String = ""
     @IBOutlet weak var projectDifficulty: UISegmentedControl!
-    var difficulty: String = ""
+    var difficulty: NSString = NSString()
     var newProject: Project?
     var screenName: String = ""
+    @IBOutlet weak var photoLabel: UIButton!
     
-    var ref: DatabaseReference! = Database.database().reference()
+    var ref: DatabaseReference!
     let storage = Storage.storage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
-        
-        // TODO fix and get it to display username
-//        self.nameOfPoster = Auth.auth().currentUser?.displayName ?? "Default User"
-        
     }
     
     @IBAction func cancelPost(_ sender: Any) {
         print("Post cancelled")
-        // send to feed
+        // TODO: segue back to feed
     }
     
     @IBAction func createPost(_ sender: Any) {
         
         var message = ""
-        let title = projectTitle.text ?? ""
-        let category = projectCategory.text ?? ""
-        let description = projectDescription.text ?? ""
-        let instructions = projectInstructions.text ?? ""
-        let timeUnit = projectUnit.text ?? ""
-        let time = projectValue.text ?? ""
+        let stringTitle = projectTitle.text ?? ""
+        let title = NSString(string: projectTitle.text ?? "")
+        let category = NSString(string: projectCategory.text ?? "")
+        let description = NSString(string: projectDescription.text ?? "")
+        let instructions = NSString(string: projectInstructions.text ?? "")
+        let timeUnit = NSString(string: projectUnit.text ?? "")
+        let time = NSString(string: projectValue.text ?? "")
         // let nameOfPoster = self.nameOfPoster
-        let images: [String] = [self.projectImage]
-        let reviews: [Review] = []
+        let images: NSArray = [self.projectImage]
+        let reviews: NSArray = []
         
         let now = Date()
         let formatter = DateFormatter()
-        formatter.dateStyle = .full
-        formatter.timeStyle = .full
-        let datetime = formatter.string(from: now)
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        let datetime = NSString(string: formatter.string(from: now))
         print(datetime)
         
-        // TODO change to fetching url hardcoded image
-        // arrayOfImages.append(UIImage(named: "pic-1")!)
+        self.newProject = Project(title: title, category: category,
+                                  description: description, instructions: instructions,
+                                  timeValue: NSNumber(nonretainedObject: time),
+                                  timeUnit: timeUnit, difficulty: self.difficulty, images: images,
+                                  creationDate: datetime, reviews: reviews)
         
-//        newPost.nameOfPoster = "user name goes here"
-//        newPost.title = projectTitle.text ?? "temp title"
-//        newPost.category = projectCategory.text ?? ""
-//        newPost.description = projectDescription.text ?? ""
-//        newPost.instructions = projectInstructions.text ?? ""
-//        newPost.unit = projectUnit.text ?? ""
-//        newPost.value = projectValue.text ?? ""
-//        newPost.nameOfPoster = self.nameOfPoster
-//        newPost.postDate = "10/20/2020"
-//        newPost.arrayOfImages = arrayOfImages
-//        newPost.numLikes = "100"
-        
-        self.newProject = Project(title: title, category: category, description: description, instructions: instructions, timeValue: Int(time)!, timeUnit: timeUnit, difficulty: self.difficulty, images: images, uniqueID: "", creationDate: datetime, reviews: reviews)
-        
-        if title.isEmpty {
+        if title.length == 0 {
             message = "Please add a project title"
         }
-        if category.isEmpty && message.isEmpty {
+        if category.length == 0 && message.isEmpty {
             message = "Please add a project category"
         }
-        if description.isEmpty && message.isEmpty {
+        if description.length == 0 && message.isEmpty {
             message = "Please add a project description"
         }
-        if instructions.isEmpty && message.isEmpty {
+        if instructions.length == 0 && message.isEmpty {
             message = "Please add project instructions"
         }
-        if timeUnit.isEmpty && message.isEmpty {
+        if timeUnit.length == 0 && message.isEmpty {
             message = "Please add a project time unit"
         }
-        if time.isEmpty && message.isEmpty {
+        if time.length == 0 && message.isEmpty {
             message = "Please add project time value"
         }
         
@@ -131,33 +95,29 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
             self.present(alert, animated: true, completion: nil)
             return
         }
-        
+        print("validated the input")
         // if we make it here , all data is good and needs to be saved to database
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-              return
-        }
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest: NSFetchRequest<NSManagedObject> = NSFetchRequest(entityName: "User")
-        fetchRequest.predicate = NSPredicate(format: "name == %@", uniqueID)
-        do {
-            let fetchedResults = try managedContext.fetch(fetchRequest) as! [User]
-            if let user = fetchedResults.first {
-                self.screenName = user.screenName ?? ""
-                // store to database under their name
-                self.ref.child("users/\(self.screenName)/projects/\(title)/description").setValue(description)
-                self.ref.child("users/\(self.screenName)/projects/\(title)/category").setValue(category)
-                self.ref.child("users/\(self.screenName)/projects/\(title)/instructions").setValue(instructions)
-                self.ref.child("users/\(self.screenName)/projects/\(title)/timeUnit").setValue(timeUnit)
-                self.ref.child("users/\(self.screenName)/projects/\(title)/time").setValue(time)
-                self.ref.child("users/\(self.screenName)/projects/\(title)/difficulty").setValue(self.difficulty)
-                self.ref.child("users/\(self.screenName)/projects/\(title)/images").setValue(images)
-                self.ref.child("users/\(self.screenName)/projects/\(title)/reviews").setValue(reviews)
-                self.ref.child("users/\(self.screenName)/projects/\(title)/creationTime").setValue(datetime)
+        ref = Database.database().reference()
+        let id = uniqueID.split(separator: ".") // this is their email, but '.' are not allowed in the path
+        
+        self.ref.child("users/\(id[0])/projects/\(stringTitle)/description").setValue(description)
+
+        self.ref.child("users/\(id[0])/projects/\(stringTitle)/category").setValue(category)
+
+        self.ref.child("users/\(id[0])/projects/\(stringTitle)/instructions").setValue(instructions)
+
+        self.ref.child("users/\(id[0])/projects/\(stringTitle)/timeUnit").setValue(timeUnit)
+
+        self.ref.child("users/\(id[0])/projects/\(stringTitle)/time").setValue(time)
+
+        self.ref.child("users/\(id[0])/projects/\(stringTitle)/difficulty").setValue(self.difficulty)
+
+        self.ref.child("users/\(id[0])/projects/\(stringTitle)/images").setValue(images)
+
+        self.ref.child("users/\(id[0])/projects/\(stringTitle)/reviews").setValue(reviews)
+
+        self.ref.child("users/\(id[0])/projects/\(stringTitle)/creationTime").setValue(datetime)
                 
-            }
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
-        }
     }
     
     
@@ -179,12 +139,16 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         // to get access to the photos
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary
+        // change words on screen to reflect photo attached
+        // this animates and then goes away
         present(imagePicker, animated: true, completion: nil)
+        photoLabel.setTitle("Photo Attached Successfully", for: .normal)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         // dismiss the popover
         dismiss(animated: true, completion: nil)
+        photoLabel.setTitle("Attach a Photo", for: .normal)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -192,37 +156,36 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         
         let imageURL = info[UIImagePickerController.InfoKey.imageURL] as! NSURL
         let imageName = imageURL.lastPathComponent ?? "image"
-        self.projectImage = imageName
-//        let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! as String
-//        let localPath = documentDirectory + imageName
-        
-        // File located on disk
-        let localURL = URL(string: info[UIImagePickerController.InfoKey.imageURL] as! String)!
+        // self.projectImage = NSString(string: imageName)
 
         // Create a reference to the file you want to upload
-        let imageRef = storageRef.child("images/\(imageName).jpg")
+        let imageRef = storageRef.child("images/\(imageName)")
 
         // Upload the file to the path "images/(imageName).jpg"
-        let uploadTask = imageRef.putFile(from: localURL, metadata: nil) { metadata, error in
-          guard let metadata = metadata else {
-            // Uh-oh, an error occurred!
-            return
+        let uploadTask = imageRef.putFile(from: imageURL as URL, metadata: nil) { metadata, error in
+            guard let metadata = metadata else {
+                // Uh-oh, an error occurred!
+                self.photoLabel.setTitle("Attach a Photo", for: .normal)
+                print("photo did not save")
+                return
           }
-          // Metadata contains file metadata such as size, content-type.
-          let size = metadata.size
-          // You can also access to download URL after upload.
-          imageRef.downloadURL { (url, error) in
-            guard let downloadURL = url else {
-              // Uh-oh, an error occurred!
-              return
+            print("photo saved")
+            // Metadata contains file metadata such as size, content-type.
+            let size = metadata.size
+            // You can also access to download URL after upload.
+            imageRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    // Uh-oh, an error occurred!
+                    print("could not get URL: \(String(describing: error))")
+                    return
+                }
+                print(downloadURL.absoluteString)
+                self.projectImage = downloadURL.absoluteString
             }
-          }
         }
-
         picker.dismiss(animated: true, completion: nil)
     }
     
-    // TODO save into Firebase
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -237,24 +200,23 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
             nextVC.titleOfPost = self.projectTitle.text
             nextVC.caption = self.projectDescription.text
             nextVC.postName = self.screenName
-            // change hard code
-            // nextVC.posterPhoto = UIImage(named: "pic-1")!
-            // nextVC.posterPhoto = newPost.arrayOfImages.first!
+            nextVC.photoURL = self.projectImage
             
-            // get picture, if one was just uploaded, from firebase storage
-            let pathReference = storage.reference(withPath: "images/\(self.projectImage).jpg")
-            pathReference.getData(maxSize: 1 * 1024 * 1024) { data, error in
-              if let error = error {
-                // Uh-oh, an error occurred!
-                print("error: \(error) occurred, could not get image")
-              } else {
-                // Data for image is returned
-                let image = UIImage(data: data!)
-                if image != nil {
-                    nextVC.postPhoto = image!
-                }
-              }
-            }
+            // leaving this comment in case we need another way to get the image
+//            // get picture, if one was just uploaded, from firebase storage
+//            let pathReference = storage.reference(forURL: self.projectImage)
+//            pathReference.getData(maxSize: 1 * 2048 * 2048) { data, error in
+//              if let error = error {
+//                // Uh-oh, an error occurred!
+//                print("error: \(error) occurred, could not get image")
+//              } else {
+//                // Data for image is returned
+//                let image = UIImage(data: data!)
+//                if image != nil {
+//                    nextVC.postPhoto = image!
+//                }
+//              }
+//            }
              
             
         }

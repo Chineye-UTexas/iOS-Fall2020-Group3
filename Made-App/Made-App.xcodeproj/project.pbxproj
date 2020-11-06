@@ -10,7 +10,7 @@
 		3580F0BB254207A9006349CA /* Chineye.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3580F0BA254207A9006349CA /* Chineye.storyboard */; };
 		3580F12D25420AE8006349CA /* Ira.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3580F12C25420AE7006349CA /* Ira.storyboard */; };
 		3580F13225420AF3006349CA /* Marissa.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3580F13125420AF3006349CA /* Marissa.storyboard */; };
-		3580F16D25420D09006349CA /* Alpha.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3580F16C25420D09006349CA /* Alpha.storyboard */; };
+		3580F16D25420D09006349CA /* Alpha1.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3580F16C25420D09006349CA /* Alpha1.storyboard */; };
 		35879265254148BC00AEC5EB /* PostFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35879261254148BC00AEC5EB /* PostFormViewController.swift */; };
 		35879267254148BC00AEC5EB /* CommentReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35879263254148BC00AEC5EB /* CommentReviewTableViewController.swift */; };
 		35879268254148BC00AEC5EB /* CommentPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35879264254148BC00AEC5EB /* CommentPageViewController.swift */; };
@@ -29,7 +29,7 @@
 		35EC4E35252F9E120093E430 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35EC4E33252F9E120093E430 /* LaunchScreen.storyboard */; };
 		35EC4E40252F9E120093E430 /* Made_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E3F252F9E120093E430 /* Made_AppTests.swift */; };
 		35EC4E4B252F9E120093E430 /* Made_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E4A252F9E120093E430 /* Made_AppUITests.swift */; };
-		7C0B7C33254B444F005456C7 /* marissa-pre-beta.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C0B7C32254B444E005456C7 /* marissa-pre-beta.storyboard */; };
+		7C0B7C33254B444F005456C7 /* Alpha.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C0B7C32254B444E005456C7 /* Alpha.storyboard */; };
 		7C0B7C40254B4BA2005456C7 /* UserProfileLayoutCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0B7C3F254B4BA1005456C7 /* UserProfileLayoutCollectionViewController.swift */; };
 		7C58D711255274A90032A736 /* MadeImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58D710255274A90032A736 /* MadeImageCell.swift */; };
 		7C58D719255290AF0032A736 /* SavedProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58D718255290AF0032A736 /* SavedProjectsViewController.swift */; };
@@ -68,7 +68,7 @@
 		3580F0BA254207A9006349CA /* Chineye.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chineye.storyboard; sourceTree = "<group>"; };
 		3580F12C25420AE7006349CA /* Ira.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Ira.storyboard; sourceTree = "<group>"; };
 		3580F13125420AF3006349CA /* Marissa.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Marissa.storyboard; sourceTree = "<group>"; };
-		3580F16C25420D09006349CA /* Alpha.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Alpha.storyboard; sourceTree = "<group>"; };
+		3580F16C25420D09006349CA /* Alpha1.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Alpha1.storyboard; sourceTree = "<group>"; };
 		3580F273254274FE006349CA /* MeganMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MeganMain.storyboard; sourceTree = "<group>"; };
 		35879261254148BC00AEC5EB /* PostFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostFormViewController.swift; sourceTree = "<group>"; };
 		35879263254148BC00AEC5EB /* CommentReviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentReviewTableViewController.swift; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 		48F330FA7FE13F51734B5464 /* Pods-Made-App-Made-AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Made-App-Made-AppUITests.debug.xcconfig"; path = "Target Support Files/Pods-Made-App-Made-AppUITests/Pods-Made-App-Made-AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5901EC98CC680F0713FA4D1E /* Pods-Made-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Made-App.release.xcconfig"; path = "Target Support Files/Pods-Made-App/Pods-Made-App.release.xcconfig"; sourceTree = "<group>"; };
 		7078192C25852F1FC0F8BA2E /* Pods-Made-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Made-App.debug.xcconfig"; path = "Target Support Files/Pods-Made-App/Pods-Made-App.debug.xcconfig"; sourceTree = "<group>"; };
-		7C0B7C32254B444E005456C7 /* marissa-pre-beta.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "marissa-pre-beta.storyboard"; sourceTree = "<group>"; };
+		7C0B7C32254B444E005456C7 /* Alpha.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Alpha.storyboard; sourceTree = "<group>"; };
 		7C0B7C3F254B4BA1005456C7 /* UserProfileLayoutCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileLayoutCollectionViewController.swift; sourceTree = "<group>"; };
 		7C58D710255274A90032A736 /* MadeImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadeImageCell.swift; sourceTree = "<group>"; };
 		7C58D718255290AF0032A736 /* SavedProjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedProjectsViewController.swift; sourceTree = "<group>"; };
@@ -146,8 +146,8 @@
 		3580F272254274F1006349CA /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				3580F16C25420D09006349CA /* Alpha.storyboard */,
-				7C0B7C32254B444E005456C7 /* marissa-pre-beta.storyboard */,
+				3580F16C25420D09006349CA /* Alpha1.storyboard */,
+				7C0B7C32254B444E005456C7 /* Alpha.storyboard */,
 				3580F273254274FE006349CA /* MeganMain.storyboard */,
 				3580F12C25420AE7006349CA /* Ira.storyboard */,
 				3580F13125420AF3006349CA /* Marissa.storyboard */,
@@ -408,10 +408,10 @@
 				3587929025415CC700AEC5EB /* FeedTableViewCell.xib in Resources */,
 				3580F12D25420AE8006349CA /* Ira.storyboard in Resources */,
 				3580F0BB254207A9006349CA /* Chineye.storyboard in Resources */,
-				7C0B7C33254B444F005456C7 /* marissa-pre-beta.storyboard in Resources */,
+				7C0B7C33254B444F005456C7 /* Alpha.storyboard in Resources */,
 				7CC95FC82536DBA2005B0304 /* GoogleService-Info.plist in Resources */,
 				35EC4E32252F9E120093E430 /* Assets.xcassets in Resources */,
-				3580F16D25420D09006349CA /* Alpha.storyboard in Resources */,
+				3580F16D25420D09006349CA /* Alpha1.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
