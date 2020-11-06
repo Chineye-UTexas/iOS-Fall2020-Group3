@@ -4,23 +4,21 @@
 //
 //  Created by Ira Dhar Gulati on 11/4/20.
 //
-
 import Foundation
 
 class Project{
-    var title = ""
-    var category = ""
-    var description = ""
-    var instructions = ""
-    var timeValue = 0
-    var timeUnit = ""
-    var difficulty = 0
-    var images: [String] = []
-    var uniqueID = ""
-    var creationDate = ""
-    var comments: [Comment] = []
-    
-    init(title: String, category: String, description: String, instructions: String, timeValue: Int, timeUnit: String, difficulty: Int, images: [String], uniqueID: String, creationDate: String, comments: [Comment]) {
+    var title = NSString()
+    var category = NSString()
+    var description = NSString()
+    var instructions = NSString()
+    var timeValue = NSNumber()
+    var timeUnit = NSString()
+    var difficulty = NSString()
+    var images: NSArray = []
+    var creationDate = NSString()
+    var reviews: NSArray = []
+
+    init(title: NSString, category: NSString, description: NSString, instructions: NSString, timeValue: NSNumber, timeUnit: NSString, difficulty: NSString, images: NSArray, creationDate: NSString, reviews: NSArray) {
         self.title = title
         self.category = category
         self.description = description
@@ -29,11 +27,12 @@ class Project{
         self.timeUnit = timeUnit
         self.difficulty = difficulty
         self.images = images
-        self.uniqueID = uniqueID
         self.creationDate = creationDate
-        self.comments = comments
+        self.reviews = reviews
     }
-    
-    
-    
+
+    init() {
+        // empty initializer
+    }
+
 }
