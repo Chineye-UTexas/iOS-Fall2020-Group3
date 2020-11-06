@@ -6,15 +6,23 @@
 //
 
 import UIKit
+import Firebase
 
 struct madePost {
     let numLikes: Int
     let username: String
     let userProfilePicture: String
     let postTitle: String
+    let projectTitle: String
+    let projectReview: String
 }
 
+
 class MadeFeedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    
+    var ref = Database.database().reference()
+    
     
     @IBOutlet weak var table: UITableView!
     var models = [madePost]()
@@ -24,11 +32,12 @@ class MadeFeedViewController: UIViewController, UITableViewDataSource, UITableVi
         table.delegate = self
         table.dataSource = self
 
-        models.append(madePost(numLikes: 200, username: "@megan", userProfilePicture: "profilePic", postTitle: "image1"))
-        models.append(madePost(numLikes: 200, username: "@ira", userProfilePicture: "profilePic", postTitle: "image2"))
-        models.append(madePost(numLikes: 200, username: "@marissa", userProfilePicture: "profilePic", postTitle: "image3"))
-        models.append(madePost(numLikes: 200, username: "@chineye", userProfilePicture: "profilePic", postTitle: "image4"))
-        models.append(madePost(numLikes: 200, username: "@mike", userProfilePicture: "profilePic", postTitle: "image5"))
+        //imageView.contentMode = UIViewContentModeScaleAspectFit;
+        models.append(madePost(numLikes: 200, username: "@megan", userProfilePicture: "profilePic2", postTitle: "image1", projectTitle: "Knit Cardigan", projectReview: "Fun and easy for beginners!"))
+        models.append(madePost(numLikes: 200, username: "@ira", userProfilePicture: "profilePic2", postTitle: "image2", projectTitle: "DIY Crayon Canvas", projectReview: "Fun and easy for beginners!"))
+        models.append(madePost(numLikes: 200, username: "@marissa", userProfilePicture: "profilePic2", postTitle: "image3", projectTitle: "Colorful Balloon Arch", projectReview: "Fun and easy for beginners!"))
+        models.append(madePost(numLikes: 200, username: "@chineye", userProfilePicture: "profilePic2", postTitle: "image4", projectTitle: "Festive Celebration Cake", projectReview: "Fun and easy for beginners!"))
+        models.append(madePost(numLikes: 200, username: "@mike", userProfilePicture: "profilePic2", postTitle: "image5", projectTitle: "Candles from Crayons", projectReview: "Fun and easy for beginners!"))
         // Do any additional setup after loading the view.
     }
     
