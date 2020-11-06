@@ -9,23 +9,22 @@ import UIKit
 import Firebase
 import CoreData
 
-var commentList:[String] = []
+var reviews:[Review] = []
 
 
 class SinglePostViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var commentTableView: UITableView!
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        commentList.count
+        reviews.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        //let comment = commentList[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommentTextCell", for: indexPath as IndexPath)
         let row = indexPath.row
         cell.textLabel?.numberOfLines = 6
-        cell.textLabel?.text = commentList[row]
+        cell.textLabel?.text = reviews[row].commentary
         return cell
     }
     
@@ -41,7 +40,7 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
     
    // var caption = ""
     //var models: [madePost] = [] //TODO update madepost struct
-    var testPost = madePost(numLikes: 0, username: "", userProfilePicture: "", postTitle: "")
+//    var testPost = madePost(numLikes: 0, username: "", userProfilePicture: "", postTitle: "")
     
     @IBOutlet weak var posterProfilePhoto: UIImageView!
     @IBOutlet weak var posterUsername: UILabel!
@@ -53,10 +52,10 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var commentsTableView: UITableView!
     
     // sent from PostFormVC
-    var singlePost = Post(title: "single" )
+    var singlePost = Project()
     
-    var posterPhoto = UIImage()
-    var posterName: String!
+    var postPhoto = UIImage()
+    var postName: String!
     var arrayOfImages: [UIImage] = []
     var date: String!
     var titleOfPost: String!
@@ -70,16 +69,14 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewWillAppear(true)
         commentTableView.reloadData()
         
-        
-        // fetch firebase here
-        
-        commentList = singlePost.arrayOfComments
+        // the data from the Project object we sent
+        reviews = singlePost.reviews
         postTitle.text = singlePost.title
-        postCaption.text = singlePost.postCaption
-        posterUsername.text = posterName
-        postImage.image = posterPhoto
-        numLikes.text = singlePost.numLikes
-        dateOfPost.text = singlePost.postDate
+        postCaption.text = singlePost.description
+        posterUsername.text = postName
+        postImage.image = postPhoto
+        numLikes.text = "10" // singlePost.numLikes -- we didn't talk about keeping likes, maybe number of times saved?
+        dateOfPost.text = singlePost.creationDate
     }
     
     override func viewDidLoad() {
@@ -147,21 +144,13 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     /*
-     Submitting comment
+     Submitting a new review
      */
-
-    @IBOutlet weak var commentTextField: UITextField!
     
-    @IBAction func submitCommentButton(_ sender: Any) {
-        
-        if(!(commentTextField.text!.isEmpty)){
-            // testing adding comments to table
-            commentList.append(commentTextField.text ?? "example comment")
-            //print(commentList.first!)
-            commentTableView.reloadData()
-        }
-
-    }
+    // was going to implement as is, but if we leave it
+    // as that one sentence, that won't capture all that
+    // we're looking for in a review, so we need
+    // another view
 
     
 

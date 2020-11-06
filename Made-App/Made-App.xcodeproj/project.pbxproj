@@ -15,7 +15,6 @@
 		35879267254148BC00AEC5EB /* CommentReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35879263254148BC00AEC5EB /* CommentReviewTableViewController.swift */; };
 		35879268254148BC00AEC5EB /* CommentPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35879264254148BC00AEC5EB /* CommentPageViewController.swift */; };
 		3587926D254148DE00AEC5EB /* SinglePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3587926C254148DE00AEC5EB /* SinglePostViewController.swift */; };
-		3587927D25414BB500AEC5EB /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3587927C25414BB500AEC5EB /* Comment.swift */; };
 		3587928E25415CC700AEC5EB /* EditSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3587928725415CC600AEC5EB /* EditSettingsViewController.swift */; };
 		3587928F25415CC700AEC5EB /* MadeFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3587928825415CC600AEC5EB /* MadeFeedViewController.swift */; };
 		3587929025415CC700AEC5EB /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3587928925415CC600AEC5EB /* FeedTableViewCell.xib */; };
@@ -30,6 +29,12 @@
 		35EC4E35252F9E120093E430 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35EC4E33252F9E120093E430 /* LaunchScreen.storyboard */; };
 		35EC4E40252F9E120093E430 /* Made_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E3F252F9E120093E430 /* Made_AppTests.swift */; };
 		35EC4E4B252F9E120093E430 /* Made_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E4A252F9E120093E430 /* Made_AppUITests.swift */; };
+		7C0B7C33254B444F005456C7 /* marissa-pre-beta.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C0B7C32254B444E005456C7 /* marissa-pre-beta.storyboard */; };
+		7C0B7C40254B4BA2005456C7 /* UserProfileLayoutCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0B7C3F254B4BA1005456C7 /* UserProfileLayoutCollectionViewController.swift */; };
+		7C58D711255274A90032A736 /* MadeImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58D710255274A90032A736 /* MadeImageCell.swift */; };
+		7C58D719255290AF0032A736 /* SavedProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58D718255290AF0032A736 /* SavedProjectsViewController.swift */; };
+		7C58D7212554C7930032A736 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58D7202554C7920032A736 /* Project.swift */; };
+		7C58D72D2554D5860032A736 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58D72C2554D5860032A736 /* Review.swift */; };
 		7CC95FC82536DBA2005B0304 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7CC95FC72536DBA2005B0304 /* GoogleService-Info.plist */; };
 		7CC960362536FA8E005B0304 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC960352536FA8E005B0304 /* LoginViewController.swift */; };
 		7CC960622538E2CE005B0304 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC960612538E2CE005B0304 /* RegistrationViewController.swift */; };
@@ -69,7 +74,6 @@
 		35879263254148BC00AEC5EB /* CommentReviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentReviewTableViewController.swift; sourceTree = "<group>"; };
 		35879264254148BC00AEC5EB /* CommentPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentPageViewController.swift; sourceTree = "<group>"; };
 		3587926C254148DE00AEC5EB /* SinglePostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePostViewController.swift; sourceTree = "<group>"; };
-		3587927C25414BB500AEC5EB /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		3587928725415CC600AEC5EB /* EditSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditSettingsViewController.swift; sourceTree = "<group>"; };
 		3587928825415CC600AEC5EB /* MadeFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MadeFeedViewController.swift; sourceTree = "<group>"; };
 		3587928925415CC600AEC5EB /* FeedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
@@ -94,6 +98,12 @@
 		48F330FA7FE13F51734B5464 /* Pods-Made-App-Made-AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Made-App-Made-AppUITests.debug.xcconfig"; path = "Target Support Files/Pods-Made-App-Made-AppUITests/Pods-Made-App-Made-AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5901EC98CC680F0713FA4D1E /* Pods-Made-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Made-App.release.xcconfig"; path = "Target Support Files/Pods-Made-App/Pods-Made-App.release.xcconfig"; sourceTree = "<group>"; };
 		7078192C25852F1FC0F8BA2E /* Pods-Made-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Made-App.debug.xcconfig"; path = "Target Support Files/Pods-Made-App/Pods-Made-App.debug.xcconfig"; sourceTree = "<group>"; };
+		7C0B7C32254B444E005456C7 /* marissa-pre-beta.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "marissa-pre-beta.storyboard"; sourceTree = "<group>"; };
+		7C0B7C3F254B4BA1005456C7 /* UserProfileLayoutCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileLayoutCollectionViewController.swift; sourceTree = "<group>"; };
+		7C58D710255274A90032A736 /* MadeImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadeImageCell.swift; sourceTree = "<group>"; };
+		7C58D718255290AF0032A736 /* SavedProjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedProjectsViewController.swift; sourceTree = "<group>"; };
+		7C58D7202554C7920032A736 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		7C58D72C2554D5860032A736 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		7CC95FC72536DBA2005B0304 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7CC960312536FA3E005B0304 /* Made-App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Made-App.entitlements"; sourceTree = "<group>"; };
 		7CC960352536FA8E005B0304 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				3580F16C25420D09006349CA /* Alpha.storyboard */,
+				7C0B7C32254B444E005456C7 /* marissa-pre-beta.storyboard */,
 				3580F273254274FE006349CA /* MeganMain.storyboard */,
 				3580F12C25420AE7006349CA /* Ira.storyboard */,
 				3580F13125420AF3006349CA /* Marissa.storyboard */,
@@ -163,6 +174,9 @@
 				7CC960352536FA8E005B0304 /* LoginViewController.swift */,
 				7CC960612538E2CE005B0304 /* RegistrationViewController.swift */,
 				7CC960D825401649005B0304 /* UserProfileViewController.swift */,
+				7C58D718255290AF0032A736 /* SavedProjectsViewController.swift */,
+				7C58D710255274A90032A736 /* MadeImageCell.swift */,
+				7C0B7C3F254B4BA1005456C7 /* UserProfileLayoutCollectionViewController.swift */,
 				3580F28B2542758A006349CA /* FeedView */,
 				3587928825415CC600AEC5EB /* MadeFeedViewController.swift */,
 				3587928B25415CC600AEC5EB /* SettingsViewController.swift */,
@@ -195,7 +209,8 @@
 		3580F29325427606006349CA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				3587927C25414BB500AEC5EB /* Comment.swift */,
+				7C58D7202554C7920032A736 /* Project.swift */,
+				7C58D72C2554D5860032A736 /* Review.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -393,6 +408,7 @@
 				3587929025415CC700AEC5EB /* FeedTableViewCell.xib in Resources */,
 				3580F12D25420AE8006349CA /* Ira.storyboard in Resources */,
 				3580F0BB254207A9006349CA /* Chineye.storyboard in Resources */,
+				7C0B7C33254B444F005456C7 /* marissa-pre-beta.storyboard in Resources */,
 				7CC95FC82536DBA2005B0304 /* GoogleService-Info.plist in Resources */,
 				35EC4E32252F9E120093E430 /* Assets.xcassets in Resources */,
 				3580F16D25420D09006349CA /* Alpha.storyboard in Resources */,
@@ -530,16 +546,20 @@
 				3587929325415CC700AEC5EB /* ImageTableViewCell.swift in Sources */,
 				35879268254148BC00AEC5EB /* CommentPageViewController.swift in Sources */,
 				7CC960D425400C75005B0304 /* made.xcdatamodeld in Sources */,
+				7C58D7212554C7930032A736 /* Project.swift in Sources */,
 				7CC960362536FA8E005B0304 /* LoginViewController.swift in Sources */,
 				3587929125415CC700AEC5EB /* FeedViewController.swift in Sources */,
 				7CC960D925401649005B0304 /* UserProfileViewController.swift in Sources */,
+				7C58D711255274A90032A736 /* MadeImageCell.swift in Sources */,
 				35EC4E2D252F9E100093E430 /* ViewController.swift in Sources */,
 				35EC4E29252F9E100093E430 /* AppDelegate.swift in Sources */,
-				3587927D25414BB500AEC5EB /* Comment.swift in Sources */,
 				3587929225415CC700AEC5EB /* SettingsViewController.swift in Sources */,
+				7C58D719255290AF0032A736 /* SavedProjectsViewController.swift in Sources */,
 				35879267254148BC00AEC5EB /* CommentReviewTableViewController.swift in Sources */,
+				7C58D72D2554D5860032A736 /* Review.swift in Sources */,
 				35EC4E2B252F9E100093E430 /* SceneDelegate.swift in Sources */,
 				3587928E25415CC700AEC5EB /* EditSettingsViewController.swift in Sources */,
+				7C0B7C40254B4BA2005456C7 /* UserProfileLayoutCollectionViewController.swift in Sources */,
 				7CC960622538E2CE005B0304 /* RegistrationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
