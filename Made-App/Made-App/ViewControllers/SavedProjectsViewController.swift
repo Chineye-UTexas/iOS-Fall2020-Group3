@@ -10,6 +10,7 @@ import Firebase
 
 class SavedProjectsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    let storage = Storage.storage()
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -26,15 +27,12 @@ class SavedProjectsViewController: UIViewController, UICollectionViewDataSource,
         collectionView.dataSource = self
         collectionView.delegate = self
         
-//        // Get a reference to the storage service using the default Firebase App
-//        let storage = Storage.storage()
-//
 //        // Create a storage reference from our storage service
-//        //let storageRef = storage.reference()
+//        let storageRef = storage.reference()
 //        // This is equivalent to creating the full reference
-//        let storagePath = "\(storage)/images/space.jpg"
+//        let storagePath = "/images/space.jpg"
 //        var spaceRef = storage.reference(forURL: storagePath)
-        
+//        
         
     }
     
@@ -50,7 +48,7 @@ class SavedProjectsViewController: UIViewController, UICollectionViewDataSource,
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "savedProjectsCellIdentifier", for: indexPath) as! MadeImageCell
         
-        cell.backgroundColor = UIColor.yellow
+        cell.backgroundColor = UIColor.black
         let currImageName = savedList[self.imageCounter]
         self.imageCounter += 1
         if self.imageCounter >= savedList.count {
@@ -58,7 +56,7 @@ class SavedProjectsViewController: UIViewController, UICollectionViewDataSource,
         }
         
         // set image
-        cell.image.image = UIImage(named: currImageName)
+        // cell.image.image = UIImage(named: currImageName)
         
         return cell
     }

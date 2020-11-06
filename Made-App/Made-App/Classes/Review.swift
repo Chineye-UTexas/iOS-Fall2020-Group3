@@ -11,22 +11,20 @@ import Foundation
 
 class Review {
     
-    var commentary = ""
-    var timeValue = 0
-    var timeUnit = ""
-    var difficulty = ""
-    var images: [String] = []
-    var uniqueID = ""
-    var creationDate = ""
-    var rating = 0
+    var commentary = NSString()
+    var timeValue = NSNumber()
+    var timeUnit = NSString()
+    var difficulty = NSString()
+    var images: NSArray = []
+    var creationDate = NSString()
+    var rating = NSNumber()
     
-    init(commentary: String, timeValue: Int, timeUnit: String, difficulty: String, images: [String], uniqueID: String, creationDate: String, rating: Int) {
+    init(commentary: NSString, timeValue: NSNumber, timeUnit: NSString, difficulty: NSString, images: NSArray, creationDate: NSString, rating: NSNumber) {
         self.commentary = commentary
         self.timeValue = timeValue
         self.timeUnit = timeUnit
         self.difficulty = difficulty
         self.images = images
-        self.uniqueID = uniqueID
         self.creationDate = creationDate
         self.rating = rating
     }

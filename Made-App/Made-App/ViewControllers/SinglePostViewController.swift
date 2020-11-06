@@ -8,8 +8,9 @@
 import UIKit
 import Firebase
 import CoreData
+import SDWebImage
 
-var reviews:[Review] = []
+var reviews: NSArray = []
 
 
 class SinglePostViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -24,23 +25,10 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommentTextCell", for: indexPath as IndexPath)
         let row = indexPath.row
         cell.textLabel?.numberOfLines = 6
-        cell.textLabel?.text = reviews[row].commentary
+        let review = reviews[row] as! Review
+        cell.textLabel?.text = review.commentary as String
         return cell
     }
-    
-    
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // add comment code
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        // add comment code
-//    }
-    
-    
-   // var caption = ""
-    //var models: [madePost] = [] //TODO update madepost struct
-    var testPost = madePost(numLikes: 0, username: "", userProfilePicture: "", postTitle: "", projectTitle: "", projectReview: "")
     
     @IBOutlet weak var posterProfilePhoto: UIImageView!
     @IBOutlet weak var posterUsername: UILabel!
@@ -55,6 +43,7 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
     var singlePost = Project()
     
     var postPhoto = UIImage()
+    var photoURL: String!
     var postName: String!
     var arrayOfImages: [UIImage] = []
     var date: String!
@@ -71,12 +60,15 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
         
         // the data from the Project object we sent
         reviews = singlePost.reviews
-        postTitle.text = singlePost.title
-        postCaption.text = singlePost.description
+        postTitle.text = String(singlePost.title)
+        postCaption.text = String(singlePost.description)
         posterUsername.text = postName
         postImage.image = postPhoto
+        postImage.backgroundColor = UIColor.systemPink
+        let placeholderImage = UIImage(named: "image1")
+        postImage.sd_setImage(with: URL(string: photoURL), placeholderImage: placeholderImage)
         numLikes.text = "10" // singlePost.numLikes -- we didn't talk about keeping likes, maybe number of times saved?
-        dateOfPost.text = singlePost.creationDate
+        dateOfPost.text = String(singlePost.creationDate)
     }
     
     override func viewDidLoad() {
@@ -84,62 +76,6 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
         
         commentTableView.delegate = self
         commentTableView.dataSource = self
-                
-        //      //  var ref: DatabaseReference!
-//       // ref = Database.database().reference(withPath: "posts")
-//
-//
-//        //   let postRef = ref(withPath: "posts")
-//           ref?.observeSingleEvent(of: .value, with:
-//               { snapshot in
-//                   if !snapshot.exists()
-//                   {
-//                       print("snapshot doesnt exist")
-//                       return
-//
-//                   }
-//                   print("snapshot exists")
-//                   print(snapshot)
-//
-//                var dict = snapshot.value as? NSDictionary
-//                //guard fetchedUsername =
-//
-//                self.posterUsername.text = dict?["userID"] as? String ?? "default username"
-//                self.postCaption.text = dict?["caption"] as? String ?? "no caption"
-//                self.dateOfPost.text = dict?["date"] as? String ?? "no date" //change to date-time format
-//                self.numLikes.text = dict?["numLikes"] as? String ?? "0" + " likes"
-//                self.postImage.image = dict?["imageURL"] as? UIImage ?? UIImage(named: "pic-1")
-//
-//               })
-        // Get a reference to the storage service using the default Firebase App
-        let storage = Storage.storage()
-        // Create a storage reference from our storage service
-        let storageRef = storage.reference()
-            
-//        let post = ["caption" : "testing",
-//            "date" : "",
-//            "imageURL" : "",
-//            "numLikes" : "",
-//            "postID" : "001",
-//            "userID" : ""
-//          ]
-        
-        
-    
-        
-        
-        
-
-        //testpost should be set
-        
-      //  let otherVC = delegate as! MadeFeedViewController
-        //testPost = otherVC.models[1]
-        
-        //posterUsername.text = testPost.username //"@ira"
-        //self.models = otherVC.models
-        //var testPost = self.models[1]//"@ira"
-        
-      //  self.dismiss(animated: true, completion: nil)
         // Do any additional setup after loading the view.
     }
     
@@ -150,9 +86,7 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
     // was going to implement as is, but if we leave it
     // as that one sentence, that won't capture all that
     // we're looking for in a review, so we need
-    // another view
-
-    
+    // another view for people to leave a review
 
     
     
