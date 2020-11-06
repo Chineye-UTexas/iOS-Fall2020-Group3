@@ -13,38 +13,14 @@ import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var window: UIWindow?
+
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert], completionHandler: { (success, error) in
-            if success {
-                print("Permission granted")
-            } else {
-                print("There was a problem")
-            }
-        })
-        
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let initialViewController = storyboard.instantiateViewController(withIdentifier: "NextVC")
-//        self.window?.rootViewController = initialViewController
-        //configureInitialViewController()
         return true
     }
-    
-//    private func configureInitialViewController() {
-//        let initialViewController: UIViewController
-//        let storyboard = UIStoryboard(name: "marissa-pre-beta", bundle: nil)
-//
-//        window = UIWindow()
-//
-//        let mainViewController = storyboard.instantiateViewController(withIdentifier: "login")
-//        initialViewController = mainViewController
-//        window?.rootViewController = initialViewController
-//        window?.makeKeyAndVisible()
-//    }
 
     // MARK: UISceneSession Lifecycle
 
