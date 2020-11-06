@@ -7,9 +7,15 @@
 
 import UIKit
 import Firebase
+import CoreData
 
-class SettingsViewController: UIViewController {
+protocol SaveProfilePic {
+    func saveProfilePic(newImage: UIImage)
+}
 
+class SettingsViewController: UIViewController, SaveProfilePic {
+
+    @IBOutlet var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var passwordLabel: UILabel!
@@ -18,10 +24,48 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadData()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        loadData()
+    }
+    
+    
+    func retrieveUser() -> [User] {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        
+
+        
+        var fetchedResults: [User]? = nil
+        let predicate = NSPredicate(format: "name == %@", uniqueID)
+        request.predicate = predicate
+        do {
+            try fetchedResults = context.fetch(request) as? [User]
+        } catch {
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        return fetchedResults!
+    }
+    
+    func loadData() {
+        let currentUser = retrieveUser()
+        nameLabel.text = currentUser[0].screenName
+        usernameLabel.text = currentUser[0].name
+        passwordLabel.text = currentUser[0].password
+        bioLabel.text = currentUser[0].bio
+        if(currentUser[0].notifications) {
+            notificationLabel.text = "On"
+        } else {
+            notificationLabel.text = "Off"
+        }
     }
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
-        
         do
         {
             try Auth.auth().signOut() //todo add error checks
@@ -47,6 +91,11 @@ class SettingsViewController: UIViewController {
             nextVC.notificationState = notificationLabel.text!
         }
     }
+    
+    func saveProfilePic(newImage: UIImage) {
+        imageView.image = newImage
+    }
+    
     
 
 }

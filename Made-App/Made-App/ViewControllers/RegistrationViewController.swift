@@ -78,6 +78,8 @@ class RegistrationViewController: UIViewController {
                 uniqueID = email
                 user.setValue(self.newUserScreenName.text, forKey: "screenName")
                 user.setValue(false, forKey: "notifications")
+                user.setValue(self.newUserPassword.text, forKey: "password")
+                user.setValue("", forKey: "bio")
                 // save user data to core data
                 do {
                     try managedContext.save()
