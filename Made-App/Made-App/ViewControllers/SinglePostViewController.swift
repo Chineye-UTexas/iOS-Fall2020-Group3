@@ -14,21 +14,7 @@ var reviews: NSArray = []
 
 
 class SinglePostViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    @IBOutlet weak var commentTableView: UITableView!
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        reviews.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CommentTextCell", for: indexPath as IndexPath)
-        let row = indexPath.row
-        cell.textLabel?.numberOfLines = 6
-        let review = reviews[row] as! Review
-        cell.textLabel?.text = review.commentary as String
-        return cell
-    }
+        
     
     @IBOutlet weak var posterProfilePhoto: UIImageView!
     @IBOutlet weak var posterUsername: UILabel!
@@ -37,10 +23,12 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var postTitle: UILabel!
     @IBOutlet weak var numLikes: UILabel!
     @IBOutlet weak var postCaption: UILabel!
-    @IBOutlet weak var commentsTableView: UITableView!
+    
     
     // sent from PostFormVC
     var singlePost = Project()
+    var reviewList = [Review] ()
+    var firebasePostID = ""
     
     var postPhoto = UIImage()
     var photoURL: String!
@@ -54,9 +42,11 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var delegate: UIViewController!
 
+    @IBOutlet weak var reviewTableView: UITableView!
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        commentTableView.reloadData()
+        
         
         // the data from the Project object we sent
         reviews = singlePost.reviews
@@ -65,7 +55,7 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
         posterUsername.text = postName
         postImage.image = postPhoto
         postImage.backgroundColor = UIColor.systemPink
-        let placeholderImage = UIImage(named: "image1")
+        let placeholderImage = postPhoto
         postImage.sd_setImage(with: URL(string: photoURL), placeholderImage: placeholderImage)
         numLikes.text = "10" // singlePost.numLikes -- we didn't talk about keeping likes, maybe number of times saved?
         dateOfPost.text = String(singlePost.creationDate)
@@ -73,10 +63,32 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        reviewTableView.reloadData()
         
-        commentTableView.delegate = self
-        commentTableView.dataSource = self
+        reviewTableView.delegate = self
+        reviewTableView.dataSource = self
         // Do any additional setup after loading the view.
+        print("viewing single post page")
+    }
+    
+    
+    /*
+     Table View Functions
+     */
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        reviewList.count
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        //let comment = commentList[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewTextCell", for: indexPath as IndexPath)
+        let row = indexPath.row
+        cell.textLabel?.numberOfLines = 6
+        cell.textLabel?.text = String(reviewList[row].commentary)
+        
+        return cell
     }
     
     /*
@@ -93,10 +105,18 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//      //  otherVC.models = self.models
-//        // Get the new view controller using segue.destination.
-//        // Pass the selected object to the new view controller.
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            
+        if segue.identifier == "singlePostToReviewSegue",
+           let nextVC = segue.destination as? ReviewViewController {
+            
+            nextVC.postID = firebasePostID
+            nextVC.postPhotoURL = photoURL
+            nextVC.postTitle = postTitle.text!
+        }
+        
+      //  otherVC.models = self.models
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
 }
