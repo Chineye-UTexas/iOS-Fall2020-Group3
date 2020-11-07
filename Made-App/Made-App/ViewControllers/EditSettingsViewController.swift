@@ -14,13 +14,11 @@ protocol ProfilePicChanger {
 class EditSettingsViewController: UIViewController, ProfilePicChanger {
 
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var bioTextField: UITextField!
     @IBOutlet weak var notificationSwitch: UISwitch!
     @IBOutlet var imageView: UIImageView!
     var name = ""
-    var username = ""
     var bio = ""
     var password = ""
     var notificationState = ""
@@ -36,9 +34,14 @@ class EditSettingsViewController: UIViewController, ProfilePicChanger {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         nameTextField.text = name
-        usernameTextField.text = username
         passwordTextField.text = password
         bioTextField.text = bio
+        
+        if notificationState == "On" {
+            notificationSwitch.setOn(true, animated: true)
+        } else {
+            notificationSwitch.setOn(false, animated: true)
+        }
     }
     @IBAction func changeProfilePicPressed(_ sender: Any) {
         // need to still figure out how to edit profile picture
@@ -63,13 +66,8 @@ class EditSettingsViewController: UIViewController, ProfilePicChanger {
 
         
         if(name != nameTextField!.text!) {
-            name = usernameTextField.text!
+            name = nameTextField.text!
             currentUser[0].setValue(nameTextField.text, forKey: "screenName")
-        }
-        if (username != usernameTextField.text!) {
-            username = usernameTextField.text!
-            currentUser[0].setValue(usernameTextField.text!, forKey: "name")
-            uniqueID = usernameTextField.text!
         }
         if (password != passwordTextField.text!) {
             password = passwordTextField.text!
@@ -92,8 +90,10 @@ class EditSettingsViewController: UIViewController, ProfilePicChanger {
                 currentUser[0].setValue(true, forKey: "notifications")
             }
         }
-        let otherVC = delegate as! SaveProfilePic
-        otherVC.saveProfilePic(newImage: imageView.image!)
+        if imageView != nil {
+            let otherVC = delegate as! SaveProfilePic
+            otherVC.saveProfilePic(newImage: imageView.image!)
+        }
     }
     
     func retrieveUser() -> [User] {

@@ -65,10 +65,17 @@ class SettingsViewController: UIViewController, SaveProfilePic {
         }
     }
     
+    
+    @IBAction func editButtonPressed(_ sender: Any) {
+        print("here")
+    }
+    
+    
     @IBAction func logoutButtonPressed(_ sender: Any) {
         do
         {
-            try Auth.auth().signOut() //todo add error checks
+            // TODO fix
+            try Auth.auth().signOut() //TODO add error checks
             self.performSegue(withIdentifier: "logoutSegue", sender: nil)
             print(Auth.auth().currentUser?.displayName ?? "User" + " logged out")
         }
@@ -85,7 +92,6 @@ class SettingsViewController: UIViewController, SaveProfilePic {
         if segue.identifier == "editSettingsSegue",
         let nextVC = segue.destination as? EditSettingsViewController {
             nextVC.name = nameLabel.text!
-            nextVC.username = usernameLabel.text!
             nextVC.password = passwordLabel.text!
             nextVC.bio = bioLabel.text!
             nextVC.notificationState = notificationLabel.text!

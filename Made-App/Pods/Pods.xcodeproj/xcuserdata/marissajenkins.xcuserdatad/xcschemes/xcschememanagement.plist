@@ -17,7 +17,7 @@
 		<key>Firebase.xcscheme</key>
 		<dict>
 			<key>isShown</key>
-			<false/>
+			<true/>
 		</dict>
 		<key>FirebaseAuth.xcscheme</key>
 		<dict>
@@ -37,7 +37,7 @@
 		<key>FirebaseDatabase.xcscheme</key>
 		<dict>
 			<key>isShown</key>
-			<false/>
+			<true/>
 		</dict>
 		<key>FirebaseFirestore.xcscheme</key>
 		<dict>
@@ -47,7 +47,7 @@
 		<key>FirebaseStorage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
-			<false/>
+			<true/>
 		</dict>
 		<key>GTMSessionFetcher.xcscheme</key>
 		<dict>
