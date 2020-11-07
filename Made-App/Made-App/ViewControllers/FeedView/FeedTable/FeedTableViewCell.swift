@@ -14,6 +14,9 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var userProfilePicture: UIImageView!
     @IBOutlet weak var postImageView: UIImageView!
+    @IBOutlet weak var projectTitle: UILabel!
+    @IBOutlet weak var projectReview: UILabel!
+    
     static let identifier = "FeedTableViewCell"
     static func nib() -> UINib{
         return UINib(nibName: "FeedTableViewCell", bundle: nil)
@@ -35,6 +38,8 @@ class FeedTableViewCell: UITableViewCell {
         self.usernameLabel.text = model.username
         self.userProfilePicture.image = UIImage(named: model.userProfilePicture)
         self.postImageView.image = UIImage(named: model.postTitle)
+        self.projectTitle.text = model.projectTitle
+        self.projectReview.text = model.projectReview
     }
     
 }
