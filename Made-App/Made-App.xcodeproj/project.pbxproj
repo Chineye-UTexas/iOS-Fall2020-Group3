@@ -19,7 +19,7 @@
 		3587929225415CC700AEC5EB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3587928B25415CC600AEC5EB /* SettingsViewController.swift */; };
 		3587929325415CC700AEC5EB /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3587928C25415CC700AEC5EB /* ImageTableViewCell.swift */; };
 		3587929425415CC700AEC5EB /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3587928D25415CC700AEC5EB /* FeedTableViewCell.swift */; };
-		35BA57832555E4210058127E /* Alpha.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35BA57822555E4210058127E /* Alpha.storyboard */; };
+		35BA57832555E4210058127E /* Chineye.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35BA57822555E4210058127E /* Chineye.storyboard */; };
 		35BA57C22555F7ED0058127E /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BA57C12555F7ED0058127E /* ReviewViewController.swift */; };
 		35BA57EA25560F060058127E /* ReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BA57E925560F060058127E /* ReviewTableViewController.swift */; };
 		35EC4E29252F9E100093E430 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E28252F9E100093E430 /* AppDelegate.swift */; };
@@ -29,7 +29,7 @@
 		35EC4E35252F9E120093E430 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35EC4E33252F9E120093E430 /* LaunchScreen.storyboard */; };
 		35EC4E40252F9E120093E430 /* Made_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E3F252F9E120093E430 /* Made_AppTests.swift */; };
 		35EC4E4B252F9E120093E430 /* Made_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E4A252F9E120093E430 /* Made_AppUITests.swift */; };
-		7C0B7C33254B444F005456C7 /* Alpha2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C0B7C32254B444E005456C7 /* Alpha2.storyboard */; };
+		7C0B7C33254B444F005456C7 /* Alpha.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C0B7C32254B444E005456C7 /* Alpha.storyboard */; };
 		7C0B7C40254B4BA2005456C7 /* UserProfileLayoutCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0B7C3F254B4BA1005456C7 /* UserProfileLayoutCollectionViewController.swift */; };
 		7C58D711255274A90032A736 /* MadeImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58D710255274A90032A736 /* MadeImageCell.swift */; };
 		7C58D719255290AF0032A736 /* SavedProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58D718255290AF0032A736 /* SavedProjectsViewController.swift */; };
@@ -78,7 +78,7 @@
 		3587928B25415CC600AEC5EB /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3587928C25415CC700AEC5EB /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 		3587928D25415CC700AEC5EB /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
-		35BA57822555E4210058127E /* Alpha.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Alpha.storyboard; sourceTree = "<group>"; };
+		35BA57822555E4210058127E /* Chineye.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chineye.storyboard; sourceTree = "<group>"; };
 		35BA57C12555F7ED0058127E /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		35BA57E925560F060058127E /* ReviewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewController.swift; sourceTree = "<group>"; };
 		35EC4E25252F9E100093E430 /* Made-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Made-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,7 +98,7 @@
 		48F330FA7FE13F51734B5464 /* Pods-Made-App-Made-AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Made-App-Made-AppUITests.debug.xcconfig"; path = "Target Support Files/Pods-Made-App-Made-AppUITests/Pods-Made-App-Made-AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5901EC98CC680F0713FA4D1E /* Pods-Made-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Made-App.release.xcconfig"; path = "Target Support Files/Pods-Made-App/Pods-Made-App.release.xcconfig"; sourceTree = "<group>"; };
 		7078192C25852F1FC0F8BA2E /* Pods-Made-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Made-App.debug.xcconfig"; path = "Target Support Files/Pods-Made-App/Pods-Made-App.debug.xcconfig"; sourceTree = "<group>"; };
-		7C0B7C32254B444E005456C7 /* Alpha2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Alpha2.storyboard; sourceTree = "<group>"; };
+		7C0B7C32254B444E005456C7 /* Alpha.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Alpha.storyboard; sourceTree = "<group>"; };
 		7C0B7C3F254B4BA1005456C7 /* UserProfileLayoutCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileLayoutCollectionViewController.swift; sourceTree = "<group>"; };
 		7C58D710255274A90032A736 /* MadeImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadeImageCell.swift; sourceTree = "<group>"; };
 		7C58D718255290AF0032A736 /* SavedProjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedProjectsViewController.swift; sourceTree = "<group>"; };
@@ -147,11 +147,11 @@
 			isa = PBXGroup;
 			children = (
 				3580F16C25420D09006349CA /* Alpha1.storyboard */,
-				7C0B7C32254B444E005456C7 /* Alpha2.storyboard */,
+				7C0B7C32254B444E005456C7 /* Alpha.storyboard */,
 				3580F273254274FE006349CA /* MeganMain.storyboard */,
 				3580F12C25420AE7006349CA /* Ira.storyboard */,
 				3580F13125420AF3006349CA /* Marissa.storyboard */,
-				35BA57822555E4210058127E /* Alpha.storyboard */,
+				35BA57822555E4210058127E /* Chineye.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -413,10 +413,10 @@
 			files = (
 				35EC4E35252F9E120093E430 /* LaunchScreen.storyboard in Resources */,
 				3580F13225420AF3006349CA /* Marissa.storyboard in Resources */,
-				35BA57832555E4210058127E /* Alpha.storyboard in Resources */,
+				35BA57832555E4210058127E /* Chineye.storyboard in Resources */,
 				3587929025415CC700AEC5EB /* FeedTableViewCell.xib in Resources */,
 				3580F12D25420AE8006349CA /* Ira.storyboard in Resources */,
-				7C0B7C33254B444F005456C7 /* Alpha2.storyboard in Resources */,
+				7C0B7C33254B444F005456C7 /* Alpha.storyboard in Resources */,
 				7CC95FC82536DBA2005B0304 /* GoogleService-Info.plist in Resources */,
 				35EC4E32252F9E120093E430 /* Assets.xcassets in Resources */,
 				3580F16D25420D09006349CA /* Alpha1.storyboard in Resources */,
