@@ -7,12 +7,16 @@
 
 import UIKit
 import AVFoundation
+import Firebase
 
 class ProfilePicViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet var imageView: UIImageView!
     let picker = UIImagePickerController()
     var delegate: UIViewController!
+    var ref: DatabaseReference!
+    let storage = Storage.storage()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
@@ -67,18 +71,54 @@ class ProfilePicViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+//
+//        let chosenImage = info[.originalImage] as! UIImage
+//        imageView.contentMode = .scaleAspectFit
+//
+//        // put the picture into the image view
+//        imageView.image = chosenImage
         
-        let chosenImage = info[.originalImage] as! UIImage
-        imageView.contentMode = .scaleAspectFit
+        let storageRef = storage.reference()
         
-        // put the picture into the image view
-        imageView.image = chosenImage
-        dismiss(animated: true, completion: nil)
+        let imageURL = info[UIImagePickerController.InfoKey.imageURL] as! NSURL
+        let imageName = imageURL.lastPathComponent ?? "image"
+
+        // Create a reference to the file you want to upload
+        let imageRef = storageRef.child("images/\(imageName)")
+        var databasePath = ""
+
+        // Upload the file to the path "images/\(imageName)"
+        _ = imageRef.putFile(from: imageURL as URL, metadata: nil) { metadata, error in
+            guard metadata != nil else {
+                // Uh-oh, an error occurred!
+                print("photo did not save")
+                return
+          }
+            print("photo saved")
+            // You can also access to download URL after upload.
+            imageRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    // Uh-oh, an error occurred!
+                    print("could not get URL: \(String(describing: error))")
+                    return
+                }
+                databasePath = downloadURL.absoluteString
+            }
+        }
+        
+        ref = Database.database().reference()
+        let id = uniqueID.split(separator: ".") // this is their email, but '.' are not allowed in the path
+        self.ref.child("users/\(id[0])/profilePicture/").setValue(databasePath)
+        
+        picker.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func saveButtonPressed(_ sender: Any) {
-        let otherVC = delegate as! ProfilePicChanger
-        otherVC.changeProfilePic(newImage: imageView.image!)
+        if imageView != nil {
+            let otherVC = delegate as! ProfilePicChanger
+            otherVC.changeProfilePic(newImage: imageView.image!)
+        }
+        
     }
     /*
     // MARK: - Navigation

@@ -39,6 +39,8 @@
 		7C58D7C825561F0F0032A736 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58D7C725561F0E0032A736 /* User+CoreDataClass.swift */; };
 		7C58D7D825561F6E0032A736 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58D7D725561F6E0032A736 /* User+CoreDataProperties.swift */; };
 		7C58D7EC25562CA10032A736 /* ProfilePicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58D7EB25562CA00032A736 /* ProfilePicViewController.swift */; };
+		7C58D7F125562FA20032A736 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58D7F025562FA10032A736 /* ExploreViewController.swift */; };
+		7C58D7F9255630CF0032A736 /* ExploreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58D7F8255630CF0032A736 /* ExploreTableViewCell.swift */; };
 		7CC95FC82536DBA2005B0304 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7CC95FC72536DBA2005B0304 /* GoogleService-Info.plist */; };
 		7CC960362536FA8E005B0304 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC960352536FA8E005B0304 /* LoginViewController.swift */; };
 		7CC960622538E2CE005B0304 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC960612538E2CE005B0304 /* RegistrationViewController.swift */; };
@@ -111,6 +113,8 @@
 		7C58D7C725561F0E0032A736 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7C58D7D725561F6E0032A736 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7C58D7EB25562CA00032A736 /* ProfilePicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePicViewController.swift; sourceTree = "<group>"; };
+		7C58D7F025562FA10032A736 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		7C58D7F8255630CF0032A736 /* ExploreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTableViewCell.swift; sourceTree = "<group>"; };
 		7CC95FC72536DBA2005B0304 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7CC960312536FA3E005B0304 /* Made-App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Made-App.entitlements"; sourceTree = "<group>"; };
 		7CC960352536FA8E005B0304 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +190,8 @@
 				7C0B7C3F254B4BA1005456C7 /* UserProfileLayoutCollectionViewController.swift */,
 				3580F28B2542758A006349CA /* FeedView */,
 				3587928825415CC600AEC5EB /* MadeFeedViewController.swift */,
+				7C58D7F025562FA10032A736 /* ExploreViewController.swift */,
+				7C58D7F8255630CF0032A736 /* ExploreTableViewCell.swift */,
 				3587928B25415CC600AEC5EB /* SettingsViewController.swift */,
 				3587926C254148DE00AEC5EB /* SinglePostViewController.swift */,
 				35879264254148BC00AEC5EB /* CommentPageViewController.swift */,
@@ -560,7 +566,9 @@
 				35879268254148BC00AEC5EB /* CommentPageViewController.swift in Sources */,
 				7C58D7C825561F0F0032A736 /* User+CoreDataClass.swift in Sources */,
 				7CC960D425400C75005B0304 /* made.xcdatamodeld in Sources */,
+				7C58D7F125562FA20032A736 /* ExploreViewController.swift in Sources */,
 				7C58D7212554C7930032A736 /* Project.swift in Sources */,
+				7C58D7F9255630CF0032A736 /* ExploreTableViewCell.swift in Sources */,
 				7CC960362536FA8E005B0304 /* LoginViewController.swift in Sources */,
 				3587929125415CC700AEC5EB /* FeedViewController.swift in Sources */,
 				7CC960D925401649005B0304 /* UserProfileViewController.swift in Sources */,

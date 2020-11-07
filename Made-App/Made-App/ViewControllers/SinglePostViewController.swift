@@ -65,7 +65,7 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
         posterUsername.text = postName
         postImage.image = postPhoto
         postImage.backgroundColor = UIColor.systemPink
-        let placeholderImage = UIImage(named: "image1")
+        let placeholderImage = UIImage(named: "image1") // make to a loading photo placeholder
         postImage.sd_setImage(with: URL(string: photoURL), placeholderImage: placeholderImage)
         numLikes.text = "10" // singlePost.numLikes -- we didn't talk about keeping likes, maybe number of times saved?
         dateOfPost.text = String(singlePost.creationDate)

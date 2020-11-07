@@ -26,6 +26,7 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
     var newProject: Project?
     var screenName: String = ""
     @IBOutlet weak var photoLabel: UIButton!
+    var categorySelected: String = "Miscelleous"
     
     var ref: DatabaseReference!
     let storage = Storage.storage()
@@ -45,7 +46,7 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         var message = ""
         let stringTitle = projectTitle.text ?? ""
         let title = NSString(string: projectTitle.text ?? "")
-        let category = NSString(string: projectCategory.text ?? "")
+        let category = NSString(string: self.categorySelected)
         let description = NSString(string: projectDescription.text ?? "")
         let instructions = NSString(string: projectInstructions.text ?? "")
         let timeUnit = NSString(string: projectUnit.text ?? "")
@@ -134,6 +135,79 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         }
     }
     
+    @IBAction func categoryTextBoxChanged(_ sender: Any) {
+        let alert = UIAlertController(title: "Category",
+                                           message: "Choose a category",
+                                           preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Food",
+                                           style: .default,
+                                           handler: {
+                                            (action) in self.categorySelected = action.title!
+                                           }))
+        
+        alert.addAction(UIAlertAction(title: "Lifestyle",
+                                           style: .default,
+                                           handler: {
+                                            (action) in self.categorySelected = action.title!
+                                           }))
+        
+        alert.addAction(UIAlertAction(title: "Art",
+                                           style: .default,
+                                           handler: {
+                                            (action) in self.categorySelected = action.title!
+                                           }))
+        
+        alert.addAction(UIAlertAction(title: "Clothing",
+                                           style: .default,
+                                           handler: {
+                                            (action) in self.categorySelected = action.title!
+                                           }))
+        
+        alert.addAction(UIAlertAction(title: "Accessories",
+                                           style: .default,
+                                           handler: {
+                                            (action) in self.categorySelected = action.title!
+                                           }))
+        
+        alert.addAction(UIAlertAction(title: "Kids",
+                                           style: .default,
+                                           handler: {
+                                            (action) in self.categorySelected = action.title!
+                                           }))
+        
+        alert.addAction(UIAlertAction(title: "Science",
+                                           style: .default,
+                                           handler: {
+                                            (action) in self.categorySelected = action.title!
+                                           }))
+        
+        alert.addAction(UIAlertAction(title: "Pets",
+                                           style: .default,
+                                           handler: {
+                                            (action) in self.categorySelected = action.title!
+                                           }))
+        
+        alert.addAction(UIAlertAction(title: "Plants",
+                                           style: .default,
+                                           handler: {
+                                            (action) in self.categorySelected = action.title!
+                                           }))
+        
+        alert.addAction(UIAlertAction(title: "Miscelleous",
+                                           style: .default,
+                                           handler: {
+                                            (action) in self.categorySelected = action.title!
+                                           }))
+        
+        present(alert, animated: true, completion: nil)
+        // figure out how not to click twice to see item !
+//        print(self.categorySelected)
+//        DispatchQueue.main.async {
+//            self.projectCategory.text = self.categorySelected
+//            print(self.projectCategory.text)
+//        }
+    }
     
     @IBAction func attachPhotos(_ sender: Any) {
         // to get access to the photos
@@ -156,12 +230,11 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         
         let imageURL = info[UIImagePickerController.InfoKey.imageURL] as! NSURL
         let imageName = imageURL.lastPathComponent ?? "image"
-        // self.projectImage = NSString(string: imageName)
 
         // Create a reference to the file you want to upload
         let imageRef = storageRef.child("images/\(imageName)")
 
-        // Upload the file to the path "images/(imageName).jpg"
+        // Upload the file to the path "images/\(imageName)"
         let uploadTask = imageRef.putFile(from: imageURL as URL, metadata: nil) { metadata, error in
             guard let metadata = metadata else {
                 // Uh-oh, an error occurred!

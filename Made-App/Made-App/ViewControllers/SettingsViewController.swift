@@ -22,10 +22,14 @@ class SettingsViewController: UIViewController, SaveProfilePic {
     @IBOutlet weak var bioLabel: UILabel!
     @IBOutlet weak var notificationLabel: UILabel!
     
+    var ref: DatabaseReference!
+    let storage = Storage.storage()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         loadData()
@@ -63,6 +67,26 @@ class SettingsViewController: UIViewController, SaveProfilePic {
         } else {
             notificationLabel.text = "Off"
         }
+        
+        print("in load data")
+        
+        // get user info from database, get link to profile picture
+        // see if link exists, if so display
+//        ref = Database.database().reference()
+//        let id = uniqueID.split(separator: ".")
+//        ref.child("users").child(String(id[0])).observeSingleEvent(of: .value, with: { (snapshot) in
+//              // Get user value
+//            print("getting user value ... ")
+//              let value = snapshot.value as? NSDictionary
+//            print(value)
+////              let id = uniqueID.split(separator: ".")
+////              let username = value?[id] as? String ?? ""
+////                print(username)
+//
+//              // ...
+//          }) { (error) in
+//            print(error.localizedDescription)
+//        }
     }
     
     
