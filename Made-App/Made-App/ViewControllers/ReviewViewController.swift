@@ -22,7 +22,7 @@ class ReviewViewController: UIViewController {
     var postID = ""
     var postPhotoURL = ""
     var ref: DatabaseReference!
-    var postTitle = "z"
+    var postTitle = ""
     
     @IBOutlet weak var ratingSlider: UISlider!
     
@@ -46,17 +46,11 @@ class ReviewViewController: UIViewController {
         
     }
     
-    @IBAction func submitButtonPressed(_ sender: Any)
-    {
-        let projTitle = postTitle
-        
-        print(projTitle)
-        
+    @IBAction func submitButtonPressed(_ sender: Any) {
         ref = Database.database().reference()
         let id = uniqueID.split(separator: ".")
-               // todo chnage post title to post idm, to prevent duplicates
-        let snapshotReviewList = self.ref.child("users/\(id[0])/projects/cc’d /reviews")
-        //let snapshotProject =
+        // todo chnage post title to post idm, to prevent duplicates
+        let snapshotReviewList = self.ref.child("users/\(id[0])/projects/\(self.postTitle)/reviews")
     
         ref.observe(.value, with: {
             (snapshot: DataSnapshot!) in
@@ -66,10 +60,7 @@ class ReviewViewController: UIViewController {
             //counting num children
         })
         
-        
-        
-        if (reviewTextView.hasText)
-        {
+        if (reviewTextView.hasText) {
             let now = Date()
             let formatter = DateFormatter()
             formatter.dateStyle = .medium
@@ -86,11 +77,10 @@ class ReviewViewController: UIViewController {
             snapshotReviewList.childByAutoId().setValue(reviewTextView.text)
             
         } else {
-            
             // create the alert
-            let alert = UIAlertController(title: "Please leave text!", message: "Please enter test for your review", preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title: "Empty Review!", message: "Please enter feedback for your review", preferredStyle: UIAlertController.Style.alert)
 
-                    // add an action (button)
+            // add an action (button)
             alert.addAction(UIAlertAction(title: "Retry", style: UIAlertAction.Style.default, handler: nil))
 
             self.present(alert, animated: true, completion: nil)

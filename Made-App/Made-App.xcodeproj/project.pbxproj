@@ -12,8 +12,6 @@
 		3580F13225420AF3006349CA /* Marissa.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3580F13125420AF3006349CA /* Marissa.storyboard */; };
 		3580F16D25420D09006349CA /* Alpha1.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3580F16C25420D09006349CA /* Alpha1.storyboard */; };
 		35879265254148BC00AEC5EB /* PostFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35879261254148BC00AEC5EB /* PostFormViewController.swift */; };
-		35879267254148BC00AEC5EB /* CommentReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35879263254148BC00AEC5EB /* CommentReviewTableViewController.swift */; };
-		35879268254148BC00AEC5EB /* CommentPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35879264254148BC00AEC5EB /* CommentPageViewController.swift */; };
 		3587926D254148DE00AEC5EB /* SinglePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3587926C254148DE00AEC5EB /* SinglePostViewController.swift */; };
 		3587928E25415CC700AEC5EB /* EditSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3587928725415CC600AEC5EB /* EditSettingsViewController.swift */; };
 		3587928F25415CC700AEC5EB /* MadeFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3587928825415CC600AEC5EB /* MadeFeedViewController.swift */; };
@@ -41,6 +39,7 @@
 		7C58D7EC25562CA10032A736 /* ProfilePicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58D7EB25562CA00032A736 /* ProfilePicViewController.swift */; };
 		7C58D7F125562FA20032A736 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58D7F025562FA10032A736 /* ExploreViewController.swift */; };
 		7C58D7F9255630CF0032A736 /* ExploreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58D7F8255630CF0032A736 /* ExploreTableViewCell.swift */; };
+		7C58D80D25565F640032A736 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58D80C25565F630032A736 /* ReviewViewController.swift */; };
 		7CC95FC82536DBA2005B0304 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7CC95FC72536DBA2005B0304 /* GoogleService-Info.plist */; };
 		7CC960362536FA8E005B0304 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC960352536FA8E005B0304 /* LoginViewController.swift */; };
 		7CC960622538E2CE005B0304 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC960612538E2CE005B0304 /* RegistrationViewController.swift */; };
@@ -76,8 +75,6 @@
 		3580F13125420AF3006349CA /* Marissa.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Marissa.storyboard; sourceTree = "<group>"; };
 		3580F16C25420D09006349CA /* Alpha1.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Alpha1.storyboard; sourceTree = "<group>"; };
 		35879261254148BC00AEC5EB /* PostFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostFormViewController.swift; sourceTree = "<group>"; };
-		35879263254148BC00AEC5EB /* CommentReviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentReviewTableViewController.swift; sourceTree = "<group>"; };
-		35879264254148BC00AEC5EB /* CommentPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentPageViewController.swift; sourceTree = "<group>"; };
 		3587926C254148DE00AEC5EB /* SinglePostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePostViewController.swift; sourceTree = "<group>"; };
 		3587928725415CC600AEC5EB /* EditSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditSettingsViewController.swift; sourceTree = "<group>"; };
 		3587928825415CC600AEC5EB /* MadeFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MadeFeedViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +112,7 @@
 		7C58D7EB25562CA00032A736 /* ProfilePicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePicViewController.swift; sourceTree = "<group>"; };
 		7C58D7F025562FA10032A736 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		7C58D7F8255630CF0032A736 /* ExploreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTableViewCell.swift; sourceTree = "<group>"; };
+		7C58D80C25565F630032A736 /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		7CC95FC72536DBA2005B0304 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7CC960312536FA3E005B0304 /* Made-App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Made-App.entitlements"; sourceTree = "<group>"; };
 		7CC960352536FA8E005B0304 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -194,10 +192,9 @@
 				7C58D7F8255630CF0032A736 /* ExploreTableViewCell.swift */,
 				3587928B25415CC600AEC5EB /* SettingsViewController.swift */,
 				3587926C254148DE00AEC5EB /* SinglePostViewController.swift */,
-				35879264254148BC00AEC5EB /* CommentPageViewController.swift */,
-				35879263254148BC00AEC5EB /* CommentReviewTableViewController.swift */,
 				35879261254148BC00AEC5EB /* PostFormViewController.swift */,
 				7C58D7EB25562CA00032A736 /* ProfilePicViewController.swift */,
+				7C58D80C25565F630032A736 /* ReviewViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -558,12 +555,12 @@
 			files = (
 				7C58D7EC25562CA10032A736 /* ProfilePicViewController.swift in Sources */,
 				3587928F25415CC700AEC5EB /* MadeFeedViewController.swift in Sources */,
+				7C58D80D25565F640032A736 /* ReviewViewController.swift in Sources */,
 				3587926D254148DE00AEC5EB /* SinglePostViewController.swift in Sources */,
 				7C58D7D825561F6E0032A736 /* User+CoreDataProperties.swift in Sources */,
 				3587929425415CC700AEC5EB /* FeedTableViewCell.swift in Sources */,
 				35879265254148BC00AEC5EB /* PostFormViewController.swift in Sources */,
 				3587929325415CC700AEC5EB /* ImageTableViewCell.swift in Sources */,
-				35879268254148BC00AEC5EB /* CommentPageViewController.swift in Sources */,
 				7C58D7C825561F0F0032A736 /* User+CoreDataClass.swift in Sources */,
 				7CC960D425400C75005B0304 /* made.xcdatamodeld in Sources */,
 				7C58D7F125562FA20032A736 /* ExploreViewController.swift in Sources */,
@@ -577,7 +574,6 @@
 				35EC4E29252F9E100093E430 /* AppDelegate.swift in Sources */,
 				3587929225415CC700AEC5EB /* SettingsViewController.swift in Sources */,
 				7C58D719255290AF0032A736 /* SavedProjectsViewController.swift in Sources */,
-				35879267254148BC00AEC5EB /* CommentReviewTableViewController.swift in Sources */,
 				7C58D72D2554D5860032A736 /* Review.swift in Sources */,
 				35EC4E2B252F9E100093E430 /* SceneDelegate.swift in Sources */,
 				3587928E25415CC700AEC5EB /* EditSettingsViewController.swift in Sources */,

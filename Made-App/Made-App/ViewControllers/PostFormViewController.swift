@@ -39,7 +39,6 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
     
     @IBAction func cancelPost(_ sender: Any) {
         print("Post cancelled")
-        // TODO: segue back to feed
     }
     
     @IBAction func createPost(_ sender: Any) {
@@ -278,7 +277,6 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
             nextVC.postName = self.screenName
             nextVC.photoURL = self.projectImage
             nextVC.firebasePostID = self.projectFirebaseID
-            
             
             
             // leaving this comment in case we need another way to get the image

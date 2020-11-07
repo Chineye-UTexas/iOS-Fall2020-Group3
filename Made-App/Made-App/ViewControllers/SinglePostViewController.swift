@@ -49,7 +49,6 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        
         // the data from the Project object we sent
         reviews = singlePost.reviews
         postTitle.text = String(singlePost.title)
@@ -57,14 +56,17 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
         posterUsername.text = postName
         postImage.image = postPhoto
         postImage.backgroundColor = UIColor.systemPink
-        let placeholderImage = UIImage(named: "image1") // make to a loading photo placeholder
+        let placeholderImage = postPhoto
+        // make to a loading photo placeholder
+        if photoURL != nil && !photoURL.isEmpty {
         postImage.sd_setImage(with: URL(string: photoURL), placeholderImage: placeholderImage)
+        }
         numLikes.text = "10" // singlePost.numLikes -- we didn't talk about keeping likes, maybe number of times saved?
         dateOfPost.text = String(singlePost.creationDate)
         
         ref = Database.database().reference()
         let id = uniqueID.split(separator: ".")
-        self.ref.child("users/\(id[0])/projects/cc’d /reviews")
+        self.ref.child("users/\(id[0])/projects/\(String(describing: titleOfPost))/reviews")
             .observeSingleEvent(of: .value, with: { (snapshot) in
                 
                 for child in snapshot.children {
@@ -74,12 +76,9 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
                         print("key = \(key)  value = \(value!)")
                     self.reviewCommentaryList.append(value as! NSMutableString)
                     }
-            }
-            )
-        
+            })
         reviewTableView.reloadData()
-                
-            }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -132,7 +131,7 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
            let nextVC = segue.destination as? ReviewViewController {
             
             nextVC.postID = firebasePostID
-            nextVC.postPhotoURL = photoURL
+            nextVC.postPhotoURL = "https://firebasestorage.googleapis.com/v0/b/made-ios.appspot.com/o/images%2FC70801A6-8E87-4D4D-AED2-C881F4065437.jpeg?alt=media&token=daa27db3-ac81-473d-9fd3-d577651bf315" //photoURL
             nextVC.postTitle = postTitle.text!
         }
         
