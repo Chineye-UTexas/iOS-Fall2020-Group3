@@ -25,6 +25,7 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
     var difficulty: NSString = NSString()
     var newProject: Project?
     var screenName: String = ""
+    var projectFirebaseID = ""
     @IBOutlet weak var photoLabel: UIButton!
     var categorySelected: String = "Miscelleous"
     
@@ -53,7 +54,7 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         let time = NSString(string: projectValue.text ?? "")
         // let nameOfPoster = self.nameOfPoster
         let images: NSArray = [self.projectImage]
-        let reviews: NSArray = []
+        let reviews: NSArray = ["this is an example"]
         
         let now = Date()
         let formatter = DateFormatter()
@@ -96,10 +97,12 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
             self.present(alert, animated: true, completion: nil)
             return
         }
+        
         print("validated the input")
         // if we make it here , all data is good and needs to be saved to database
         ref = Database.database().reference()
         let id = uniqueID.split(separator: ".") // this is their email, but '.' are not allowed in the path
+        var projectFirebaseID = self.ref.child("users/\(id[0])/projects/").key
         
         self.ref.child("users/\(id[0])/projects/\(stringTitle)/description").setValue(description)
 
@@ -274,6 +277,9 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
             nextVC.caption = self.projectDescription.text
             nextVC.postName = self.screenName
             nextVC.photoURL = self.projectImage
+            nextVC.firebasePostID = self.projectFirebaseID
+            
+            
             
             // leaving this comment in case we need another way to get the image
 //            // get picture, if one was just uploaded, from firebase storage

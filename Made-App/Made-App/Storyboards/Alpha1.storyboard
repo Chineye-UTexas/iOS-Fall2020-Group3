@@ -707,7 +707,7 @@
             <objects>
                 <viewController id="WSk-LP-7Jt" customClass="SettingsViewController" customModule="Made_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NJB-a7-OKD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1na-BS-CJv">
@@ -800,7 +800,7 @@
                     <navigationItem key="navigationItem" title="Settings" id="fkw-HY-uC5">
                         <barButtonItem key="rightBarButtonItem" title="Edit" style="plain" id="ulF-BC-Jfu">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="AGJ-3d-7in">
-                                <rect key="frame" x="302" y="13" width="92" height="30"/>
+                                <rect key="frame" x="302" y="7" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Edit"/>
                                 <connections>
@@ -826,7 +826,7 @@
             <objects>
                 <viewController id="ATn-aN-x2H" customClass="EditSettingsViewController" customModule="Made_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9BN-3r-kgH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYl-sM-hhC">
@@ -953,6 +953,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="SGc-6I-77q"/>
         <segue reference="23S-36-puX"/>
         <segue reference="F4D-EI-iAW"/>
     </inferredMetricsTieBreakers>
