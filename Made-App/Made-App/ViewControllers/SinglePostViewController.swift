@@ -28,6 +28,7 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
     // sent from PostFormVC
     var singlePost = Project()
     var reviewList = [Review] ()
+    var reviewCommentaryList = [NSMutableString] ()
     var firebasePostID = ""
     
     var postPhoto = UIImage()
@@ -39,7 +40,8 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
     var likes: String!
     var caption: String!
     var comments: UITableView!
-    
+    var ref: DatabaseReference!
+
     var delegate: UIViewController!
 
     @IBOutlet weak var reviewTableView: UITableView!
@@ -59,11 +61,28 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
         postImage.sd_setImage(with: URL(string: photoURL), placeholderImage: placeholderImage)
         numLikes.text = "10" // singlePost.numLikes -- we didn't talk about keeping likes, maybe number of times saved?
         dateOfPost.text = String(singlePost.creationDate)
-    }
+        
+        ref = Database.database().reference()
+        let id = uniqueID.split(separator: ".")
+        self.ref.child("users/\(id[0])/projects/cc’d /reviews")
+            .observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                for child in snapshot.children {
+                        let snap = child as! DataSnapshot
+                        let key = snap.key
+                        let value = snap.value
+                        print("key = \(key)  value = \(value!)")
+                    self.reviewCommentaryList.append(value as! NSMutableString)
+                    }
+            }
+            )
+        
+        reviewTableView.reloadData()
+                
+            }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        reviewTableView.reloadData()
         
         reviewTableView.delegate = self
         reviewTableView.dataSource = self
@@ -76,7 +95,7 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
      Table View Functions
      */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        reviewList.count
+        reviewCommentaryList.count
     }
     
     
@@ -86,7 +105,9 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewTextCell", for: indexPath as IndexPath)
         let row = indexPath.row
         cell.textLabel?.numberOfLines = 6
-        cell.textLabel?.text = String(reviewList[row].commentary)
+        
+        // todo chnage to review objects
+        cell.textLabel?.text = String(reviewCommentaryList[row])
         
         return cell
     }
