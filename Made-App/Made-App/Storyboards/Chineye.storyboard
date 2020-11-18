@@ -473,7 +473,7 @@
             <objects>
                 <viewController id="dVK-s5-QGS" customClass="PostFormViewController" customModule="Made_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZP1-sv-biQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Upload a project!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dj4-4w-xvp">
@@ -581,8 +581,8 @@
                                     <action selector="categoryTextBoxChanged:" destination="dVK-s5-QGS" eventType="touchUpInside" id="xXY-2h-tQV"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9S-Dc-sWk">
-                                <rect key="frame" x="162" y="257" width="202" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9S-Dc-sWk">
+                                <rect key="frame" x="203" y="257" width="161" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -601,7 +601,7 @@
                                 </state>
                                 <connections>
                                     <action selector="displayPopupInstructionField:" destination="dVK-s5-QGS" eventType="touchUpInside" id="NNz-6z-oo6"/>
-                                    <segue destination="gLE-yP-SgW" kind="show" id="ns4-PO-U9M"/>
+                                    <segue destination="gLE-yP-SgW" kind="show" identifier="uploadToInstructionSegue" id="OdB-LU-2Rn"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -609,7 +609,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Upload" image="plus.square.fill.on.square.fill" catalog="system" id="1rt-oW-fXl"/>
+                    <navigationItem key="navigationItem" id="ecr-0z-gyc"/>
                     <connections>
+                        <outlet property="chosenCategoryLabel" destination="F9S-Dc-sWk" id="f02-N5-iuh"/>
                         <outlet property="instructionsButton" destination="FsT-u2-5M7" id="HDR-kK-x7q"/>
                         <outlet property="photoLabel" destination="0rs-Jd-4Me" id="slz-26-tpI"/>
                         <outlet property="projectDescription" destination="IXv-tO-fRT" id="Fqk-mR-dU4"/>
@@ -655,7 +657,6 @@
                                 <connections>
                                     <action selector="saveButton:" destination="Avr-tT-GtY" eventType="touchUpInside" id="xfw-sP-MkS"/>
                                     <action selector="saveButtonAction:" destination="gLE-yP-SgW" eventType="touchUpInside" id="5kW-dk-T9h"/>
-                                    <segue destination="dVK-s5-QGS" kind="presentation" identifier="instructionToUploadSegue" id="QnF-AE-e77"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -671,7 +672,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ef6-rp-Ap7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Avr-tT-GtY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5569.5652173913049" y="621.42857142857144"/>
+            <point key="canvasLocation" x="6014" y="606"/>
         </scene>
         <!--made-->
         <scene sceneID="oBc-a1-X25">
@@ -1161,7 +1162,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qxh-Xs-bWM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6297" y="442"/>
+            <point key="canvasLocation" x="7205.7971014492759" y="441.96428571428572"/>
         </scene>
         <!--Review View Controller-->
         <scene sceneID="pPS-hb-WI9">
@@ -1215,13 +1216,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ovf-28-BJs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7233" y="457"/>
+            <point key="canvasLocation" x="8142.0289855072469" y="456.69642857142856"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="fhr-Ti-cgs"/>
         <segue reference="JDk-8E-Vz2"/>
-        <segue reference="QnF-AE-e77"/>
         <segue reference="a80-eb-az4"/>
     </inferredMetricsTieBreakers>
     <resources>

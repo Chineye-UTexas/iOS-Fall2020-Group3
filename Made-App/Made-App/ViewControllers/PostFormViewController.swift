@@ -14,7 +14,11 @@ import AYPopupPickerView
 let value: [Int] = Array(1...100)
 let units = ["Minutes", "Hours", "Days", "Weeks", "Months", "Years"]
 
-class PostFormViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+protocol InstructionUpdate {
+    func onSaveInstructions(type: String)
+}
+
+class PostFormViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, InstructionUpdate {
     
 
 
@@ -26,11 +30,11 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var instructionsButton: UIButton!
     
     @IBOutlet weak var projectTitle: UITextField!
-    @IBOutlet weak var projectCategory: UITextField!
     @IBOutlet weak var projectDescription: UITextField!
-    @IBOutlet weak var projectInstructions: UITextField!
     var projectValue: String = ""
     var projectUnit: String = ""
+    var projectInstructions = ""
+    
     @IBOutlet weak var projectDifficulty: UISegmentedControl!
     @IBOutlet weak var photoLabel: UIButton!
 
@@ -47,6 +51,8 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
+        print("here" + self.projectInstructions)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +60,9 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         
         self.projectDuration.layer.cornerRadius = 5
         self.instructionsButton.layer.cornerRadius = 5
+        
+        print("here" + self.projectInstructions)
+        
     }
 
     
@@ -95,7 +104,7 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         let title = NSString(string: projectTitle.text ?? "")
         let category = NSString(string: self.categorySelected)
         let description = NSString(string: projectDescription.text ?? "")
-        let instructions = NSString(string: projectInstructions.text ?? "")
+        let instructions = NSString(string: projectInstructions)
         let timeUnit = NSString(string: projectUnit )
         let time = NSString(string: projectValue )
         let difficulty = self.difficulty
@@ -222,64 +231,74 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
                                            style: .default,
                                            handler: {
                                             (action) in self.categorySelected = action.title!
+                                            self.chosenCategoryLabel.text = action.title!
                                            }))
         
         alert.addAction(UIAlertAction(title: "Lifestyle",
                                            style: .default,
                                            handler: {
                                             (action) in self.categorySelected = action.title!
+                                            self.chosenCategoryLabel.text = action.title!
                                            }))
         
         alert.addAction(UIAlertAction(title: "Art",
                                            style: .default,
                                            handler: {
                                             (action) in self.categorySelected = action.title!
+                                            self.chosenCategoryLabel.text = action.title!
                                            }))
         
         alert.addAction(UIAlertAction(title: "Clothing",
                                            style: .default,
                                            handler: {
                                             (action) in self.categorySelected = action.title!
+                                            self.chosenCategoryLabel.text = action.title!
                                            }))
         
         alert.addAction(UIAlertAction(title: "Accessories",
                                            style: .default,
                                            handler: {
                                             (action) in self.categorySelected = action.title!
+                                            self.chosenCategoryLabel.text = action.title!
                                            }))
         
         alert.addAction(UIAlertAction(title: "Kids",
                                            style: .default,
                                            handler: {
                                             (action) in self.categorySelected = action.title!
+                                            self.chosenCategoryLabel.text = action.title!
                                            }))
         
         alert.addAction(UIAlertAction(title: "Science",
                                            style: .default,
                                            handler: {
                                             (action) in self.categorySelected = action.title!
+                                            self.chosenCategoryLabel.text = action.title!
                                            }))
         
         alert.addAction(UIAlertAction(title: "Pets",
                                            style: .default,
                                            handler: {
                                             (action) in self.categorySelected = action.title!
+                                            self.chosenCategoryLabel.text = action.title!
                                            }))
         
         alert.addAction(UIAlertAction(title: "Plants",
                                            style: .default,
                                            handler: {
                                             (action) in self.categorySelected = action.title!
+                                            self.chosenCategoryLabel.text = action.title!
                                            }))
         
         alert.addAction(UIAlertAction(title: "Miscelleous",
                                            style: .default,
                                            handler: {
                                             (action) in self.categorySelected = action.title!
+                                            self.chosenCategoryLabel.text = action.title!
                                            }))
         
         present(alert, animated: true, completion: nil)
-        chosenCategoryLabel.text = self.categorySelected
+        //chosenCategoryLabel.text = self.categorySelected
 
 
     }
@@ -361,8 +380,18 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
             nextVC.postName = self.screenName
             nextVC.photoURL = self.projectImage
             nextVC.firebasePostID = self.postAutoID
+            nextVC.projectInstructions = self.projectInstructions
             
+        } else if segue.identifier == "uploadToInstructionSegue",
+                  let nextVC = segue.destination as? UploadInstructionsViewController {
+            nextVC.delegate = self
         }
+    }
+    
+    func onSaveInstructions(type: String) {
+        
+        self.projectInstructions = type
+        print(self.projectInstructions)
     }
 }
 
