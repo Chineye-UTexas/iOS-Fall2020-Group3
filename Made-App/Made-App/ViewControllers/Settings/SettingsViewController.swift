@@ -104,15 +104,12 @@ class SettingsViewController: UIViewController, SaveProfilePic {
     
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
-        do
-        {
+        do {
             // TODO fix
             try Auth.auth().signOut() //TODO add error checks
             self.performSegue(withIdentifier: "logoutSegue", sender: nil)
             print(Auth.auth().currentUser?.displayName ?? "User" + " logged out")
-        }
-        catch let error as NSError
-        {
+        } catch let error as NSError {
             print(error.localizedDescription)
         }
     }

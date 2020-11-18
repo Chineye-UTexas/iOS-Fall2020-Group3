@@ -46,6 +46,7 @@ class FeedTableViewCell: UITableViewCell {
         self.usernameLabel.text = model.username as String
         ref = Database.database().reference()
         let id = model.username
+        print(id)
         var profilePictureName = ""
 
         self.ref.child("users/\(id)/profilePicture").observeSingleEvent(of: .value, with: {

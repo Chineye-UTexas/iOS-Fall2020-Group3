@@ -71,7 +71,7 @@ class UserProfileViewController: UIViewController, UICollectionViewDelegate, UIC
         super.viewDidAppear(animated)
         settingsReload()
         reloadProfilePicture()
-        collectionView.reloadData()
+        // collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

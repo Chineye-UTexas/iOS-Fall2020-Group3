@@ -40,14 +40,15 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: tableCellIdentifier, for: indexPath as IndexPath) as! ExploreTableViewCell
         let row = indexPath.row
         let category = filterCategories[row]
-        currCategory = category
+        //currCategory = category
         cell.categoryLabel?.text = category
         cell.categoryImage.image = UIImage(named: category)
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+    func getCategory() -> Int {
+        let indexPath = tableView.indexPathForSelectedRow
+        return indexPath!.row
     }
     
     // This method updates filteredData based on the text in the Search Box
@@ -72,6 +73,10 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        let row = getCategory()
+        currCategory = filterCategories[row]
+        print(currCategory)
+        print("in the prepare of EXPLORE VIEW")
         if segue.identifier == "exploreFeedSegue",
         let nextVC = segue.destination as? ExploreFeedViewController {
             nextVC.currCategory = currCategory

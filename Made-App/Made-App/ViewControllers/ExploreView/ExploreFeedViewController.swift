@@ -14,7 +14,6 @@ class ExploreFeedViewController: UIViewController, UITableViewDataSource, UITabl
     var ref = Database.database().reference()
     var models = [Project]()
     var currCategory = ""
-//    var categories = ["Food", "Lifestyle", "Art", "Clothing", "Accessories", "Kids", "Science", "Pets", "Plants"]
     override func viewDidLoad() {
         super.viewDidLoad()
         table.register(FeedTableViewCell.nib(), forCellReuseIdentifier: FeedTableViewCell.identifier)
@@ -36,13 +35,12 @@ class ExploreFeedViewController: UIViewController, UITableViewDataSource, UITabl
         
         ref = Database.database().reference()
         let id = uniqueID.split(separator: ".") // this is their email, but '.' are not allowed in the path
-        
+        print("in VIEW DID LOAD")
+        print(currCategory)
         let postPath = self.ref.child("posts")
             .observeSingleEvent(of: .value, with: { (snapshot) in
 
                 for child in snapshot.children {
-                    //var currPost:Project
-                    //var currPost = Project()
                         let snap = child as! DataSnapshot
                         let key = snap.key
                         let value = snap.value
@@ -63,8 +61,9 @@ class ExploreFeedViewController: UIViewController, UITableViewDataSource, UITabl
                             instructions = snapshot.childSnapshot(forPath: "\(key)/instructions").value as! NSString
                             print(instructions)
                             images = snapshot.childSnapshot(forPath: "\(key)/images").value as! NSArray
-                            //   timeValue = snapshot.childSnapshot(forPath: "\(key)/timeValue").value as! NSNumber
                             print(images)
+                            timeValue = snapshot.childSnapshot(forPath: "\(key)/time").value as! NSString
+                            username = snapshot.childSnapshot(forPath: "\(key)/user").value as! NSString
                             timeUnit = snapshot.childSnapshot(forPath: "\(key)/timeUnit").value as! NSString
                             print(timeUnit)
                             

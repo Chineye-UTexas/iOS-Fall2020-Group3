@@ -31,16 +31,7 @@ class MadeFeedViewController: UIViewController, UITableViewDataSource, UITableVi
         var creationDate = NSString()
         var username = NSString()
         var reviews: NSArray = []
-        
-//        //imageView.contentMode = UIViewContentModeScaleAspectFit;
-//        models.append(Project(title: "project", category: "Food", description: "fun", instructions: "poop", timeValue: 3, timeUnit: "m", difficulty: "medium", images: ["image2", "image1"], creationDate: "nov 30", reviews: ["ok"]))
-//        models.append(Project(title: "project", category: "Food", description: "fun", instructions: "poop", timeValue: 3, timeUnit: "m", difficulty: "medium", images: ["image2", "image1"], creationDate: "nov 30", reviews: ["ok"]))
-//        models.append(Project(title: "project", category: "Food", description: "fun", instructions: "poop", timeValue: 3, timeUnit: "m", difficulty: "medium", images: ["image2", "image1"], creationDate: "nov 30", reviews: ["ok"]))
 
-//        models.append(madePost(numLikes: 200, username: "@chineye", userProfilePicture: "profilePic2", postTitle: "image4", projectTitle: "Festive Celebration Cake", projectReview: "Fun and easy for beginners!"))
-//        models.append(madePost(numLikes: 200, username: "@mike", userProfilePicture: "profilePic2", postTitle: "image5", projectTitle: "Candles from Crayons", projectReview: "Fun and easy for beginners!"))
-//         Do any additional setup after loading the view.
-        
         // gather post data and append
         
         ref = Database.database().reference()
