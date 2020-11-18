@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "AYPopupPickerView",
+        "repositoryURL": "https://github.com/Aiur3908/AYPopupPickerView",
+        "state": {
+          "branch": "master",
+          "revision": "769f51361dea600f0c55752a9e1845299882b8e8",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -2,37 +2,93 @@ import UIKit
 import Firebase
 import CoreData
 import AVFoundation
+import AYPopupPickerView
 
-class PostFormViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+let value: [Int] = Array(1...100)
+let units = ["Minutes", "Hours", "Days", "Weeks", "Months", "Years"]
+
+protocol InstructionUpdate {
+    func onSaveInstructions(type: String)
+}
+
+class PostFormViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, InstructionUpdate {
     
-    var imagePicker : UIImagePickerController = UIImagePickerController()
 
+
+    var imagePicker : UIImagePickerController = UIImagePickerController()
+    
+    var durationPopUpPickerView = AYPopupPickerView()
+
+    @IBOutlet weak var projectDuration: UIButton!
+    @IBOutlet weak var instructionsButton: UIButton!
+    
     @IBOutlet weak var projectTitle: UITextField!
-    @IBOutlet weak var projectCategory: UITextField!
     @IBOutlet weak var projectDescription: UITextField!
-    @IBOutlet weak var projectInstructions: UITextField!
-    @IBOutlet weak var projectValue: UITextField!
-    @IBOutlet weak var projectUnit: UITextField!
-    var projectImage: String = ""
+    var projectValue: String = ""
+    var projectUnit: String = ""
+    var projectInstructions = ""
+    
     @IBOutlet weak var projectDifficulty: UISegmentedControl!
+    @IBOutlet weak var photoLabel: UIButton!
+
+    var projectImage: String = ""
     var difficulty: NSString = NSString()
     var newProject: Project?
     var screenName: String = ""
-    var projectFirebaseID = ""
-    @IBOutlet weak var photoLabel: UIButton!
-    // var categorySelected: String = "Miscelleous"
+    var categorySelected: String = "Miscelleous"
     
+    var postAutoID = ""
     var ref: DatabaseReference!
     let storage = Storage.storage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
+        print("here" + self.projectInstructions)
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.projectDuration.layer.cornerRadius = 5
+        self.instructionsButton.layer.cornerRadius = 5
+        
+        print("here" + self.projectInstructions)
+        
+    }
+
+    
+    @IBAction func displayProjectDuration(_ sender: Any) {
+        
+        durationPopUpPickerView.pickerView.dataSource = self
+        durationPopUpPickerView.pickerView.delegate = self
+        
+        durationPopUpPickerView.display(doneHandler: {
+            let component0 = self.durationPopUpPickerView.pickerView.selectedRow(inComponent: 0)
+           let component1 = self.durationPopUpPickerView.pickerView.selectedRow(inComponent: 1)
+            
+            
+
+            self.projectUnit = units[component1]
+            self.projectValue = String(Made_App.value[component0])
+            
+//            print("\(component0), \(component1)")
+//            print("\(self.projectValue)    &   \(self.projectUnit)")
+            
+           })
+    }
+    
+    @IBAction func displayPopupInstructionField(_ sender: Any) {
+        
+        
+        
     }
     
     @IBAction func cancelPost(_ sender: Any) {
         print("Post cancelled")
     }
+    
     
     @IBAction func createPost(_ sender: Any) {
         
@@ -41,11 +97,10 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         let title = NSString(string: projectTitle.text ?? "")
         let category = NSString(string: self.projectCategory.text ?? "")
         let description = NSString(string: projectDescription.text ?? "")
-        let instructions = NSString(string: projectInstructions.text ?? "")
-        let timeUnit = NSString(string: projectUnit.text ?? "")
-        let time = NSString(string: projectValue.text ?? "")
+        let instructions = NSString(string: projectInstructions)
+        let timeUnit = NSString(string: projectUnit )
+        let time = NSString(string: projectValue )
         let difficulty = self.difficulty
-        // let nameOfPoster = self.nameOfPoster
         let images: NSArray = [self.projectImage]
        // let reviews: [NSArray]
         let username = NSString(string: screenName)
@@ -92,13 +147,13 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
             return
         }
         
-        print("validated the input")
         // if we make it here , all data is good and needs to be saved to database
         ref = Database.database().reference()
 
         let id = uniqueID.split(separator: ".") // this is their email, but '.' are not allowed in the path
         
         let userPostPath = self.ref.child("user-posts/\(id[0])/")
+        
         
         /*
          Add post
@@ -115,6 +170,8 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         postAutoID.child("creationTime").setValue(datetime)
         
         guard let postAutoIDKey = postAutoID.key else { return }
+        self.postAutoID = postAutoIDKey
+        
         
         /*
          Add post entry to the masterlist of posts
@@ -132,31 +189,11 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         allPostsPath.child("images").setValue(images)
         allPostsPath.child("creationTime").setValue(datetime)
         
+        
         /*
          Create path for reviews
          */
         let postReviewPath: Void = self.ref.child("post-reviews/\(String(describing: postAutoIDKey))/").setValue("")
-        
-        
-//        var projectFirebaseID = self.ref.child("users/\(id[0])/projects/").key
-//
-//        self.ref.child("users/\(id[0])/projects/\(stringTitle)/description").setValue(description)
-//
-//        self.ref.child("users/\(id[0])/projects/\(stringTitle)/category").setValue(category)
-//
-//        self.ref.child("users/\(id[0])/projects/\(stringTitle)/instructions").setValue(instructions)
-//
-//        self.ref.child("users/\(id[0])/projects/\(stringTitle)/timeUnit").setValue(timeUnit)
-//
-//        self.ref.child("users/\(id[0])/projects/\(stringTitle)/time").setValue(time)
-//
-//        self.ref.child("users/\(id[0])/projects/\(stringTitle)/difficulty").setValue(self.difficulty)
-//
-//        self.ref.child("users/\(id[0])/projects/\(stringTitle)/images").setValue(images)
-//
-//        //self.ref.child("users/\(id[0])/projects/\(stringTitle)/reviews").setValue(reviews)
-//
-//        self.ref.child("users/\(id[0])/projects/\(stringTitle)/creationTime").setValue(datetime)
                 
     }
     
@@ -174,6 +211,12 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         }
     }
     
+    
+    
+    
+    
+    @IBOutlet weak var chosenCategoryLabel: UILabel!
+    
     @IBAction func categoryTextBoxChanged(_ sender: Any) {
         let alert = UIAlertController(title: "Category",
                                            message: "Choose a category",
@@ -182,72 +225,92 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         alert.addAction(UIAlertAction(title: "Food",
                                            style: .default,
                                            handler: {
-                                            (action) in self.projectCategory.text = action.title!
+                                            // (action) in self.projectCategory.text = action.title!
+                                            (action) in self.categorySelected = action.title!
+                                            self.chosenCategoryLabel.text = action.title!
                                            }))
         
         alert.addAction(UIAlertAction(title: "Lifestyle",
                                            style: .default,
                                            handler: {
-                                            (action) in self.projectCategory.text = action.title!
+                                            // (action) in self.projectCategory.text = action.title!
+                                            (action) in self.categorySelected = action.title!
+                                            self.chosenCategoryLabel.text = action.title!
                                            }))
         
         alert.addAction(UIAlertAction(title: "Art",
                                            style: .default,
                                            handler: {
-                                            (action) in self.projectCategory.text = action.title!
+                                            // (action) in self.projectCategory.text = action.title!
+                                            (action) in self.categorySelected = action.title!
+                                            self.chosenCategoryLabel.text = action.title!
                                            }))
         
         alert.addAction(UIAlertAction(title: "Clothing",
                                            style: .default,
                                            handler: {
-                                            (action) in self.projectCategory.text = action.title!
+                                            // (action) in self.projectCategory.text = action.title!
+                                            (action) in self.categorySelected = action.title!
+                                            self.chosenCategoryLabel.text = action.title!
                                            }))
         
         alert.addAction(UIAlertAction(title: "Accessories",
                                            style: .default,
                                            handler: {
-                                            (action) in self.projectCategory.text = action.title!
+                                            // (action) in self.projectCategory.text = action.title!
+                                            (action) in self.categorySelected = action.title!
+                                            self.chosenCategoryLabel.text = action.title!
                                            }))
         
         alert.addAction(UIAlertAction(title: "Kids",
                                            style: .default,
                                            handler: {
-                                            (action) in self.projectCategory.text = action.title!
+                                            // (action) in self.projectCategory.text = action.title!
+                                            (action) in self.categorySelected = action.title!
+                                            self.chosenCategoryLabel.text = action.title!
                                            }))
         
         alert.addAction(UIAlertAction(title: "Science",
                                            style: .default,
                                            handler: {
-                                            (action) in self.projectCategory.text = action.title!
+                                            // (action) in self.projectCategory.text = action.title!
+                                            (action) in self.categorySelected = action.title!
+                                            self.chosenCategoryLabel.text = action.title!
                                            }))
         
         alert.addAction(UIAlertAction(title: "Pets",
                                            style: .default,
                                            handler: {
-                                            (action) in self.projectCategory.text = action.title!
+                                            // (action) in self.projectCategory.text = action.title!
+                                            (action) in self.categorySelected = action.title!
+                                            self.chosenCategoryLabel.text = action.title!
                                            }))
         
         alert.addAction(UIAlertAction(title: "Plants",
                                            style: .default,
                                            handler: {
-                                            (action) in self.projectCategory.text = action.title!
+                                            // (action) in self.projectCategory.text = action.title!
+                                            (action) in self.categorySelected = action.title!
+                                            self.chosenCategoryLabel.text = action.title!
                                            }))
         
         alert.addAction(UIAlertAction(title: "Miscelleous",
                                            style: .default,
                                            handler: {
-                                            (action) in self.projectCategory.text = action.title!
+                                            // (action) in self.projectCategory.text = action.title!
+                                            (action) in self.categorySelected = action.title!
+                                            self.chosenCategoryLabel.text = action.title!
                                            }))
         
         present(alert, animated: true, completion: nil)
-        // figure out how not to click twice to see item !
-//        print(self.categorySelected)
-//        DispatchQueue.main.async {
-//            self.projectCategory.text = self.categorySelected
-//            print(self.projectCategory.text)
-//        }
+        //chosenCategoryLabel.text = self.categorySelected
     }
     
+    
+    
+    /*
+     Photo Handling
+     */
     @IBAction func attachPhotos(_ sender: Any) {
         // to get access to the photos
         imagePicker.allowsEditing = false
@@ -258,11 +321,17 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         // photoLabel.setTitle("Photo Attached Successfully", for: .normal)
     }
     
+    
+    
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         // dismiss the popover
         dismiss(animated: true, completion: nil)
         photoLabel.setTitle("Attach a Photo", for: .normal)
     }
+    
+    
+    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let storageRef = storage.reference()
@@ -301,12 +370,13 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         })
     }
     
+    
+    
+    
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        
+
         if segue.identifier == "postCreatedSegueIdentifier",
         let nextVC = segue.destination as? SinglePostViewController {
 
@@ -315,29 +385,56 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
             nextVC.caption = self.projectDescription.text
             nextVC.postName = self.screenName
             nextVC.photoURL = self.projectImage
-            nextVC.firebasePostID = self.projectFirebaseID
+            nextVC.firebasePostID = self.postAutoID
+            nextVC.projectInstructions = self.projectInstructions
             
-            
-            // leaving this comment in case we need another way to get the image
-//            // get picture, if one was just uploaded, from firebase storage
-//            let pathReference = storage.reference(forURL: self.projectImage)
-//            pathReference.getData(maxSize: 1 * 2048 * 2048) { data, error in
-//              if let error = error {
-//                // Uh-oh, an error occurred!
-//                print("error: \(error) occurred, could not get image")
-//              } else {
-//                // Data for image is returned
-//                let image = UIImage(data: data!)
-//                if image != nil {
-//                    nextVC.postPhoto = image!
-//                }
-//              }
-//            }
-             
-            
+        } else if segue.identifier == "uploadToInstructionSegue",
+                  let nextVC = segue.destination as? UploadInstructionsViewController {
+            nextVC.delegate = self
         }
-        
     }
     
+    func onSaveInstructions(type: String) {
+        
+        self.projectInstructions = type
+        print(self.projectInstructions)
+    }
+}
 
+
+/*
+ PickerView
+ */
+extension PostFormViewController {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 2
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+        if component == 0 {
+            return Made_App.value.count
+        } else if component == 1 {
+            return units.count
+        }
+        return units.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+
+        if component == 0 {
+            return "\(Made_App.value[row])"
+        } else {
+            return units[row]
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        
+        let time = pickerView.selectedRow(inComponent: 0)
+        let unit = pickerView.selectedRow(inComponent: 1)
+       
+        
+    }
 }

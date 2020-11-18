@@ -31,6 +31,8 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
     var reviewCommentaryList = [NSMutableString] ()
     var firebasePostID = ""
     
+    var projectInstructions = ""
+    
     var postPhoto = UIImage()
     var photoURL: String!
     var postName: String!
