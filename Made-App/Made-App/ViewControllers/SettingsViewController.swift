@@ -72,21 +72,29 @@ class SettingsViewController: UIViewController, SaveProfilePic {
         
         // get user info from database, get link to profile picture
         // see if link exists, if so display
-//        ref = Database.database().reference()
-//        let id = uniqueID.split(separator: ".")
-//        ref.child("users").child(String(id[0])).observeSingleEvent(of: .value, with: { (snapshot) in
-//              // Get user value
-//            print("getting user value ... ")
-//              let value = snapshot.value as? NSDictionary
-//            print(value)
-////              let id = uniqueID.split(separator: ".")
-////              let username = value?[id] as? String ?? ""
-////                print(username)
-//
-//              // ...
-//          }) { (error) in
-//            print(error.localizedDescription)
-//        }
+        ref = Database.database().reference()
+        let id = uniqueID.split(separator: ".")
+        var currImageName = ""
+
+        self.ref.child("users/\(id[0])/profilePicture").observeSingleEvent(of: .value, with: {
+            (snapshot) in
+            currImageName = snapshot.value as! String
+            // set image
+            if currImageName != "" {
+                // Create a reference from a Google Cloud Storage URI
+                let gsReference = self.storage.reference(forURL: currImageName)
+                // Download in memory with a maximum allowed size of 5MB (5 * 1024 * 1024 bytes)
+                gsReference.getData(maxSize: 5 * 1024 * 1024) { data, error in
+                  if let error = error {
+                    // Uh-oh, an error occurred!
+                    print(error.localizedDescription)
+                  } else {
+                    // Data for image path is returned
+                    self.imageView.image = UIImage(data: data!)
+                  }
+                }
+            }
+            })
     }
     
     

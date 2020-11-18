@@ -94,6 +94,7 @@ class RegistrationViewController: UIViewController {
                 let emailID = uniqueID.split(separator: ".")
                 let uid = Auth.auth().currentUser!.uid
                 ref.child("users/\(emailID[0])/uid").setValue(uid)
+                ref.child("users/\(emailID[0])/profilePicture").setValue("gs://made-ios.appspot.com/profile-photos/gray.jpg")
                 
                 self.newUserEmail.text = nil
                 self.newUserPassword.text = nil

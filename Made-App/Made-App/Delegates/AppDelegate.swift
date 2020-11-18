@@ -29,18 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-    
-//    private func configureInitialViewController() {
-//        let initialViewController: UIViewController
-//        let storyboard = UIStoryboard(name: "marissa-pre-beta", bundle: nil)
-//
-//        window = UIWindow()
-//
-//        let mainViewController = storyboard.instantiateViewController(withIdentifier: "login")
-//        initialViewController = mainViewController
-//        window?.rootViewController = initialViewController
-//        window?.makeKeyAndVisible()
-//    }
 
     // MARK: UISceneSession Lifecycle
 

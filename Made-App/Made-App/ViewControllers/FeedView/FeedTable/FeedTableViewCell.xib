@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kLp-yf-Lav">
-                        <rect key="frame" x="0.0" y="90" width="400" height="400"/>
+                        <rect key="frame" x="0.0" y="80" width="400" height="400"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="kLp-yf-Lav" secondAttribute="height" multiplier="1:1" id="07g-7y-Vi8"/>
                             <constraint firstAttribute="width" constant="400" id="KvT-kj-lYH"/>
@@ -53,7 +53,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.8666666666666667" blue="0.56470588235294117" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.92549019607843142" green="0.90588235294117647" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="YBS-cJ-9hv" secondAttribute="height" multiplier="5:1" id="5Rq-XI-zfO"/>
                             <constraint firstItem="mWa-Ut-72d" firstAttribute="centerY" secondItem="YBS-cJ-9hv" secondAttribute="centerY" constant="-0.5" id="Cbb-jb-u1E"/>
@@ -65,7 +65,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ag-hn-tNQ" userLabel="Bottom Container View">
-                        <rect key="frame" x="0.0" y="490" width="400" height="110"/>
+                        <rect key="frame" x="0.0" y="480" width="400" height="110"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&quot;Review&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75I-WQ-DU6">
                                 <rect key="frame" x="20" y="29" width="344" height="53"/>
@@ -75,7 +75,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.8666666666666667" blue="0.56621046535052377" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.92549019607843142" green="0.90588235294117647" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="2ZD-gn-tt3"/>
                             <constraint firstAttribute="height" constant="110" id="AOF-k8-BjR"/>

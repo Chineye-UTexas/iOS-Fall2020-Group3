@@ -71,20 +71,21 @@ class ProfilePicViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-//
+        
         let chosenImage = info[.originalImage] as! UIImage
         imageView.contentMode = .scaleAspectFit
-//
-//        // put the picture into the image view
-//        imageView.image = chosenImage
+
+        // put the picture into the image view
+        imageView.image = chosenImage
         
         let storageRef = storage.reference()
         
         let imageURL = info[UIImagePickerController.InfoKey.imageURL] as! NSURL
+        print(imageURL)
         let imageName = imageURL.lastPathComponent ?? "image"
 
         // Create a reference to the file you want to upload
-        let imageRef = storageRef.child("images/\(imageName)")
+        let imageRef = storageRef.child("profile-photos/\(imageName)")
         var databasePath = ""
 
         // Upload the file to the path "images/\(imageName)"
@@ -112,14 +113,7 @@ class ProfilePicViewController: UIViewController, UIImagePickerControllerDelegat
         
         picker.dismiss(animated: true, completion: nil)
     }
-    
-    @IBAction func saveButtonPressed(_ sender: Any) {
-        if imageView != nil {
-            let otherVC = delegate as! ProfilePicChanger
-            otherVC.changeProfilePic(newImage: imageView.image!)
-        }
-        
-    }
+
     /*
     // MARK: - Navigation
 

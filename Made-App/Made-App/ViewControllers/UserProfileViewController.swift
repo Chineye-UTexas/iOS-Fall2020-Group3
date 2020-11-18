@@ -16,6 +16,8 @@ class UserProfileViewController: UIViewController, UICollectionViewDelegate, UIC
     
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet weak var userScreenName: UILabel!
+    @IBOutlet weak var profilePicture: UIImageView!
+    @IBOutlet weak var userBio: UILabel!
     
     var postImageList: [String] = []
     var imageCounter = 0
@@ -37,24 +39,12 @@ class UserProfileViewController: UIViewController, UICollectionViewDelegate, UIC
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-                      return
-                }
-                let managedContext = appDelegate.persistentContainer.viewContext
-                let fetchRequest: NSFetchRequest<NSManagedObject> = NSFetchRequest(entityName: "User")
-                fetchRequest.predicate = NSPredicate(format: "name == %@", uniqueID)
-                do {
-                    let fetchedResults = try managedContext.fetch(fetchRequest) as! [User]
-                    if let aUser = fetchedResults.first {
-                        self.photoBackgroundColor = aUser.photoBackgroundColor
-                        self.userScreenName.text = "Creater " + aUser.screenName!
-                    }
-                } catch let error as NSError {
-                    print("Could not fetch. \(error), \(error.userInfo)")
-                }
-
+        settingsReload()
+        
         ref = Database.database().reference()
         let id = uniqueID.split(separator: ".")
+
+        reloadProfilePicture()
 
         print("before post stuff")
         self.ref.child("user-posts/\(id[0])").observeSingleEvent(of: .value, with: {
@@ -79,6 +69,8 @@ class UserProfileViewController: UIViewController, UICollectionViewDelegate, UIC
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        settingsReload()
+        reloadProfilePicture()
         collectionView.reloadData()
     }
     
@@ -117,6 +109,52 @@ class UserProfileViewController: UIViewController, UICollectionViewDelegate, UIC
         }
         
         return cell
+    }
+    
+    func reloadProfilePicture() {
+        ref = Database.database().reference()
+        let id = uniqueID.split(separator: ".")
+        var profilePictureName = ""
+
+        self.ref.child("users/\(id[0])/profilePicture").observeSingleEvent(of: .value, with: {
+            (snapshot) in
+            print(snapshot)
+            profilePictureName = snapshot.value as! String
+            // set image
+            if profilePictureName != "" {
+                // Create a reference from a Google Cloud Storage URI
+                let gsReference = self.storage.reference(forURL: profilePictureName)
+                // Download in memory with a maximum allowed size of 5MB (5 * 1024 * 1024 bytes)
+                gsReference.getData(maxSize: 5 * 1024 * 1024) { data, error in
+                  if let error = error {
+                    // Uh-oh, an error occurred!
+                    print(error.localizedDescription)
+                  } else {
+                    // Data for image path is returned
+                    self.profilePicture.image = UIImage(data: data!)
+                  }
+                }
+            }
+        })
+    }
+    
+    func settingsReload() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<NSManagedObject> = NSFetchRequest(entityName: "User")
+        fetchRequest.predicate = NSPredicate(format: "name == %@", uniqueID)
+        do {
+            let fetchedResults = try managedContext.fetch(fetchRequest) as! [User]
+            if let aUser = fetchedResults.first {
+                self.photoBackgroundColor = aUser.photoBackgroundColor
+                self.userScreenName.text = "Creator " + aUser.screenName!
+                self.userBio.text = aUser.bio
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
     }
     
 
