@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35331F492564CE1A00DF9E91 /* UploadInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35331F482564CE1A00DF9E91 /* UploadInstructionsViewController.swift */; };
 		3580F0BB254207A9006349CA /* Chineye.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3580F0BA254207A9006349CA /* Chineye.storyboard */; };
 		3580F12D25420AE8006349CA /* Ira.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3580F12C25420AE7006349CA /* Ira.storyboard */; };
 		3580F13225420AF3006349CA /* Marissa.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3580F13125420AF3006349CA /* Marissa.storyboard */; };
@@ -70,6 +71,7 @@
 /* Begin PBXFileReference section */
 		17013FE31B35600939AADA9F /* Pods-Made-AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Made-AppTests.release.xcconfig"; path = "Target Support Files/Pods-Made-AppTests/Pods-Made-AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		23029750A5BCCCF4198CA317 /* Pods-Made-App-Made-AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Made-App-Made-AppUITests.release.xcconfig"; path = "Target Support Files/Pods-Made-App-Made-AppUITests/Pods-Made-App-Made-AppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		35331F482564CE1A00DF9E91 /* UploadInstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadInstructionsViewController.swift; sourceTree = "<group>"; };
 		3580F0BA254207A9006349CA /* Chineye.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chineye.storyboard; sourceTree = "<group>"; };
 		3580F12C25420AE7006349CA /* Ira.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Ira.storyboard; sourceTree = "<group>"; };
 		3580F13125420AF3006349CA /* Marissa.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Marissa.storyboard; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				35879261254148BC00AEC5EB /* PostFormViewController.swift */,
 				7C58D7EB25562CA00032A736 /* ProfilePicViewController.swift */,
 				7C58D80C25565F630032A736 /* ReviewViewController.swift */,
+				35331F482564CE1A00DF9E91 /* UploadInstructionsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -575,6 +578,7 @@
 				3587929225415CC700AEC5EB /* SettingsViewController.swift in Sources */,
 				7C58D719255290AF0032A736 /* SavedProjectsViewController.swift in Sources */,
 				7C58D72D2554D5860032A736 /* Review.swift in Sources */,
+				35331F492564CE1A00DF9E91 /* UploadInstructionsViewController.swift in Sources */,
 				35EC4E2B252F9E100093E430 /* SceneDelegate.swift in Sources */,
 				3587928E25415CC700AEC5EB /* EditSettingsViewController.swift in Sources */,
 				7C0B7C40254B4BA2005456C7 /* UserProfileLayoutCollectionViewController.swift in Sources */,

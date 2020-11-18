@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -972,6 +972,7 @@
 		352D1EB6DE9394652C3F7AA6E357EADE /* status.cc in Sources */ = {isa = PBXBuildFile; fileRef = 118EA772FE36180CFA2A23D3AF6F2354 /* status.cc */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		35314D6211A16397BB4F901555F86650 /* host_port.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DC7E6E7D77F3592B00F361B31B6E72F /* host_port.h */; };
 		35315F74E9C13F3C46992A926BA5326D /* port.h in Headers */ = {isa = PBXBuildFile; fileRef = D75DE755151F772EB6FAC9D6AE1B234E /* port.h */; };
+		35331F2D25644F4F00DF9E91 /* AYPopupPickerView in Frameworks */ = {isa = PBXBuildFile; productRef = 35331F2C25644F4F00DF9E91 /* AYPopupPickerView */; };
 		3539A485EB190424CCF8F35E382B4FB8 /* polling_entity.cc in Sources */ = {isa = PBXBuildFile; fileRef = 8D71B4A2F027619425A0F8B4158354BB /* polling_entity.cc */; settings = {COMPILER_FLAGS = "-DGRPC_ARES=0 -Wno-comma -DGRPC_SHADOW_BORINGSSL_SYMBOLS -fno-objc-arc"; }; };
 		35451914C22082EC44D6E607260C5370 /* slice_hash_table.h in Copy src/core/lib/slice Private Headers */ = {isa = PBXBuildFile; fileRef = 0611F65BD6DE29CA7CD8B39F70430334 /* slice_hash_table.h */; };
 		3545276677D5068317444503FFFAACEE /* empty_credentials_provider.cc in Sources */ = {isa = PBXBuildFile; fileRef = 882EBB3151C30CF12180C2DD3B7D25F4 /* empty_credentials_provider.cc */; settings = {COMPILER_FLAGS = "$(inherited) -Wreorder -Werror=reorder -Wno-comma -fno-objc-arc"; }; };
@@ -12552,6 +12553,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35331F2D25644F4F00DF9E91 /* AYPopupPickerView in Frameworks */,
 				19ED4E901FB50F306E747309388399C6 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -19790,6 +19792,9 @@
 			dependencies = (
 			);
 			name = abseil;
+			packageProductDependencies = (
+				35331F2C25644F4F00DF9E91 /* AYPopupPickerView */,
+			);
 			productName = abseil;
 			productReference = BF96B57ADE05E8909F823BDF6868B3E3 /* absl.framework */;
 			productType = "com.apple.product-type.framework";
@@ -19982,6 +19987,9 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			packageReferences = (
+				35331F2B25644F4F00DF9E91 /* XCRemoteSwiftPackageReference "AYPopupPickerView" */,
+			);
 			productRefGroup = 8D80ECA486D66AA1315576264D38E805 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -24165,6 +24173,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		35331F2B25644F4F00DF9E91 /* XCRemoteSwiftPackageReference "AYPopupPickerView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Aiur3908/AYPopupPickerView";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		35331F2C25644F4F00DF9E91 /* AYPopupPickerView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 35331F2B25644F4F00DF9E91 /* XCRemoteSwiftPackageReference "AYPopupPickerView" */;
+			productName = AYPopupPickerView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 }
