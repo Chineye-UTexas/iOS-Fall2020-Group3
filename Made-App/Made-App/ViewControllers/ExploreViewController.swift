@@ -15,7 +15,7 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
     let tableCellIdentifier = "ExploreTableCell"
     @IBOutlet weak var searchBar: UISearchBar!
     let searchController = UISearchController(searchResultsController: nil)
-    
+    var currCategory = ""
     var filterCategories: [String] = []
 
     override func viewDidLoad() {
@@ -40,6 +40,7 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: tableCellIdentifier, for: indexPath as IndexPath) as! ExploreTableViewCell
         let row = indexPath.row
         let category = filterCategories[row]
+        currCategory = category
         cell.categoryLabel?.text = category
         cell.categoryImage.image = UIImage(named: category)
         return cell
@@ -64,14 +65,18 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.reloadData()
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "exploreFeedSegue",
+        let nextVC = segue.destination as? ExploreFeedViewController {
+            nextVC.currCategory = currCategory
+        }
     }
-    */
+    
 
 }

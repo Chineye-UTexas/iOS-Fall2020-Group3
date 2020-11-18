@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13AFE0C52561C7630011BECC /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AFE0C42561C7630011BECC /* NotificationsViewController.swift */; };
+		13AFE0CD2561C8EB0011BECC /* NotificationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AFE0CC2561C8EB0011BECC /* NotificationsTableViewCell.swift */; };
+		13AFE0D6256429E20011BECC /* ExploreFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AFE0D5256429E20011BECC /* ExploreFeedViewController.swift */; };
 		3580F0BB254207A9006349CA /* Chineye.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3580F0BA254207A9006349CA /* Chineye.storyboard */; };
 		3580F12D25420AE8006349CA /* Ira.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3580F12C25420AE7006349CA /* Ira.storyboard */; };
 		3580F13225420AF3006349CA /* Marissa.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3580F13125420AF3006349CA /* Marissa.storyboard */; };
@@ -68,6 +71,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13AFE0C42561C7630011BECC /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationsViewController.swift; path = "Made-App/ViewControllers/NotificationsViewController.swift"; sourceTree = SOURCE_ROOT; };
+		13AFE0CC2561C8EB0011BECC /* NotificationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationsTableViewCell.swift; path = "Made-App/ViewControllers/NotificationsTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		13AFE0D5256429E20011BECC /* ExploreFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreFeedViewController.swift; sourceTree = "<group>"; };
 		17013FE31B35600939AADA9F /* Pods-Made-AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Made-AppTests.release.xcconfig"; path = "Target Support Files/Pods-Made-AppTests/Pods-Made-AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		23029750A5BCCCF4198CA317 /* Pods-Made-App-Made-AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Made-App-Made-AppUITests.release.xcconfig"; path = "Target Support Files/Pods-Made-App-Made-AppUITests/Pods-Made-App-Made-AppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3580F0BA254207A9006349CA /* Chineye.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chineye.storyboard; sourceTree = "<group>"; };
@@ -186,9 +192,12 @@
 				7C58D718255290AF0032A736 /* SavedProjectsViewController.swift */,
 				7C58D710255274A90032A736 /* MadeImageCell.swift */,
 				7C0B7C3F254B4BA1005456C7 /* UserProfileLayoutCollectionViewController.swift */,
+				13AFE0C42561C7630011BECC /* NotificationsViewController.swift */,
+				13AFE0CC2561C8EB0011BECC /* NotificationsTableViewCell.swift */,
 				3580F28B2542758A006349CA /* FeedView */,
 				3587928825415CC600AEC5EB /* MadeFeedViewController.swift */,
 				7C58D7F025562FA10032A736 /* ExploreViewController.swift */,
+				13AFE0D5256429E20011BECC /* ExploreFeedViewController.swift */,
 				7C58D7F8255630CF0032A736 /* ExploreTableViewCell.swift */,
 				3587928B25415CC600AEC5EB /* SettingsViewController.swift */,
 				3587926C254148DE00AEC5EB /* SinglePostViewController.swift */,
@@ -553,6 +562,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13AFE0CD2561C8EB0011BECC /* NotificationsTableViewCell.swift in Sources */,
+				13AFE0D6256429E20011BECC /* ExploreFeedViewController.swift in Sources */,
 				7C58D7EC25562CA10032A736 /* ProfilePicViewController.swift in Sources */,
 				3587928F25415CC700AEC5EB /* MadeFeedViewController.swift in Sources */,
 				7C58D80D25565F640032A736 /* ReviewViewController.swift in Sources */,
@@ -571,6 +582,7 @@
 				7CC960D925401649005B0304 /* UserProfileViewController.swift in Sources */,
 				7C58D711255274A90032A736 /* MadeImageCell.swift in Sources */,
 				35EC4E2D252F9E100093E430 /* ViewController.swift in Sources */,
+				13AFE0C52561C7630011BECC /* NotificationsViewController.swift in Sources */,
 				35EC4E29252F9E100093E430 /* AppDelegate.swift in Sources */,
 				3587929225415CC700AEC5EB /* SettingsViewController.swift in Sources */,
 				7C58D719255290AF0032A736 /* SavedProjectsViewController.swift in Sources */,
@@ -753,6 +765,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7789ZM86FF;
 				INFOPLIST_FILE = "Made-App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -774,6 +787,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7789ZM86FF;
 				INFOPLIST_FILE = "Made-App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

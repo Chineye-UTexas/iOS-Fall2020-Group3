@@ -333,7 +333,7 @@
         <!--Notifications-->
         <scene sceneID="CaY-wO-kZy">
             <objects>
-                <viewController id="ggw-q0-kco" sceneMemberID="viewController">
+                <viewController id="ggw-q0-kco" customClass="NotificationsViewController" customModule="Made_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f0t-fA-kNM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -369,6 +369,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ih0-WD-BYf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3800.0000000000005" y="511.60714285714283"/>
+        </scene>
+        <!--Explore Feed View Controller-->
+        <scene sceneID="nUy-XG-PQR">
+            <objects>
+                <viewController id="TqH-Ah-vlL" customClass="ExploreFeedViewController" customModule="Made_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EJa-w2-YIL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="emF-jD-quP">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="M4f-sx-udz">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M4f-sx-udz" id="cNj-28-NZA">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="X7r-b6-rNH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="X7r-b6-rNH" firstAttribute="trailing" secondItem="emF-jD-quP" secondAttribute="trailing" id="4IC-FS-sZU"/>
+                            <constraint firstItem="emF-jD-quP" firstAttribute="leading" secondItem="X7r-b6-rNH" secondAttribute="leading" id="6fr-p7-Dlx"/>
+                            <constraint firstItem="emF-jD-quP" firstAttribute="top" secondItem="X7r-b6-rNH" secondAttribute="top" id="Ffd-hj-FHb"/>
+                            <constraint firstItem="X7r-b6-rNH" firstAttribute="bottom" secondItem="emF-jD-quP" secondAttribute="bottom" id="Ucf-2N-27U"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="table" destination="emF-jD-quP" id="pfm-oB-btG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bx0-Ot-wSq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-281" y="1684"/>
         </scene>
         <!--Registration View Controller-->
         <scene sceneID="Zzs-3b-BCp">

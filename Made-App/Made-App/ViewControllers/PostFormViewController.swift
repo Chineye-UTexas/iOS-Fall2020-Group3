@@ -1,10 +1,3 @@
-//
-//  PostFormViewController.swift
-//  Made-App
-//
-//  Created by Ira Dhar Gulati on 10/21/20.
-//  Code cited from following references: https://stackoverflow.com/questions/39055683/uploading-an-image-from-photo-library-or-camera-to-firebase-storage-swift/39056011, https://www.youtube.com/watch?v=JYkj1UmQ6_g
-
 import UIKit
 import Firebase
 import CoreData
@@ -245,7 +238,6 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
                                             (action) in self.projectCategory.text = action.title!
                                            }))
         
-        // projectCategory.text = alert.title
         present(alert, animated: true, completion: nil)
         // figure out how not to click twice to see item !
 //        print(self.categorySelected)
@@ -309,7 +301,6 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
