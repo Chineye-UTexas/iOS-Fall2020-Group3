@@ -174,8 +174,8 @@
             filePath = "Made-App/ViewControllers/PostFormViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "PostFormViewController"
             landmarkType = "3">
             <Locations>
@@ -282,10 +282,58 @@
             filePath = "Made-App/ViewControllers/PostFormViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
             landmarkName = "createPost(_:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CF41E1E0-F2B5-4ADE-819A-4056F3AC12E9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Made-App/ViewControllers/PostFormViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "createPost(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CF41E1E0-F2B5-4ADE-819A-4056F3AC12E9 - 39e9f27969fe7f2c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Made_App.PostFormViewController.display(Any) -&gt; ()"
+                  moduleName = "Made-App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chineye/Documents/iOS%20-%20Fall%202020/iOS-Fall2020-Group3/Made-App/Made-App/ViewControllers/PostFormViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "651">
+               </Location>
+               <Location
+                  uuid = "CF41E1E0-F2B5-4ADE-819A-4056F3AC12E9 - aa9bfe422a119a11"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Made_App.PostFormViewController.display(Any) -&gt; ()"
+                  moduleName = "Made-App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chineye/Documents/iOS%20-%20Fall%202020/iOS-Fall2020-Group3/Made-App/Made-App/ViewControllers/PostFormViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "187">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
