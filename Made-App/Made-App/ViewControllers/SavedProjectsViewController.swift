@@ -60,6 +60,9 @@ class SavedProjectsViewController: UIViewController, UICollectionViewDataSource,
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         collectionView.reloadData()
+        if savedList.count == 0 {
+            self.savedProjectsHeader.text = "No saved projects right now!"
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
