@@ -90,18 +90,16 @@ class EditSettingsViewController: UIViewController, ProfilePicChanger {
                 currentUser[0].setValue(true, forKey: "notifications")
             }
         }
-        if imageView != nil {
-            let otherVC = delegate as! SaveProfilePic
-            otherVC.saveProfilePic(newImage: imageView.image!)
-        }
+//        if imageView != nil {
+//            let otherVC = delegate as! SaveProfilePic
+//            otherVC.saveProfilePic(newImage: imageView.image!)
+//        }
     }
     
     func retrieveUser() -> [User] {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-        
-
         
         var fetchedResults: [User]? = nil
         let predicate = NSPredicate(format: "name == %@", uniqueID)

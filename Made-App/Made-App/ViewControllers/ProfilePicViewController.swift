@@ -72,8 +72,8 @@ class ProfilePicViewController: UIViewController, UIImagePickerControllerDelegat
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 //
-//        let chosenImage = info[.originalImage] as! UIImage
-//        imageView.contentMode = .scaleAspectFit
+        let chosenImage = info[.originalImage] as! UIImage
+        imageView.contentMode = .scaleAspectFit
 //
 //        // put the picture into the image view
 //        imageView.image = chosenImage
@@ -105,7 +105,7 @@ class ProfilePicViewController: UIViewController, UIImagePickerControllerDelegat
                 databasePath = downloadURL.absoluteString
             }
         }
-        
+
         ref = Database.database().reference()
         let id = uniqueID.split(separator: ".") // this is their email, but '.' are not allowed in the path
         self.ref.child("users/\(id[0])/profilePicture/").setValue(databasePath)

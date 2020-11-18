@@ -1,10 +1,3 @@
-//
-//  PostFormViewController.swift
-//  Made-App
-//
-//  Created by Ira Dhar Gulati on 10/21/20.
-//  Code cited from following references: https://stackoverflow.com/questions/39055683/uploading-an-image-from-photo-library-or-camera-to-firebase-storage-swift/39056011, https://www.youtube.com/watch?v=JYkj1UmQ6_g
-
 import UIKit
 import Firebase
 import CoreData
@@ -51,9 +44,10 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         let instructions = NSString(string: projectInstructions.text ?? "")
         let timeUnit = NSString(string: projectUnit.text ?? "")
         let time = NSString(string: projectValue.text ?? "")
+        let difficulty = self.difficulty
         // let nameOfPoster = self.nameOfPoster
         let images: NSArray = [self.projectImage]
-        let reviews: NSArray = ["this is an example"]
+       // let reviews: [NSArray]
         
         let now = Date()
         let formatter = DateFormatter()
@@ -66,7 +60,7 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
                                   description: description, instructions: instructions,
                                   timeValue: NSNumber(nonretainedObject: time),
                                   timeUnit: timeUnit, difficulty: self.difficulty, images: images,
-                                  creationDate: datetime, reviews: reviews)
+                                  creationDate: datetime, reviews: reviews as NSArray)
         
         if title.length == 0 {
             message = "Please add a project title"
@@ -100,26 +94,68 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         print("validated the input")
         // if we make it here , all data is good and needs to be saved to database
         ref = Database.database().reference()
+
         let id = uniqueID.split(separator: ".") // this is their email, but '.' are not allowed in the path
-        var projectFirebaseID = self.ref.child("users/\(id[0])/projects/").key
         
-        self.ref.child("users/\(id[0])/projects/\(stringTitle)/description").setValue(description)
-
-        self.ref.child("users/\(id[0])/projects/\(stringTitle)/category").setValue(category)
-
-        self.ref.child("users/\(id[0])/projects/\(stringTitle)/instructions").setValue(instructions)
-
-        self.ref.child("users/\(id[0])/projects/\(stringTitle)/timeUnit").setValue(timeUnit)
-
-        self.ref.child("users/\(id[0])/projects/\(stringTitle)/time").setValue(time)
-
-        self.ref.child("users/\(id[0])/projects/\(stringTitle)/difficulty").setValue(self.difficulty)
-
-        self.ref.child("users/\(id[0])/projects/\(stringTitle)/images").setValue(images)
-
-        self.ref.child("users/\(id[0])/projects/\(stringTitle)/reviews").setValue(reviews)
-
-        self.ref.child("users/\(id[0])/projects/\(stringTitle)/creationTime").setValue(datetime)
+        let userPostPath = self.ref.child("user-posts/\(id[0])/")
+        
+        /*
+         Add post
+         */
+        let postAutoID = userPostPath.childByAutoId()
+        postAutoID.child("project-title").setValue(title)
+        postAutoID.child("category").setValue(category)
+        postAutoID.child("description").setValue(description)
+        postAutoID.child("instructions").setValue(instructions)
+        postAutoID.child("timeUnit").setValue(timeUnit)
+        postAutoID.child("time").setValue(time)
+        postAutoID.child("difficulty").setValue(difficulty)
+        postAutoID.child("images").setValue(images)
+        postAutoID.child("creationTime").setValue(datetime)
+        
+        guard let postAutoIDKey = postAutoID.key else { return }
+        
+        /*
+         Add post entry to the masterlist of posts
+         */
+        let allPostsPath = self.ref.child("posts/\(String(describing: postAutoIDKey))/")
+        
+        allPostsPath.child("user").setValue(id[0])
+        allPostsPath.child("project-title").setValue(title)
+        allPostsPath.child("category").setValue(category)
+        allPostsPath.child("description").setValue(description)
+        allPostsPath.child("instructions").setValue(instructions)
+        allPostsPath.child("timeUnit").setValue(timeUnit)
+        allPostsPath.child("time").setValue(time)
+        allPostsPath.child("difficulty").setValue(difficulty)
+        allPostsPath.child("images").setValue(images)
+        allPostsPath.child("creationTime").setValue(datetime)
+        
+        /*
+         Create path for reviews
+         */
+        let postReviewPath: Void = self.ref.child("post-reviews/\(String(describing: postAutoIDKey))/").setValue("")
+        
+        
+//        var projectFirebaseID = self.ref.child("users/\(id[0])/projects/").key
+//
+//        self.ref.child("users/\(id[0])/projects/\(stringTitle)/description").setValue(description)
+//
+//        self.ref.child("users/\(id[0])/projects/\(stringTitle)/category").setValue(category)
+//
+//        self.ref.child("users/\(id[0])/projects/\(stringTitle)/instructions").setValue(instructions)
+//
+//        self.ref.child("users/\(id[0])/projects/\(stringTitle)/timeUnit").setValue(timeUnit)
+//
+//        self.ref.child("users/\(id[0])/projects/\(stringTitle)/time").setValue(time)
+//
+//        self.ref.child("users/\(id[0])/projects/\(stringTitle)/difficulty").setValue(self.difficulty)
+//
+//        self.ref.child("users/\(id[0])/projects/\(stringTitle)/images").setValue(images)
+//
+//        //self.ref.child("users/\(id[0])/projects/\(stringTitle)/reviews").setValue(reviews)
+//
+//        self.ref.child("users/\(id[0])/projects/\(stringTitle)/creationTime").setValue(datetime)
                 
     }
     
@@ -202,6 +238,7 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
                                             (action) in self.categorySelected = action.title!
                                            }))
         
+        projectCategory.text = alert.title
         present(alert, animated: true, completion: nil)
         // figure out how not to click twice to see item !
 //        print(self.categorySelected)
@@ -262,7 +299,6 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.

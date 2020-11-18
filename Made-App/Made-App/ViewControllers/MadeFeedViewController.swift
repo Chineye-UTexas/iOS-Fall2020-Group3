@@ -8,37 +8,77 @@
 import UIKit
 import Firebase
 
-struct madePost {
-    let numLikes: Int
-    let username: String
-    let userProfilePicture: String
-    let postTitle: String
-    let projectTitle: String
-    let projectReview: String
-}
-
-
 class MadeFeedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
     var ref = Database.database().reference()
     
-    
     @IBOutlet weak var table: UITableView!
-    var models = [madePost]()
+    var models = [Project]()
     override func viewDidLoad() {
         super.viewDidLoad()
         table.register(FeedTableViewCell.nib(), forCellReuseIdentifier: FeedTableViewCell.identifier)
         table.delegate = self
         table.dataSource = self
+        var title = NSString()
+        var category = NSString()
+        var description = NSString()
+        var instructions = NSString()
+        var timeValue = NSNumber()
+        var timeUnit = NSString()
+        var difficulty = NSString()
+        var images: NSArray = []
+        var creationDate = NSString()
+        var reviews: NSArray = []
+        
+//        //imageView.contentMode = UIViewContentModeScaleAspectFit;
+//        models.append(Project(title: "project", category: "Food", description: "fun", instructions: "poop", timeValue: 3, timeUnit: "m", difficulty: "medium", images: ["image2", "image1"], creationDate: "nov 30", reviews: ["ok"]))
+//        models.append(Project(title: "project", category: "Food", description: "fun", instructions: "poop", timeValue: 3, timeUnit: "m", difficulty: "medium", images: ["image2", "image1"], creationDate: "nov 30", reviews: ["ok"]))
+//        models.append(Project(title: "project", category: "Food", description: "fun", instructions: "poop", timeValue: 3, timeUnit: "m", difficulty: "medium", images: ["image2", "image1"], creationDate: "nov 30", reviews: ["ok"]))
 
-        //imageView.contentMode = UIViewContentModeScaleAspectFit;
-        models.append(madePost(numLikes: 200, username: "@megan", userProfilePicture: "profilePic2", postTitle: "image1", projectTitle: "Knit Cardigan", projectReview: "Fun and easy for beginners!"))
-        models.append(madePost(numLikes: 200, username: "@ira", userProfilePicture: "profilePic2", postTitle: "image2", projectTitle: "DIY Crayon Canvas", projectReview: "Fun and easy for beginners!"))
-        models.append(madePost(numLikes: 200, username: "@marissa", userProfilePicture: "profilePic2", postTitle: "image3", projectTitle: "Colorful Balloon Arch", projectReview: "Fun and easy for beginners!"))
-        models.append(madePost(numLikes: 200, username: "@chineye", userProfilePicture: "profilePic2", postTitle: "image4", projectTitle: "Festive Celebration Cake", projectReview: "Fun and easy for beginners!"))
-        models.append(madePost(numLikes: 200, username: "@mike", userProfilePicture: "profilePic2", postTitle: "image5", projectTitle: "Candles from Crayons", projectReview: "Fun and easy for beginners!"))
-        // Do any additional setup after loading the view.
+//        models.append(madePost(numLikes: 200, username: "@chineye", userProfilePicture: "profilePic2", postTitle: "image4", projectTitle: "Festive Celebration Cake", projectReview: "Fun and easy for beginners!"))
+//        models.append(madePost(numLikes: 200, username: "@mike", userProfilePicture: "profilePic2", postTitle: "image5", projectTitle: "Candles from Crayons", projectReview: "Fun and easy for beginners!"))
+//         Do any additional setup after loading the view.
+        
+        // gather post data and append
+        
+        ref = Database.database().reference()
+        let id = uniqueID.split(separator: ".") // this is their email, but '.' are not allowed in the path
+        
+        let postPath = self.ref.child("posts")
+            .observeSingleEvent(of: .value, with: { (snapshot) in
+
+                for child in snapshot.children {
+                        let snap = child as! DataSnapshot
+                        let key = snap.key
+                        let value = snap.value
+                        print("key = \(key)  value = \(value!)")
+                    
+                        title = snapshot.childSnapshot(forPath: "\(key)/project-title").value as! NSString
+                        print(title)
+                        creationDate = snapshot.childSnapshot(forPath: "\(key)/creationTime").value as! NSString
+                        print(creationDate)
+                        description = snapshot.childSnapshot(forPath: "\(key)/description").value as! NSString
+                        print(description)
+                        category = snapshot.childSnapshot(forPath: "\(key)/category").value as! NSString
+                        print(category)
+                        difficulty = snapshot.childSnapshot(forPath: "\(key)/difficulty").value as! NSString
+                        print(difficulty)
+                        instructions = snapshot.childSnapshot(forPath: "\(key)/instructions").value as! NSString
+                        print(instructions)
+                        images = snapshot.childSnapshot(forPath: "\(key)/images").value as! NSArray
+                     //   timeValue = snapshot.childSnapshot(forPath: "\(key)/timeValue").value as! NSNumber
+
+                        print(images)
+                        timeUnit = snapshot.childSnapshot(forPath: "\(key)/timeUnit").value as! NSString
+                        print(timeUnit)
+                        
+                        //self.models.append(currPost)
+                        self.models.append(Project(title: title, category: category, description: description, instructions: instructions, timeValue: 0, timeUnit: timeUnit, difficulty: difficulty, images: images, creationDate: creationDate, reviews: ["ok"]))
+                   
+                }
+                self.table.reloadData()
+            })
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -50,7 +90,7 @@ class MadeFeedViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: FeedTableViewCell.identifier, for: indexPath) as! FeedTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FeedTableViewCell", for: indexPath) as! FeedTableViewCell
         cell.configure(with: models[indexPath.row])
         return cell
     }
