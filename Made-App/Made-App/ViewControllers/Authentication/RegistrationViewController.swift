@@ -68,6 +68,7 @@ class RegistrationViewController: UIViewController {
                 guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
                     return
                   }
+                // save user data to core data
                 let managedContext = appDelegate.persistentContainer.viewContext
                 print("before get entity")
                 let entity = NSEntityDescription.entity(forEntityName: "User", in: managedContext)!
@@ -80,17 +81,26 @@ class RegistrationViewController: UIViewController {
                 user.setValue(false, forKey: "notifications")
                 user.setValue(self.newUserPassword.text, forKey: "password")
                 user.setValue("", forKey: "bio")
-                // save user data to core data
+
                 do {
                     try managedContext.save()
                   } catch let error as NSError {
                     print("Could not save user data. \(error), \(error.userInfo)")
                   }
                 
+                // save to firebase database
+                var ref: DatabaseReference!
+                ref = Database.database().reference()
+                let emailID = uniqueID.split(separator: ".")
+                let uid = Auth.auth().currentUser!.uid
+                ref.child("users/\(emailID[0])/uid").setValue(uid)
+                ref.child("users/\(emailID[0])/profilePicture").setValue("gs://made-ios.appspot.com/profile-photos/gray.jpg")
+                
                 self.newUserEmail.text = nil
                 self.newUserPassword.text = nil
                 self.confirmNewUserPassword.text = nil
                 self.newUserScreenName.text = nil
+                
                 self.performSegue(withIdentifier: "registerSegue", sender: nil)
             } else {
                 // display alert error and update status

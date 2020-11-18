@@ -1,10 +1,3 @@
-//
-//  PostFormViewController.swift
-//  Made-App
-//
-//  Created by Ira Dhar Gulati on 10/21/20.
-//  Code cited from following references: https://stackoverflow.com/questions/39055683/uploading-an-image-from-photo-library-or-camera-to-firebase-storage-swift/39056011, https://www.youtube.com/watch?v=JYkj1UmQ6_g
-
 import UIKit
 import Firebase
 import CoreData
@@ -100,15 +93,17 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBAction func createPost(_ sender: Any) {
         
         var message = ""
-        let stringTitle = projectTitle.text ?? ""
+        // let stringTitle = projectTitle.text ?? ""
         let title = NSString(string: projectTitle.text ?? "")
-        let category = NSString(string: self.categorySelected)
+        let category = NSString(string: self.chosenCategoryLabel.text ?? "")
         let description = NSString(string: projectDescription.text ?? "")
         let instructions = NSString(string: projectInstructions)
         let timeUnit = NSString(string: projectUnit )
         let time = NSString(string: projectValue )
         let difficulty = self.difficulty
         let images: NSArray = [self.projectImage]
+       // let reviews: [NSArray]
+        let username = NSString(string: screenName)
         
         let now = Date()
         let formatter = DateFormatter()
@@ -119,9 +114,9 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         
         self.newProject = Project(title: title, category: category,
                                   description: description, instructions: instructions,
-                                  timeValue: NSNumber(nonretainedObject: time),
+                                  timeValue: time,
                                   timeUnit: timeUnit, difficulty: self.difficulty, images: images,
-                                  creationDate: datetime, reviews: reviews as NSArray)
+                                  creationDate: datetime, username: username, reviews: reviews as NSArray)
         
         if title.length == 0 {
             message = "Please add a project title"
@@ -230,6 +225,7 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         alert.addAction(UIAlertAction(title: "Food",
                                            style: .default,
                                            handler: {
+                                            // (action) in self.projectCategory.text = action.title!
                                             (action) in self.categorySelected = action.title!
                                             self.chosenCategoryLabel.text = action.title!
                                            }))
@@ -237,6 +233,7 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         alert.addAction(UIAlertAction(title: "Lifestyle",
                                            style: .default,
                                            handler: {
+                                            // (action) in self.projectCategory.text = action.title!
                                             (action) in self.categorySelected = action.title!
                                             self.chosenCategoryLabel.text = action.title!
                                            }))
@@ -244,6 +241,7 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         alert.addAction(UIAlertAction(title: "Art",
                                            style: .default,
                                            handler: {
+                                            // (action) in self.projectCategory.text = action.title!
                                             (action) in self.categorySelected = action.title!
                                             self.chosenCategoryLabel.text = action.title!
                                            }))
@@ -251,6 +249,7 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         alert.addAction(UIAlertAction(title: "Clothing",
                                            style: .default,
                                            handler: {
+                                            // (action) in self.projectCategory.text = action.title!
                                             (action) in self.categorySelected = action.title!
                                             self.chosenCategoryLabel.text = action.title!
                                            }))
@@ -258,6 +257,7 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         alert.addAction(UIAlertAction(title: "Accessories",
                                            style: .default,
                                            handler: {
+                                            // (action) in self.projectCategory.text = action.title!
                                             (action) in self.categorySelected = action.title!
                                             self.chosenCategoryLabel.text = action.title!
                                            }))
@@ -265,6 +265,7 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         alert.addAction(UIAlertAction(title: "Kids",
                                            style: .default,
                                            handler: {
+                                            // (action) in self.projectCategory.text = action.title!
                                             (action) in self.categorySelected = action.title!
                                             self.chosenCategoryLabel.text = action.title!
                                            }))
@@ -272,6 +273,7 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         alert.addAction(UIAlertAction(title: "Science",
                                            style: .default,
                                            handler: {
+                                            // (action) in self.projectCategory.text = action.title!
                                             (action) in self.categorySelected = action.title!
                                             self.chosenCategoryLabel.text = action.title!
                                            }))
@@ -279,6 +281,7 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         alert.addAction(UIAlertAction(title: "Pets",
                                            style: .default,
                                            handler: {
+                                            // (action) in self.projectCategory.text = action.title!
                                             (action) in self.categorySelected = action.title!
                                             self.chosenCategoryLabel.text = action.title!
                                            }))
@@ -286,6 +289,7 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         alert.addAction(UIAlertAction(title: "Plants",
                                            style: .default,
                                            handler: {
+                                            // (action) in self.projectCategory.text = action.title!
                                             (action) in self.categorySelected = action.title!
                                             self.chosenCategoryLabel.text = action.title!
                                            }))
@@ -293,14 +297,13 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         alert.addAction(UIAlertAction(title: "Miscelleous",
                                            style: .default,
                                            handler: {
+                                            // (action) in self.projectCategory.text = action.title!
                                             (action) in self.categorySelected = action.title!
                                             self.chosenCategoryLabel.text = action.title!
                                            }))
         
         present(alert, animated: true, completion: nil)
         //chosenCategoryLabel.text = self.categorySelected
-
-
     }
     
     
@@ -315,7 +318,7 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         // change words on screen to reflect photo attached
         // this animates and then goes away
         present(imagePicker, animated: true, completion: nil)
-        photoLabel.setTitle("Photo Attached Successfully", for: .normal)
+        // photoLabel.setTitle("Photo Attached Successfully", for: .normal)
     }
     
     
@@ -357,18 +360,21 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
                     print("could not get URL: \(String(describing: error))")
                     return
                 }
+                print("photo url:")
                 print(downloadURL.absoluteString)
                 self.projectImage = downloadURL.absoluteString
             }
         }
-        picker.dismiss(animated: true, completion: nil)
+        picker.dismiss(animated: true, completion: {
+            self.photoLabel.setTitle("Photo Attached Successfully", for: .normal)
+        })
     }
     
     
     
     
     // MARK: - Navigation
-
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if segue.identifier == "postCreatedSegueIdentifier",

@@ -27,24 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         })
         
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let initialViewController = storyboard.instantiateViewController(withIdentifier: "NextVC")
-//        self.window?.rootViewController = initialViewController
-        //configureInitialViewController()
         return true
     }
-    
-//    private func configureInitialViewController() {
-//        let initialViewController: UIViewController
-//        let storyboard = UIStoryboard(name: "marissa-pre-beta", bundle: nil)
-//
-//        window = UIWindow()
-//
-//        let mainViewController = storyboard.instantiateViewController(withIdentifier: "login")
-//        initialViewController = mainViewController
-//        window?.rootViewController = initialViewController
-//        window?.makeKeyAndVisible()
-//    }
 
     // MARK: UISceneSession Lifecycle
 

@@ -21,7 +21,6 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var dateOfPost: UILabel!
     @IBOutlet weak var postTitle: UILabel!
-    @IBOutlet weak var numLikes: UILabel!
     @IBOutlet weak var postCaption: UILabel!
     
     
@@ -43,6 +42,7 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
     var caption: String!
     var comments: UITableView!
     var ref: DatabaseReference!
+    let storage = Storage.storage()
 
     var delegate: UIViewController!
 
@@ -51,23 +51,60 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        ref = Database.database().reference()
+        let id = uniqueID.split(separator: ".")
+        print(id)
+        var profilePictureName = ""
+
+        self.ref.child("users/\(id[0])/profilePicture").observeSingleEvent(of: .value, with: {
+            (snapshot) in
+            print(snapshot)
+            profilePictureName = snapshot.value as! String
+            // set image
+            if profilePictureName != "" {
+                // Create a reference from a Google Cloud Storage URI
+                let gsReference = self.storage.reference(forURL: profilePictureName)
+                // Download in memory with a maximum allowed size of 5MB (5 * 1024 * 1024 bytes)
+                gsReference.getData(maxSize: 5 * 1024 * 1024) { data, error in
+                  if let error = error {
+                    // Uh-oh, an error occurred!
+                    print(error.localizedDescription)
+                  } else {
+                    // Data for image path is returned
+                    self.posterProfilePhoto.image = UIImage(data: data!)
+                  }
+                }
+            }
+        })
+        
+//        // get project photo
+//        let gsProjectReference = self.storage.reference(forURL: photoURL)
+//        // Download in memory with a maximum allowed size of 5MB (5 * 1024 * 1024 bytes)
+//        gsProjectReference.getData(maxSize: 5 * 1024 * 1024) { data, error in
+//          if let error = error {
+//            // Uh-oh, an error occurred!
+//            print(error.localizedDescription)
+//          } else {
+//            // Data for image path is returned
+//            self.postImage.image = UIImage(data: data!)
+//          }
+//        }
+        
         // the data from the Project object we sent
         reviews = singlePost.reviews
-        postTitle.text = String(singlePost.title)
-        postCaption.text = String(singlePost.description)
+        postTitle.text = titleOfPost // String(singlePost.title)
+        postCaption.text = caption // String(singlePost.description)
         posterUsername.text = postName
         postImage.image = postPhoto
         postImage.backgroundColor = UIColor.systemPink
         let placeholderImage = postPhoto
         // make to a loading photo placeholder
         if photoURL != nil && !photoURL.isEmpty {
+            print("photoURL not empty")
         postImage.sd_setImage(with: URL(string: photoURL), placeholderImage: placeholderImage)
         }
-        numLikes.text = "10" // singlePost.numLikes -- we didn't talk about keeping likes, maybe number of times saved?
-        dateOfPost.text = String(singlePost.creationDate)
-        
-        ref = Database.database().reference()
-        let id = uniqueID.split(separator: ".")
+        dateOfPost.text = date // String(singlePost.creationDate)
+       
         self.ref.child("users/\(id[0])/projects/\(String(describing: titleOfPost))/reviews")
             .observeSingleEvent(of: .value, with: { (snapshot) in
                 
