@@ -29,6 +29,7 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
     var reviewList = [Review] ()
     var reviewCommentaryList = [NSMutableString] ()
     var firebasePostID = ""
+    var reviews: Array<DataSnapshot> = []
     
     var projectInstructions = ""
     
@@ -53,9 +54,58 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
         
         ref = Database.database().reference()
         let id = uniqueID.split(separator: ".")
-        print(id)
         var profilePictureName = ""
+        
+        
+        let postTree: Void = ref.child("posts").child(self.firebasePostID).observeSingleEvent(of: .value, with:
+            { (snapshot) in
+//            print(snapshot)
+                
+              //  var test = snapshot.value as! NSArray
+              //  print(snapshot.value as Any)
+                let postDict = snapshot.value as? [String : AnyObject] ?? [:]
+                
+              //  var temp = postTree.child("project-title") as? NSMutableString
+             //   print(title)
+//                if let postingUser = snap.value?["user"] as? String ?? "test" {
+//                    print("here")
+//                }
+            
+//           let postingUser = snapshot.value["user"] as? String
+//                print(postingUser)
+//
+//            if let description = snapshot.value["description"] as? String {
+//                print(description)
+//            }
+//
+//            if let imageURL = snapshot.value["images"] as? NSArray {
+//                print(imageURL.count)
+//            }
+//
+//            if let projectTime = snapshot.value["time"] as? String {
+//                print(projectTime)
+//            }
+//
+//            if let projectInstructions = snapshot.value["instructions"] as? String {
+//                print(projectInstructions)
+//            }
+                                    
+            }
+        )
+        { (error) in
+            print(error.localizedDescription)
+        }
+    
 
+        
+//        self.projectInstructions = ref.child("posts/\(firebasePostID)/instructions/").value
+        
+        //self.projectInstructions = NSMutableString(self.projectInstructions.text)
+        
+
+        /*
+         Profile picture
+         */
         self.ref.child("users/\(id[0])/profilePicture").observeSingleEvent(of: .value, with: {
             (snapshot) in
             print(snapshot)
@@ -77,21 +127,10 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         })
         
-//        // get project photo
-//        let gsProjectReference = self.storage.reference(forURL: photoURL)
-//        // Download in memory with a maximum allowed size of 5MB (5 * 1024 * 1024 bytes)
-//        gsProjectReference.getData(maxSize: 5 * 1024 * 1024) { data, error in
-//          if let error = error {
-//            // Uh-oh, an error occurred!
-//            print(error.localizedDescription)
-//          } else {
-//            // Data for image path is returned
-//            self.postImage.image = UIImage(data: data!)
-//          }
-//        }
+        
         
         // the data from the Project object we sent
-        reviews = singlePost.reviews
+        reviews = singlePost.reviews as! Array<DataSnapshot>
         postTitle.text = titleOfPost // String(singlePost.title)
         postCaption.text = caption // String(singlePost.description)
         posterUsername.text = postName
@@ -124,13 +163,15 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
         
         reviewTableView.delegate = self
         reviewTableView.dataSource = self
-        // Do any additional setup after loading the view.
-        print("viewing single post page")
+        
+        posterProfilePhoto.layer.masksToBounds = true
+        posterProfilePhoto.layer.cornerRadius = posterProfilePhoto.bounds.width / 2
+        
     }
     
     
     /*
-     Table View Functions
+     Table View Funcoverride tions
      */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         reviewCommentaryList.count
@@ -139,7 +180,6 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        //let comment = commentList[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewTextCell", for: indexPath as IndexPath)
         let row = indexPath.row
         cell.textLabel?.numberOfLines = 6
@@ -164,7 +204,7 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             
         if segue.identifier == "singlePostToReviewSegue",
            let nextVC = segue.destination as? ReviewViewController {
@@ -173,9 +213,13 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
             nextVC.postPhotoURL = "https://firebasestorage.googleapis.com/v0/b/made-ios.appspot.com/o/images%2FC70801A6-8E87-4D4D-AED2-C881F4065437.jpeg?alt=media&token=daa27db3-ac81-473d-9fd3-d577651bf315" //photoURL
             nextVC.postTitle = postTitle.text!
         }
-        
-      //  otherVC.models = self.models
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        else if segue.identifier == "displayInstructionsSegue",
+            let nextVC = segue.destination as? DisplayInstructionsViewController
+        {
+            nextVC.projectTitle = self.titleOfPost
+            nextVC.projectInstructions = self.projectInstructions
+            
+        }
     }
+    
 }

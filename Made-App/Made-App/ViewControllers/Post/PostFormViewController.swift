@@ -44,8 +44,6 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
-        print("here" + self.projectInstructions)
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
