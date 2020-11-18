@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17124"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,8 +16,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="397" height="617"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kLp-yf-Lav">
-                        <rect key="frame" x="0.0" y="80" width="400" height="400"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kLp-yf-Lav">
+                        <rect key="frame" x="0.0" y="90" width="400" height="400"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="kLp-yf-Lav" secondAttribute="height" multiplier="1:1" id="07g-7y-Vi8"/>
                             <constraint firstAttribute="width" constant="400" id="KvT-kj-lYH"/>
@@ -53,7 +53,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.83364732872420499" blue="0.86169851064387926" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="1" green="0.8666666666666667" blue="0.56470588235294117" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="YBS-cJ-9hv" secondAttribute="height" multiplier="5:1" id="5Rq-XI-zfO"/>
                             <constraint firstItem="mWa-Ut-72d" firstAttribute="centerY" secondItem="YBS-cJ-9hv" secondAttribute="centerY" constant="-0.5" id="Cbb-jb-u1E"/>
@@ -65,24 +65,17 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ag-hn-tNQ" userLabel="Bottom Container View">
-                        <rect key="frame" x="0.0" y="480" width="400" height="110"/>
+                        <rect key="frame" x="0.0" y="490" width="400" height="110"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12 likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZq-lW-pQf">
-                                <rect key="frame" x="20" y="19" width="108" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&quot;Review&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75I-WQ-DU6">
-                                <rect key="frame" x="20" y="48" width="344" height="53"/>
+                                <rect key="frame" x="20" y="29" width="344" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.92721658848536948" blue="0.91125728982359244" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="1" green="0.8666666666666667" blue="0.56621046535052377" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="2ZD-gn-tt3"/>
                             <constraint firstAttribute="height" constant="110" id="AOF-k8-BjR"/>
@@ -123,7 +116,6 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="likesLabel" destination="RZq-lW-pQf" id="trm-w0-cl7"/>
                 <outlet property="postImageView" destination="kLp-yf-Lav" id="NJw-s3-wem"/>
                 <outlet property="projectReview" destination="75I-WQ-DU6" id="eMR-l2-rKz"/>
                 <outlet property="projectTitle" destination="xlc-9e-jTj" id="NyM-jp-Yrs"/>
