@@ -356,7 +356,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "C8A34DC5-4275-48B9-A7A1-E746CE1075DE"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Made-App/ViewControllers/PostFormViewController.swift"
