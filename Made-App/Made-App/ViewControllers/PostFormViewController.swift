@@ -27,7 +27,7 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
     var screenName: String = ""
     var projectFirebaseID = ""
     @IBOutlet weak var photoLabel: UIButton!
-    var categorySelected: String = "Miscelleous"
+    // var categorySelected: String = "Miscelleous"
     
     var ref: DatabaseReference!
     let storage = Storage.storage()
@@ -44,9 +44,9 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBAction func createPost(_ sender: Any) {
         
         var message = ""
-        let stringTitle = projectTitle.text ?? ""
+        // let stringTitle = projectTitle.text ?? ""
         let title = NSString(string: projectTitle.text ?? "")
-        let category = NSString(string: self.categorySelected)
+        let category = NSString(string: self.projectCategory.text ?? "")
         let description = NSString(string: projectDescription.text ?? "")
         let instructions = NSString(string: projectInstructions.text ?? "")
         let timeUnit = NSString(string: projectUnit.text ?? "")
@@ -188,64 +188,64 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         alert.addAction(UIAlertAction(title: "Food",
                                            style: .default,
                                            handler: {
-                                            (action) in self.categorySelected = action.title!
+                                            (action) in self.projectCategory.text = action.title!
                                            }))
         
         alert.addAction(UIAlertAction(title: "Lifestyle",
                                            style: .default,
                                            handler: {
-                                            (action) in self.categorySelected = action.title!
+                                            (action) in self.projectCategory.text = action.title!
                                            }))
         
         alert.addAction(UIAlertAction(title: "Art",
                                            style: .default,
                                            handler: {
-                                            (action) in self.categorySelected = action.title!
+                                            (action) in self.projectCategory.text = action.title!
                                            }))
         
         alert.addAction(UIAlertAction(title: "Clothing",
                                            style: .default,
                                            handler: {
-                                            (action) in self.categorySelected = action.title!
+                                            (action) in self.projectCategory.text = action.title!
                                            }))
         
         alert.addAction(UIAlertAction(title: "Accessories",
                                            style: .default,
                                            handler: {
-                                            (action) in self.categorySelected = action.title!
+                                            (action) in self.projectCategory.text = action.title!
                                            }))
         
         alert.addAction(UIAlertAction(title: "Kids",
                                            style: .default,
                                            handler: {
-                                            (action) in self.categorySelected = action.title!
+                                            (action) in self.projectCategory.text = action.title!
                                            }))
         
         alert.addAction(UIAlertAction(title: "Science",
                                            style: .default,
                                            handler: {
-                                            (action) in self.categorySelected = action.title!
+                                            (action) in self.projectCategory.text = action.title!
                                            }))
         
         alert.addAction(UIAlertAction(title: "Pets",
                                            style: .default,
                                            handler: {
-                                            (action) in self.categorySelected = action.title!
+                                            (action) in self.projectCategory.text = action.title!
                                            }))
         
         alert.addAction(UIAlertAction(title: "Plants",
                                            style: .default,
                                            handler: {
-                                            (action) in self.categorySelected = action.title!
+                                            (action) in self.projectCategory.text = action.title!
                                            }))
         
         alert.addAction(UIAlertAction(title: "Miscelleous",
                                            style: .default,
                                            handler: {
-                                            (action) in self.categorySelected = action.title!
+                                            (action) in self.projectCategory.text = action.title!
                                            }))
         
-        projectCategory.text = alert.title
+        // projectCategory.text = alert.title
         present(alert, animated: true, completion: nil)
         // figure out how not to click twice to see item !
 //        print(self.categorySelected)
@@ -262,7 +262,7 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         // change words on screen to reflect photo attached
         // this animates and then goes away
         present(imagePicker, animated: true, completion: nil)
-        photoLabel.setTitle("Photo Attached Successfully", for: .normal)
+        // photoLabel.setTitle("Photo Attached Successfully", for: .normal)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -298,11 +298,14 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
                     print("could not get URL: \(String(describing: error))")
                     return
                 }
+                print("photo url:")
                 print(downloadURL.absoluteString)
                 self.projectImage = downloadURL.absoluteString
             }
         }
-        picker.dismiss(animated: true, completion: nil)
+        picker.dismiss(animated: true, completion: {
+            self.photoLabel.setTitle("Photo Attached Successfully", for: .normal)
+        })
     }
     
     // MARK: - Navigation

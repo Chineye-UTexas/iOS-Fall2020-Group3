@@ -27,10 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         })
         
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let initialViewController = storyboard.instantiateViewController(withIdentifier: "NextVC")
-//        self.window?.rootViewController = initialViewController
-        //configureInitialViewController()
         return true
     }
     

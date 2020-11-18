@@ -20,5 +20,6 @@ extension User {
     @NSManaged public var notifications: Bool
     @NSManaged public var screenName: String?
     @NSManaged public var password: String?
+    @NSManaged public var photoBackgroundColor: String
 
 }

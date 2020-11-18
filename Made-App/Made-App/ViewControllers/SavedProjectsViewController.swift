@@ -7,38 +7,59 @@
 
 import UIKit
 import Firebase
+import SDWebImage
+import Foundation
 
 class SavedProjectsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    let storage = Storage.storage()
-    
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var savedProjectsHeader: UILabel!
     
-    var savedList = ["pic-1",
-                    "pic-2",
-                    "image1",
-                    "image2",
-                    "image3"]
+    var savedList: [String] = []
     var imageCounter = 0
+    let storage = Storage.storage()
+    var ref: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         collectionView.dataSource = self
         collectionView.delegate = self
-        
-//        // Create a storage reference from our storage service
-//        let storageRef = storage.reference()
-//        // This is equivalent to creating the full reference
-//        let storagePath = "/images/space.jpg"
-//        var spaceRef = storage.reference(forURL: storagePath)
-//        
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        ref = Database.database().reference()
+        let id = uniqueID.split(separator: ".")
+
+        ref.child("users/\(id[0])/saved-projects").observeSingleEvent(of: .value, with: { (snapshot) in
+                for child in snapshot.children {
+                    // each child is a saved project
+                    let snap = child as! DataSnapshot
+                    let projectID = snap.key
+                    let value = snap.value as! NSDictionary
+                    let images = value["images"] as! NSArray
+                    let imageURL = images[0] as! String
+                    print("key = \(projectID)  value = \(value)")
+                    print("imageURL = \(imageURL)")
+                    if !self.savedList.contains(imageURL) {
+                        self.savedList.append(imageURL)
+                    }
+                    self.collectionView.reloadData()
+                    print("after getting database saved projects")
+                }
+            })
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -48,7 +69,9 @@ class SavedProjectsViewController: UIViewController, UICollectionViewDataSource,
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "savedProjectsCellIdentifier", for: indexPath) as! MadeImageCell
         
+        // this could be cool customizable!
         cell.backgroundColor = UIColor.black
+        
         let currImageName = savedList[self.imageCounter]
         self.imageCounter += 1
         if self.imageCounter >= savedList.count {
@@ -56,7 +79,20 @@ class SavedProjectsViewController: UIViewController, UICollectionViewDataSource,
         }
         
         // set image
-        // cell.image.image = UIImage(named: currImageName)
+        if currImageName != "" {
+            // Create a reference from a Google Cloud Storage URI
+            let gsReference = storage.reference(forURL: currImageName)
+            // Download in memory with a maximum allowed size of 5MB (5 * 1024 * 1024 bytes)
+            gsReference.getData(maxSize: 5 * 1024 * 1024) { data, error in
+              if let error = error {
+                // Uh-oh, an error occurred!
+                print(error.localizedDescription)
+              } else {
+                // Data for image path is returned
+                cell.image.image = UIImage(data: data!)
+              }
+            }
+        }
         
         return cell
     }
