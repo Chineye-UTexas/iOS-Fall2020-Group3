@@ -24,11 +24,12 @@ class MadeFeedViewController: UIViewController, UITableViewDataSource, UITableVi
         var category = NSString()
         var description = NSString()
         var instructions = NSString()
-        var timeValue = NSNumber()
+        var timeValue = NSString()
         var timeUnit = NSString()
         var difficulty = NSString()
         var images: NSArray = []
         var creationDate = NSString()
+        var username = NSString()
         var reviews: NSArray = []
         
 //        //imageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -67,14 +68,14 @@ class MadeFeedViewController: UIViewController, UITableViewDataSource, UITableVi
                         instructions = snapshot.childSnapshot(forPath: "\(key)/instructions").value as! NSString
                         print(instructions)
                         images = snapshot.childSnapshot(forPath: "\(key)/images").value as! NSArray
-                     //   timeValue = snapshot.childSnapshot(forPath: "\(key)/timeValue").value as! NSNumber
-
+                        timeValue = snapshot.childSnapshot(forPath: "\(key)/time").value as! NSString
+                        username = snapshot.childSnapshot(forPath: "\(key)/user").value as! NSString
                         print(images)
                         timeUnit = snapshot.childSnapshot(forPath: "\(key)/timeUnit").value as! NSString
                         print(timeUnit)
                         
                         //self.models.append(currPost)
-                        self.models.append(Project(title: title, category: category, description: description, instructions: instructions, timeValue: 0, timeUnit: timeUnit, difficulty: difficulty, images: images, creationDate: creationDate, reviews: ["ok"]))
+                    self.models.append(Project(title: title, category: category, description: description, instructions: instructions, timeValue: timeValue, timeUnit: timeUnit, difficulty: difficulty, images: images, creationDate: creationDate, username: username, reviews: ["ok"]))
                    
                 }
                 self.table.reloadData()

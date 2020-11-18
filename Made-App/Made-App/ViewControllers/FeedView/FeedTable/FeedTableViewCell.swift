@@ -33,7 +33,7 @@ class FeedTableViewCell: UITableViewCell {
     }
     
     func configure(with model: Project) {
-        self.usernameLabel.text = uniqueID
+        self.usernameLabel.text = model.username as String
 //        self.userProfilePicture.image = UIImage(named: model.userProfilePicture)
         self.postImageView.image = UIImage(named: model.images[0] as! String)
         self.projectTitle.text = model.title as String
