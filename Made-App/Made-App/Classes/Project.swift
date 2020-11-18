@@ -11,14 +11,15 @@ class Project{
     var category = NSString()
     var description = NSString()
     var instructions = NSString()
-    var timeValue = NSNumber()
+    var timeValue = NSString()
     var timeUnit = NSString()
     var difficulty = NSString()
     var images: NSArray = []
     var creationDate = NSString()
+    var username = NSString()
     var reviews: NSArray = []
     
-    init(title: NSString, category: NSString, description: NSString, instructions: NSString, timeValue: NSNumber, timeUnit: NSString, difficulty: NSString, images: NSArray, creationDate: NSString, reviews: NSArray) {
+    init(title: NSString, category: NSString, description: NSString, instructions: NSString, timeValue: NSString, timeUnit: NSString, difficulty: NSString, images: NSArray, creationDate: NSString, username: NSString, reviews: NSArray) {
         self.title = title
         self.category = category
         self.description = description
@@ -28,6 +29,7 @@ class Project{
         self.difficulty = difficulty
         self.images = images
         self.creationDate = creationDate
+        self.username = username
         self.reviews = reviews
     }
     

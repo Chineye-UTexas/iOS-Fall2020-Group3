@@ -24,11 +24,12 @@ class ExploreFeedViewController: UIViewController, UITableViewDataSource, UITabl
         var category = NSString()
         var description = NSString()
         var instructions = NSString()
-        var timeValue = NSNumber()
+        var timeValue = NSString()
         var timeUnit = NSString()
         var difficulty = NSString()
         var images: NSArray = []
         var creationDate = NSString()
+        var username = NSString()
         var reviews: NSArray = []
 
         // Do any additional setup after loading the view.
@@ -67,7 +68,7 @@ class ExploreFeedViewController: UIViewController, UITableViewDataSource, UITabl
                             timeUnit = snapshot.childSnapshot(forPath: "\(key)/timeUnit").value as! NSString
                             print(timeUnit)
                             
-                            self.models.append(Project(title: title, category: category, description: description, instructions: instructions, timeValue: 0, timeUnit: timeUnit, difficulty: difficulty, images: images, creationDate: creationDate, reviews: ["ok"]))
+                            self.models.append(Project(title: title, category: category, description: description, instructions: instructions, timeValue: timeValue, timeUnit: timeUnit, difficulty: difficulty, images: images, creationDate: creationDate, username: username, reviews: ["ok"]))
                         }
                 }
                 self.table.reloadData()

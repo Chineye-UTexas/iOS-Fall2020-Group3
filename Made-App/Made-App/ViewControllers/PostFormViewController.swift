@@ -48,6 +48,7 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         // let nameOfPoster = self.nameOfPoster
         let images: NSArray = [self.projectImage]
        // let reviews: [NSArray]
+        let username = NSString(string: screenName)
         
         let now = Date()
         let formatter = DateFormatter()
@@ -58,9 +59,9 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         
         self.newProject = Project(title: title, category: category,
                                   description: description, instructions: instructions,
-                                  timeValue: NSNumber(nonretainedObject: time),
+                                  timeValue: time,
                                   timeUnit: timeUnit, difficulty: self.difficulty, images: images,
-                                  creationDate: datetime, reviews: reviews as NSArray)
+                                  creationDate: datetime, username: username, reviews: reviews as NSArray)
         
         if title.length == 0 {
             message = "Please add a project title"

@@ -42,7 +42,7 @@ class FeedTableViewCell: UITableViewCell {
     }
     
     func configure(with model: Project) {
-        self.usernameLabel.text = uniqueID
+        self.usernameLabel.text = model.username as String
         // set image
         if model.images[0] as! String != "" {
             // Create a reference from a Google Cloud Storage URI
