@@ -19,7 +19,6 @@
 		3587928E25415CC700AEC5EB /* EditSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3587928725415CC600AEC5EB /* EditSettingsViewController.swift */; };
 		3587928F25415CC700AEC5EB /* MadeFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3587928825415CC600AEC5EB /* MadeFeedViewController.swift */; };
 		3587929025415CC700AEC5EB /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3587928925415CC600AEC5EB /* FeedTableViewCell.xib */; };
-		3587929125415CC700AEC5EB /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3587928A25415CC600AEC5EB /* FeedViewController.swift */; };
 		3587929225415CC700AEC5EB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3587928B25415CC600AEC5EB /* SettingsViewController.swift */; };
 		3587929325415CC700AEC5EB /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3587928C25415CC700AEC5EB /* ImageTableViewCell.swift */; };
 		3587929425415CC700AEC5EB /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3587928D25415CC700AEC5EB /* FeedTableViewCell.swift */; };
@@ -31,7 +30,6 @@
 		35EC4E40252F9E120093E430 /* Made_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E3F252F9E120093E430 /* Made_AppTests.swift */; };
 		35EC4E4B252F9E120093E430 /* Made_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E4A252F9E120093E430 /* Made_AppUITests.swift */; };
 		7C0B7C33254B444F005456C7 /* Alpha.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C0B7C32254B444E005456C7 /* Alpha.storyboard */; };
-		7C0B7C40254B4BA2005456C7 /* UserProfileLayoutCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0B7C3F254B4BA1005456C7 /* UserProfileLayoutCollectionViewController.swift */; };
 		7C58D711255274A90032A736 /* MadeImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58D710255274A90032A736 /* MadeImageCell.swift */; };
 		7C58D719255290AF0032A736 /* SavedProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58D718255290AF0032A736 /* SavedProjectsViewController.swift */; };
 		7C58D7212554C7930032A736 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C58D7202554C7920032A736 /* Project.swift */; };
@@ -48,6 +46,7 @@
 		7CC960622538E2CE005B0304 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC960612538E2CE005B0304 /* RegistrationViewController.swift */; };
 		7CC960D425400C75005B0304 /* made.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7CC960D225400C74005B0304 /* made.xcdatamodeld */; };
 		7CC960D925401649005B0304 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC960D825401649005B0304 /* UserProfileViewController.swift */; };
+		7CD76619256500F8002928C9 /* UploadInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD76618256500F7002928C9 /* UploadInstructionsViewController.swift */; };
 		7D7F93987CD060E0CE04169F /* Pods_Made_App_Made_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B203E177730C98313BAC99 /* Pods_Made_App_Made_AppUITests.framework */; };
 		94CD288FC68E732DFB4CB0F0 /* Pods_Made_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABAF8FD187DE2BC481012CFF /* Pods_Made_App.framework */; };
 		DFB04CB16EA250C9EF18D114 /* Pods_Made_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE62E6E043CA951023BDB10 /* Pods_Made_AppTests.framework */; };
@@ -85,7 +84,6 @@
 		3587928725415CC600AEC5EB /* EditSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditSettingsViewController.swift; sourceTree = "<group>"; };
 		3587928825415CC600AEC5EB /* MadeFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MadeFeedViewController.swift; sourceTree = "<group>"; };
 		3587928925415CC600AEC5EB /* FeedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
-		3587928A25415CC600AEC5EB /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		3587928B25415CC600AEC5EB /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3587928C25415CC700AEC5EB /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 		3587928D25415CC700AEC5EB /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 		5901EC98CC680F0713FA4D1E /* Pods-Made-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Made-App.release.xcconfig"; path = "Target Support Files/Pods-Made-App/Pods-Made-App.release.xcconfig"; sourceTree = "<group>"; };
 		7078192C25852F1FC0F8BA2E /* Pods-Made-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Made-App.debug.xcconfig"; path = "Target Support Files/Pods-Made-App/Pods-Made-App.debug.xcconfig"; sourceTree = "<group>"; };
 		7C0B7C32254B444E005456C7 /* Alpha.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Alpha.storyboard; sourceTree = "<group>"; };
-		7C0B7C3F254B4BA1005456C7 /* UserProfileLayoutCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileLayoutCollectionViewController.swift; sourceTree = "<group>"; };
 		7C58D710255274A90032A736 /* MadeImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadeImageCell.swift; sourceTree = "<group>"; };
 		7C58D718255290AF0032A736 /* SavedProjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedProjectsViewController.swift; sourceTree = "<group>"; };
 		7C58D7202554C7920032A736 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
@@ -125,6 +122,7 @@
 		7CC960612538E2CE005B0304 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		7CC960D325400C75005B0304 /* made.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = made.xcdatamodel; sourceTree = "<group>"; };
 		7CC960D825401649005B0304 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		7CD76618256500F7002928C9 /* UploadInstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadInstructionsViewController.swift; sourceTree = "<group>"; };
 		918C2074A62DB5C958AFC054 /* Pods-Made-AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Made-AppTests.debug.xcconfig"; path = "Target Support Files/Pods-Made-AppTests/Pods-Made-AppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ABAF8FD187DE2BC481012CFF /* Pods_Made_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Made_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFE62E6E043CA951023BDB10 /* Pods_Made_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Made_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,27 +181,18 @@
 		3580F28125427574006349CA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				3587928A25415CC600AEC5EB /* FeedViewController.swift */,
-				3587928725415CC600AEC5EB /* EditSettingsViewController.swift */,
+				7CD7663B256501CD002928C9 /* UserProfile */,
+				7CD7662E25650190002928C9 /* Authentication */,
 				35EC4E2C252F9E100093E430 /* ViewController.swift */,
-				7CC960352536FA8E005B0304 /* LoginViewController.swift */,
-				7CC960612538E2CE005B0304 /* RegistrationViewController.swift */,
-				7CC960D825401649005B0304 /* UserProfileViewController.swift */,
-				7C58D718255290AF0032A736 /* SavedProjectsViewController.swift */,
-				7C58D710255274A90032A736 /* MadeImageCell.swift */,
-				7C0B7C3F254B4BA1005456C7 /* UserProfileLayoutCollectionViewController.swift */,
+				7CD766242565016D002928C9 /* ExploreView */,
+				7CD7662025650151002928C9 /* Settings */,
 				13AFE0C42561C7630011BECC /* NotificationsViewController.swift */,
 				13AFE0CC2561C8EB0011BECC /* NotificationsTableViewCell.swift */,
 				3580F28B2542758A006349CA /* FeedView */,
-				3587928825415CC600AEC5EB /* MadeFeedViewController.swift */,
-				7C58D7F025562FA10032A736 /* ExploreViewController.swift */,
-				13AFE0D5256429E20011BECC /* ExploreFeedViewController.swift */,
-				7C58D7F8255630CF0032A736 /* ExploreTableViewCell.swift */,
-				3587928B25415CC600AEC5EB /* SettingsViewController.swift */,
 				3587926C254148DE00AEC5EB /* SinglePostViewController.swift */,
 				35879261254148BC00AEC5EB /* PostFormViewController.swift */,
-				7C58D7EB25562CA00032A736 /* ProfilePicViewController.swift */,
 				7C58D80C25565F630032A736 /* ReviewViewController.swift */,
+				7CD76618256500F7002928C9 /* UploadInstructionsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -211,6 +200,7 @@
 		3580F28B2542758A006349CA /* FeedView */ = {
 			isa = PBXGroup;
 			children = (
+				3587928825415CC600AEC5EB /* MadeFeedViewController.swift */,
 				3580F28F2542759C006349CA /* FeedTable */,
 			);
 			path = FeedView;
@@ -292,6 +282,45 @@
 				35EC4E4C252F9E120093E430 /* Info.plist */,
 			);
 			path = "Made-AppUITests";
+			sourceTree = "<group>";
+		};
+		7CD7662025650151002928C9 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				3587928725415CC600AEC5EB /* EditSettingsViewController.swift */,
+				7C58D7EB25562CA00032A736 /* ProfilePicViewController.swift */,
+				3587928B25415CC600AEC5EB /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		7CD766242565016D002928C9 /* ExploreView */ = {
+			isa = PBXGroup;
+			children = (
+				7C58D7F025562FA10032A736 /* ExploreViewController.swift */,
+				13AFE0D5256429E20011BECC /* ExploreFeedViewController.swift */,
+				7C58D7F8255630CF0032A736 /* ExploreTableViewCell.swift */,
+			);
+			path = ExploreView;
+			sourceTree = "<group>";
+		};
+		7CD7662E25650190002928C9 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				7CC960612538E2CE005B0304 /* RegistrationViewController.swift */,
+				7CC960352536FA8E005B0304 /* LoginViewController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		7CD7663B256501CD002928C9 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				7C58D710255274A90032A736 /* MadeImageCell.swift */,
+				7C58D718255290AF0032A736 /* SavedProjectsViewController.swift */,
+				7CC960D825401649005B0304 /* UserProfileViewController.swift */,
+			);
+			path = UserProfile;
 			sourceTree = "<group>";
 		};
 		B18D3B5DB2EAFF5404CEDF1C /* Pods */ = {
@@ -578,7 +607,6 @@
 				7C58D7212554C7930032A736 /* Project.swift in Sources */,
 				7C58D7F9255630CF0032A736 /* ExploreTableViewCell.swift in Sources */,
 				7CC960362536FA8E005B0304 /* LoginViewController.swift in Sources */,
-				3587929125415CC700AEC5EB /* FeedViewController.swift in Sources */,
 				7CC960D925401649005B0304 /* UserProfileViewController.swift in Sources */,
 				7C58D711255274A90032A736 /* MadeImageCell.swift in Sources */,
 				35EC4E2D252F9E100093E430 /* ViewController.swift in Sources */,
@@ -589,7 +617,7 @@
 				7C58D72D2554D5860032A736 /* Review.swift in Sources */,
 				35EC4E2B252F9E100093E430 /* SceneDelegate.swift in Sources */,
 				3587928E25415CC700AEC5EB /* EditSettingsViewController.swift in Sources */,
-				7C0B7C40254B4BA2005456C7 /* UserProfileLayoutCollectionViewController.swift in Sources */,
+				7CD76619256500F8002928C9 /* UploadInstructionsViewController.swift in Sources */,
 				7CC960622538E2CE005B0304 /* RegistrationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

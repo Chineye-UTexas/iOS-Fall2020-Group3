@@ -95,7 +95,7 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         var message = ""
         // let stringTitle = projectTitle.text ?? ""
         let title = NSString(string: projectTitle.text ?? "")
-        let category = NSString(string: self.projectCategory.text ?? "")
+        let category = NSString(string: self.chosenCategoryLabel.text ?? "")
         let description = NSString(string: projectDescription.text ?? "")
         let instructions = NSString(string: projectInstructions)
         let timeUnit = NSString(string: projectUnit )
