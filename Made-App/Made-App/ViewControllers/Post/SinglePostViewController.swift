@@ -33,10 +33,6 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
     var reviews: Array<DataSnapshot> = []
     
     var projectInstructions = ""
-    var comments: Array<DataSnapshot> = []
-    let kSectionComments = 2
-    let kSectionSend = 1
-    let kSectionPost = 0
     
     var postPhoto = UIImage()
     var photoURL: String!
@@ -133,24 +129,7 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         })
     
-        
-        /*
-         Retrieve the reviews
-         */
-        
-        ref = Database.database().reference()
-        
-        let postRef = ref.child("post-reviews/\(self.firebasePostID)/")
-        
-        reviewCommentaryList.removeAll()
-        // [START child_event_listener]
-        // Listen for new comments in the Firebase database
-        postRef.observe(.childAdded, with: { (snapshot) -> Void in
-            self.reviewCommentaryList.append((snapshot.value as? NSString)!)
-            self.reviewTableView.reloadData()
-        })
 
-        
     }
     
     override func viewDidLoad() {
@@ -161,28 +140,30 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
         
         posterProfilePhoto.layer.masksToBounds = true
         posterProfilePhoto.layer.cornerRadius = posterProfilePhoto.bounds.width / 2
-    
+        /*
+         Retrieve the reviews
+         */
         
         ref = Database.database().reference()
         
         let postRef = ref.child("post-reviews/\(self.firebasePostID)/")
         
-
+        reviewCommentaryList.removeAll()
         let refReview = postRef.observe(DataEventType.value, with:
             { (snapshot) in
                 let postDict = snapshot.value as? [String : AnyObject] ?? [:]
+
                 
-                postDict.forEach{
+                for (key, value) in postDict {
                     
-                    print($0.value as? NSString)
-                    self.reviewCommentaryList.append(($0.value as? NSString)!)
-                    
+                    print("value = \(value)")
+                    self.reviewCommentaryList.append(value as? NSString ?? "invalid review")
                 }
         })
         { (error) in
             print(error.localizedDescription)
         }
-        
+
         reviewTableView.reloadData()
 
     }
@@ -206,12 +187,12 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
                 let reviewRef = self.ref.child("post-reviews/\(self.firebasePostID)/")
 
                 reviewRef.childByAutoId().setValue(firstTextField.text)
-                
+                self.reviewCommentaryList.append(firstTextField.text as! NSString)
                 self.reviewTableView.reloadData()
 
             })
         
-        /*
+        /*v
          Cancel comment
          */
             let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { (action : UIAlertAction!) -> Void in })
