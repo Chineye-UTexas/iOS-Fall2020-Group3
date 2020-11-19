@@ -46,15 +46,16 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         imagePicker.delegate = self
     }
     
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.projectDuration.layer.cornerRadius = 5
         self.instructionsButton.layer.cornerRadius = 5
         
-        print("here" + self.projectInstructions)
-        
     }
+
 
     
     @IBAction func displayProjectDuration(_ sender: Any) {
