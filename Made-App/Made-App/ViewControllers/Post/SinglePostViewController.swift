@@ -206,7 +206,8 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
                 let reviewRef = self.ref.child("post-reviews/\(self.firebasePostID)/")
 
                 reviewRef.childByAutoId().setValue(firstTextField.text)
-                //self.reviewTableView.reloadData()
+                
+                self.reviewTableView.reloadData()
 
             })
         
