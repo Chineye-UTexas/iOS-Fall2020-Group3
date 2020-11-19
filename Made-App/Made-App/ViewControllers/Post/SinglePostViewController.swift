@@ -29,11 +29,15 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
     // sent from PostFormVC
     var singlePost = Project()
     var reviewList = [Review] ()
-    var reviewCommentaryList = [NSMutableString] ()
+    var reviewCommentaryList = [NSString] ()
     var firebasePostID = ""
     var reviews: Array<DataSnapshot> = []
     
     var projectInstructions = ""
+    var comments: Array<DataSnapshot> = []
+    let kSectionComments = 2
+    let kSectionSend = 1
+    let kSectionPost = 0
     
     var postPhoto = UIImage()
     var photoURL: String!
@@ -43,7 +47,6 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
     var titleOfPost: String!
     var likes: String!
     var caption: String!
-    var comments: UITableView!
     var ref: DatabaseReference!
     let storage = Storage.storage()
 
@@ -65,8 +68,9 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
             { (snapshot) in
 //            print(snapshot)
                 
-              //  var test = snapshot.value as! NSArray
-              //  print(snapshot.value as Any)
+                /*
+                 Retrieve Post attributes
+                 */
                 let postDict = snapshot.value as? [String : AnyObject] ?? [:]
                 
                 let projTitle = postDict["project-title"] as? NSString
@@ -108,25 +112,6 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
             print(error.localizedDescription)
         }
         
-        
-        print("before review tree firebase path")
-        let reviewTree = ref.child("post-reviews").child(self.firebasePostID).observeSingleEvent(of: .value, with:
-            { (snapshot) in
-                
-                let tempReviews = snapshot.value as? [NSString]
-                
-                print(tempReviews?.first!)
-                
-           //     self.reviews = Array(tempReviews)
-                //self.reviews = tempReviews as! Array<DataSnapshot>
-               // self.reviews = (tempReviews as Array)
-                
-            })
-        { (error) in
-            print(error.localizedDescription)
-        }
-    
-        print("before profile picture firebase path")
         /*
          Profile picture
          */
@@ -150,9 +135,25 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
                 }
             }
         })
+    
         
+        /*
+         Retrieve the reviews
+         */
+        
+        ref = Database.database().reference()
+        
+        let postRef = ref.child("post-reviews/\(self.firebasePostID)/")
+        
+        reviewCommentaryList.removeAll()
+        // [START child_event_listener]
+        // Listen for new comments in the Firebase database
+        postRef.observe(.childAdded, with: { (snapshot) -> Void in
+            self.reviewCommentaryList.append((snapshot.value as? NSString)!)
+            self.reviewTableView.reloadData()
+        })
 
-        reviewTableView.reloadData()
+        
     }
     
     override func viewDidLoad() {
@@ -163,18 +164,65 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
         
         posterProfilePhoto.layer.masksToBounds = true
         posterProfilePhoto.layer.cornerRadius = posterProfilePhoto.bounds.width / 2
-        
-    }
     
+        
+        ref = Database.database().reference()
+        
+        let postRef = ref.child("post-reviews/\(self.firebasePostID)/")
+        
+
+        let refReview = postRef.observe(DataEventType.value, with:
+            { (snapshot) in
+                let postDict = snapshot.value as? [String : AnyObject] ?? [:]
+                
+                postDict.forEach{
+                    
+                    print($0.value as? NSString)
+                    self.reviewCommentaryList.append(($0.value as? NSString)!)
+                    
+                }
+        })
+        { (error) in
+            print(error.localizedDescription)
+        }
+        
+        reviewTableView.reloadData()
+
+    }
     
     
     @IBAction func addReview(_ sender: Any) {
         
+        /*
+         Alert
+         */
+        let alertController = UIAlertController(title: "Add a Short Review", message: "", preferredStyle: .alert)
+            alertController.addTextField { (textField : UITextField!) -> Void in
+                textField.placeholder = "Review Here"
+            }
         
+        /*
+         Save comment
+         */
+            let saveAction = UIAlertAction(title: "Save Review", style: .default, handler: { alert -> Void in
+                let firstTextField = alertController.textFields![0] as UITextField
+                let reviewRef = self.ref.child("post-reviews/\(self.firebasePostID)/")
+
+                reviewRef.childByAutoId().setValue(firstTextField.text)
+                //self.reviewTableView.reloadData()
+
+            })
         
-        
+        /*
+         Cancel comment
+         */
+            let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { (action : UIAlertAction!) -> Void in })
+
+            alertController.addAction(saveAction)
+            alertController.addAction(cancelAction)
+            
+            self.present(alertController, animated: true, completion: nil)
     }
-    
     
     
     
@@ -198,36 +246,27 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
-    /*
-     Submitting a new review
-     */
-    
-    // was going to implement as is, but if we leave it
-    // as that one sentence, that won't capture all that
-    // we're looking for in a review, so we need
-    // another view for people to leave a review
-
-    
     @IBAction func saveProject(_ sender: Any) {
         ref = Database.database().reference()
         let emailID = uniqueID.split(separator: ".")
         ref.child("users/\(emailID[0])/saved-projects/\(firebasePostID)").setValue(titleOfPost)
         saveButton.titleLabel?.text = "Saved!"
     }
-    
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             
-        if segue.identifier == "singlePostToReviewSegue",
-           let nextVC = segue.destination as? ReviewViewController {
-            
-            nextVC.postID = firebasePostID
-            nextVC.postPhotoURL = "https://firebasestorage.googleapis.com/v0/b/made-ios.appspot.com/o/images%2FC70801A6-8E87-4D4D-AED2-C881F4065437.jpeg?alt=media&token=daa27db3-ac81-473d-9fd3-d577651bf315" //photoURL
-            nextVC.postTitle = postTitle.text!
-        }
-        else if segue.identifier == "displayInstructionsSegue",
+//        if segue.identifier == "singlePostToReviewSegue",
+//           let nextVC = segue.destination as? ReviewViewController {
+//
+//            nextVC.postID = firebasePostID
+//            nextVC.postPhotoURL = "https://firebasestorage.googleapis.com/v0/b/made-ios.appspot.com/o/images%2FC70801A6-8E87-4D4D-AED2-C881F4065437.jpeg?alt=media&token=daa27db3-ac81-473d-9fd3-d577651bf315" //photoURL
+//            nextVC.postTitle = postTitle.text!
+//        }
+//        else
+        if segue.identifier == "displayInstructionsSegue",
             let nextVC = segue.destination as? DisplayInstructionsViewController
         {
             nextVC.postID = self.firebasePostID
