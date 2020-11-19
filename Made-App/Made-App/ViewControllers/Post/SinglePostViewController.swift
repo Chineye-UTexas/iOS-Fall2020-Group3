@@ -62,8 +62,9 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
             { (snapshot) in
 //            print(snapshot)
                 
-              //  var test = snapshot.value as! NSArray
-              //  print(snapshot.value as Any)
+                /*
+                 Retrieve Post attributes
+                 */
                 let postDict = snapshot.value as? [String : AnyObject] ?? [:]
                 
                 let projTitle = postDict["project-title"] as? NSString
@@ -106,13 +107,15 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         
         
-        
+        /*
+         Retrieve Post reviews
+         */
         let reviewTree = ref.child("post-reviews").child(self.firebasePostID).observeSingleEvent(of: .value, with:
             { (snapshot) in
                 
                 let tempReviews = snapshot.value as? [NSString]
                 
-                print(tempReviews?.first!)
+                print(tempReviews?.first)
                 
            //     self.reviews = Array(tempReviews)
                 //self.reviews = tempReviews as! Array<DataSnapshot>
@@ -167,7 +170,26 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBAction func addReview(_ sender: Any) {
         
-        
+        let alertController = UIAlertController(title: "Add a Short Review", message: "", preferredStyle: .alert)
+            alertController.addTextField { (textField : UITextField!) -> Void in
+                textField.placeholder = "Review Here"
+            }
+            let saveAction = UIAlertAction(title: "Save Review", style: .default, handler: { alert -> Void in
+                let firstTextField = alertController.textFields![0] as UITextField
+                self.ref.child("post-reviews/\(self.firebasePostID)/").setValue(firstTextField.text)
+                
+
+            })
+            let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { (action : UIAlertAction!) -> Void in })
+            alertController.addTextField {
+                (textField : UITextField!) -> Void in
+                textField.placeholder = ""
+            }
+
+            alertController.addAction(saveAction)
+            alertController.addAction(cancelAction)
+            
+            self.present(alertController, animated: true, completion: nil)
         
         
     }
