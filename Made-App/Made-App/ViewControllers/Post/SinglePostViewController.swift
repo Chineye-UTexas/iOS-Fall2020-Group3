@@ -57,7 +57,7 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
         var profilePictureName = ""
         
         
-        let postTree: Void = ref.child("posts").child(self.firebasePostID).observeSingleEvent(of: .value, with:
+        let postTree = ref.child("posts").child(self.firebasePostID).observeSingleEvent(of: .value, with:
             { (snapshot) in
 //            print(snapshot)
                 
@@ -65,44 +65,58 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
               //  print(snapshot.value as Any)
                 let postDict = snapshot.value as? [String : AnyObject] ?? [:]
                 
-              //  var temp = postTree.child("project-title") as? NSMutableString
-             //   print(title)
-//                if let postingUser = snap.value?["user"] as? String ?? "test" {
-//                    print("here")
-//                }
-            
-//           let postingUser = snapshot.value["user"] as? String
-//                print(postingUser)
-//
-//            if let description = snapshot.value["description"] as? String {
-//                print(description)
-//            }
-//
-//            if let imageURL = snapshot.value["images"] as? NSArray {
-//                print(imageURL.count)
-//            }
-//
-//            if let projectTime = snapshot.value["time"] as? String {
-//                print(projectTime)
-//            }
-//
-//            if let projectInstructions = snapshot.value["instructions"] as? String {
-//                print(projectInstructions)
-//            }
-                                    
+                let projTitle = postDict["project-title"] as? NSString
+                self.postTitle.text = projTitle as String?
+                
+                let imagesArray = postDict["images"] as? NSMutableArray
+                // make to a loading photo placeholder
+                let placeholderImage = UIImage(named: "madeLogo")
+                self.postImage.backgroundColor = UIColor.systemPink
+                if imagesArray != nil && imagesArray![0] as! NSString != "" {
+                    print("photoURL not empty")
+                    self.postImage.sd_setImage(with: URL(string: imagesArray![0] as! String), placeholderImage: placeholderImage)
+                }
+                
+                
+                let category = postDict["category"] as? NSString
+                
+                let username = postDict["user"] as? NSMutableString
+                self.posterUsername.text = username as String?
+                
+                let time = postDict["time"] as? NSString
+                
+                let timeUnit = postDict["timeUnit"] as? NSString
+                
+                let difficulty = postDict["difficulty"] as! NSString
+                
+                let instructions = postDict["instructions"] as! NSString
+                
+                let creationTime = postDict["creationTime"] as! NSMutableString
+                self.dateOfPost.text = creationTime as String
+                
+                let description = postDict["description"] as! NSString
+                self.postCaption.text = description as String
+                                
             }
         )
         { (error) in
             print(error.localizedDescription)
         }
+        
+        
+        
+        let reviewTree = ref.child("posts-reviews").child(self.firebasePostID).observeSingleEvent(of: .value, with:
+            { (snapshot) in
+                
+                
+                let reviews = snapshot.value as? NSArray ?? []
+                
+            })
+        { (error) in
+            print(error.localizedDescription)
+        }
     
-
         
-//        self.projectInstructions = ref.child("posts/\(firebasePostID)/instructions/").value
-        
-        //self.projectInstructions = NSMutableString(self.projectInstructions.text)
-        
-
         /*
          Profile picture
          */
@@ -128,33 +142,35 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
         })
         
         
+//
+//        // the data from the Project object we sent
+//        reviews = singlePost.reviews as! Array<DataSnapshot>
+//        postTitle.text = titleOfPost // String(singlePost.title)
+//        postCaption.text = caption // String(singlePost.description)
+//        posterUsername.text = postName
+//        postImage.image = postPhoto
+     //  postImage.backgroundColor = UIColor.systemPink
+//        let placeholderImage = postPhoto
+//
+//        // make to a loading photo placeholder
+//        if photoURL != nil && !photoURL.isEmpty {
+//            print("photoURL not empty")
+//        postImage.sd_setImage(with: URL(string: photoURL), placeholderImage: placeholderImage)
+//        }
         
-        // the data from the Project object we sent
-        reviews = singlePost.reviews as! Array<DataSnapshot>
-        postTitle.text = titleOfPost // String(singlePost.title)
-        postCaption.text = caption // String(singlePost.description)
-        posterUsername.text = postName
-        postImage.image = postPhoto
-        postImage.backgroundColor = UIColor.systemPink
-        let placeholderImage = postPhoto
-        // make to a loading photo placeholder
-        if photoURL != nil && !photoURL.isEmpty {
-            print("photoURL not empty")
-        postImage.sd_setImage(with: URL(string: photoURL), placeholderImage: placeholderImage)
-        }
-        dateOfPost.text = date // String(singlePost.creationDate)
+      //  dateOfPost.text = date // String(singlePost.creationDate)
        
-        self.ref.child("users/\(id[0])/projects/\(String(describing: titleOfPost))/reviews")
-            .observeSingleEvent(of: .value, with: { (snapshot) in
-                
-                for child in snapshot.children {
-                        let snap = child as! DataSnapshot
-                        let key = snap.key
-                        let value = snap.value
-                        print("key = \(key)  value = \(value!)")
-                    self.reviewCommentaryList.append(value as! NSMutableString)
-                    }
-            })
+//        self.ref.child("users/\(id[0])/projects/\(String(describing: titleOfPost))/reviews")
+//            .observeSingleEvent(of: .value, with: { (snapshot) in
+//
+//                for child in snapshot.children {
+//                        let snap = child as! DataSnapshot
+//                        let key = snap.key
+//                        let value = snap.value
+//                        print("key = \(key)  value = \(value!)")
+//                    self.reviewCommentaryList.append(value as! NSMutableString)
+//                    }
+//            })
         reviewTableView.reloadData()
     }
     
