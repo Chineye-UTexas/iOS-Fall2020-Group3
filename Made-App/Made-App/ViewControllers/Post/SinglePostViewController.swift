@@ -148,16 +148,19 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let postRef = ref.child("post-reviews/\(self.firebasePostID)/")
         
-        reviewCommentaryList.removeAll()
+        //reviewCommentaryList.removeAll()
         let refReview = postRef.observe(DataEventType.value, with:
             { (snapshot) in
                 let postDict = snapshot.value as? [String : AnyObject] ?? [:]
 
-                
                 for (key, value) in postDict {
                     
                     print("value = \(value)")
-                    self.reviewCommentaryList.append(value as? NSString ?? "invalid review")
+                    
+                    if(!self.reviewCommentaryList.contains((value as? NSString)!))
+                    {
+                        self.reviewCommentaryList.append(value as? NSString ?? "invalid review")
+                    }
                 }
         })
         { (error) in
@@ -165,7 +168,6 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
         }
 
         reviewTableView.reloadData()
-
     }
     
     
@@ -182,7 +184,8 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
         /*
          Save comment
          */
-            let saveAction = UIAlertAction(title: "Save Review", style: .default, handler: { alert -> Void in
+            let saveAction = UIAlertAction(title: "Save Review", style: .default, handler: {
+                alert -> Void in
                 let firstTextField = alertController.textFields![0] as UITextField
                 let reviewRef = self.ref.child("post-reviews/\(self.firebasePostID)/")
 
@@ -191,14 +194,14 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
                 self.reviewTableView.reloadData()
 
             })
-        
+              
         /*v
          Cancel comment
          */
             let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { (action : UIAlertAction!) -> Void in })
 
-            alertController.addAction(saveAction)
             alertController.addAction(cancelAction)
+            alertController.addAction(saveAction)
             
             self.present(alertController, animated: true, completion: nil)
     }
