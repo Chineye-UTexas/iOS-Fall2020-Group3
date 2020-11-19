@@ -120,32 +120,51 @@ class EditSettingsViewController: UIViewController, ProfilePicChanger, UIImagePi
     }
     @IBAction func saveButtonPressed(_ sender: Any) {
         // save values to core data storage of user
-        let currentUser = retrieveUser()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         
-        if(name != nameTextField!.text!) {
-            name = nameTextField.text!
-            currentUser[0].setValue(nameTextField.text, forKey: "screenName")
-        }
-        if (password != passwordTextField.text!) {
-            password = passwordTextField.text!
-            currentUser[0].setValue(passwordTextField.text!, forKey: "password")
-        }
-        if (bio != bioTextField.text!) {
-            bio = bioTextField.text!
-            currentUser[0].setValue(bioTextField.text!, forKey: "bio")
-        }
-        if (currentUser[0].notifications != notificationBool) {
-            if(currentUser[0].notifications) {
-                notificationSwitch.setOn(false, animated: true)
-                notificationState = "Off"
-                notificationBool = false
-                currentUser[0].setValue(false, forKey: "notifications")
-            } else {
-                notificationSwitch.setOn(true, animated: true)
-                notificationState = "On"
-                notificationBool = true
-                currentUser[0].setValue(true, forKey: "notifications")
+        var fetchedResults: [User]? = nil
+        let predicate = NSPredicate(format: "name == %@", uniqueID)
+        request.predicate = predicate
+        do {
+            try fetchedResults = context.fetch(request) as? [User]
+            if(name != nameTextField!.text!) {
+                name = nameTextField.text!
+                fetchedResults![0].setValue(nameTextField.text, forKey: "screenName")
             }
+            if (password != passwordTextField.text!) {
+                password = passwordTextField.text!
+                fetchedResults![0].setValue(passwordTextField.text!, forKey: "password")
+            }
+            if (bio != bioTextField.text!) {
+                bio = bioTextField.text!
+                fetchedResults![0].setValue(bioTextField.text!, forKey: "bio")
+            }
+            if (fetchedResults![0].notifications != notificationBool) {
+                if(fetchedResults![0].notifications) {
+                    notificationSwitch.setOn(false, animated: true)
+                    notificationState = "Off"
+                    notificationBool = false
+                    fetchedResults![0].setValue(false, forKey: "notifications")
+                } else {
+                    notificationSwitch.setOn(true, animated: true)
+                    notificationState = "On"
+                    notificationBool = true
+                    fetchedResults![0].setValue(true, forKey: "notifications")
+                }
+            }
+            do {
+                try context.save()
+            } catch {
+                let nserror = error as NSError
+                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                abort()
+            }
+        } catch {
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
         }
         
         // update profile pic
@@ -176,24 +195,6 @@ class EditSettingsViewController: UIViewController, ProfilePicChanger, UIImagePi
             }
         })
         
-    }
-    
-    func retrieveUser() -> [User] {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-        
-        var fetchedResults: [User]? = nil
-        let predicate = NSPredicate(format: "name == %@", uniqueID)
-        request.predicate = predicate
-        do {
-            try fetchedResults = context.fetch(request) as? [User]
-        } catch {
-            let nserror = error as NSError
-            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-            abort()
-        }
-        return fetchedResults!
     }
     
     func changeProfilePic(newImage: UIImage) {
