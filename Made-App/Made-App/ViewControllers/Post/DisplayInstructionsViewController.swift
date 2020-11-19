@@ -10,8 +10,8 @@ import UIKit
 class DisplayInstructionsViewController: UIViewController {
 
     
-    @IBOutlet weak var instructionScrollView: UIScrollView!
     @IBOutlet weak var instructionProjectTitle: UILabel!
+    @IBOutlet weak var instructionTextView: UITextView!
     
     var projectInstructions = ""
     var projectTitle = ""
@@ -21,8 +21,8 @@ class DisplayInstructionsViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.instructionProjectTitle.text = self.projectTitle
-        //self.instructionScrollView.te
-        
+        self.instructionTextView.text = (self.projectInstructions == "")
+            ? "nothing here" : self.projectInstructions
     }
     
     override func viewDidLoad() {

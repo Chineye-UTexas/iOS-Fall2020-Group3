@@ -72,7 +72,7 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
                 let imagesArray = postDict["images"] as? NSMutableArray
                 // make to a loading photo placeholder
                 let placeholderImage = UIImage(named: "madeLogo")
-                self.postImage.backgroundColor = UIColor.systemPink
+                self.postImage.backgroundColor = UIColor.systemYellow
                 if imagesArray != nil && imagesArray![0] as! NSString != "" {
                     print("photoURL not empty")
                     self.postImage.sd_setImage(with: URL(string: imagesArray![0] as! String), placeholderImage: placeholderImage)
@@ -107,7 +107,7 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
         
         
         
-        let reviewTree = ref.child("posts-reviews").child(self.firebasePostID).observeSingleEvent(of: .value, with:
+        let reviewTree = ref.child("post-reviews").child(self.firebasePostID).observeSingleEvent(of: .value, with:
             { (snapshot) in
                 
                 let tempReviews = snapshot.value as? [NSString]
