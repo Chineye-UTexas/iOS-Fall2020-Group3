@@ -28,6 +28,7 @@
 		35EC4E40252F9E120093E430 /* Made_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E3F252F9E120093E430 /* Made_AppTests.swift */; };
 		35EC4E4B252F9E120093E430 /* Made_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E4A252F9E120093E430 /* Made_AppUITests.swift */; };
 		7C0B7C33254B444F005456C7 /* Alpha.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C0B7C32254B444E005456C7 /* Alpha.storyboard */; };
+		7C1C54CB25663A4C00370F4F /* SavedProjectsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C54CA25663A4C00370F4F /* SavedProjectsCell.swift */; };
 		7C49C3C22565FF5900833236 /* UserProfileCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C49C3C12565FF5900833236 /* UserProfileCollectionCell.swift */; };
 		7C49C3C72565FF7000833236 /* NotificationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C49C3C62565FF7000833236 /* NotificationsTableViewCell.swift */; };
 		7C49C3CC2565FF7700833236 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C49C3CB2565FF7700833236 /* NotificationsViewController.swift */; };
@@ -104,6 +105,7 @@
 		5901EC98CC680F0713FA4D1E /* Pods-Made-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Made-App.release.xcconfig"; path = "Target Support Files/Pods-Made-App/Pods-Made-App.release.xcconfig"; sourceTree = "<group>"; };
 		7078192C25852F1FC0F8BA2E /* Pods-Made-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Made-App.debug.xcconfig"; path = "Target Support Files/Pods-Made-App/Pods-Made-App.debug.xcconfig"; sourceTree = "<group>"; };
 		7C0B7C32254B444E005456C7 /* Alpha.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Alpha.storyboard; sourceTree = "<group>"; };
+		7C1C54CA25663A4C00370F4F /* SavedProjectsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedProjectsCell.swift; sourceTree = "<group>"; };
 		7C49C3C12565FF5900833236 /* UserProfileCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileCollectionCell.swift; sourceTree = "<group>"; };
 		7C49C3C62565FF7000833236 /* NotificationsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewCell.swift; sourceTree = "<group>"; };
 		7C49C3CB2565FF7700833236 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				7C58D710255274A90032A736 /* MadeImageCell.swift */,
 				7C58D718255290AF0032A736 /* SavedProjectsViewController.swift */,
 				7CC960D825401649005B0304 /* UserProfileViewController.swift */,
+				7C1C54CA25663A4C00370F4F /* SavedProjectsCell.swift */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
@@ -613,6 +616,7 @@
 				7C49C3C72565FF7000833236 /* NotificationsTableViewCell.swift in Sources */,
 				13AFE0D6256429E20011BECC /* ExploreFeedViewController.swift in Sources */,
 				7C58D7EC25562CA10032A736 /* ProfilePicViewController.swift in Sources */,
+				7C1C54CB25663A4C00370F4F /* SavedProjectsCell.swift in Sources */,
 				3587928F25415CC700AEC5EB /* MadeFeedViewController.swift in Sources */,
 				7C58D80D25565F640032A736 /* ReviewViewController.swift in Sources */,
 				3587926D254148DE00AEC5EB /* SinglePostViewController.swift in Sources */,

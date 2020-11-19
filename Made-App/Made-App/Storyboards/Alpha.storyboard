@@ -104,11 +104,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
+                                <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" fixedFrame="YES" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GOT-Ci-2LY" userLabel="profile picture">
                                 <rect key="frame" x="65" y="135" width="153" height="166"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="1" green="0.90468571630000005" blue="0.57433773170000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uxb-wW-0KF">
                                 <rect key="frame" x="20" y="384" width="374" height="387"/>
@@ -150,12 +151,12 @@
                                 <rect key="frame" x="266" y="231" width="75" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="tintColor" systemColor="systemPinkColor"/>
+                                <color key="tintColor" systemColor="systemYellowColor"/>
                                 <state key="normal" image="heart.circle.fill" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="60" scale="large"/>
                                 </state>
                                 <connections>
-                                    <segue destination="8ob-sO-xzQ" kind="show" id="5sH-Uk-Jk2"/>
+                                    <segue destination="bRl-gP-HXQ" kind="presentation" id="JCP-zI-Ulc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUI-yQ-sk1" userLabel="settings button">
@@ -174,9 +175,9 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="bio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t2X-aj-RCT">
                                 <rect key="frame" x="20" y="326" width="374" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
+                                <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1h8-Zg-CKS"/>
@@ -199,7 +200,7 @@
             <objects>
                 <viewController id="zbG-HP-KE5" userLabel="Saved Projects" customClass="SavedProjectsViewController" customModule="Made_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="icC-pW-T2A">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kgO-G4-l0V">
@@ -227,19 +228,9 @@
                                             </subviews>
                                         </view>
                                         <size key="customSize" width="175" height="170"/>
-                                        <connections>
-                                            <segue destination="kur-Xu-Sz7" kind="presentation" identifier="savedProjectsToSingleViewSegue" id="dTc-Lv-U9q"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Check out the projects you saved for later!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6lO-vS-RJ0">
-                                <rect key="frame" x="20" y="56" width="374" height="105"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DH7-It-NxM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -248,13 +239,12 @@
                         <barButtonItem key="backBarButtonItem" title="Profile" id="TC0-cI-XnU"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="collectionView" destination="kgO-G4-l0V" id="TzJ-sm-BFA"/>
                         <outlet property="savedProjectsHeader" destination="6lO-vS-RJ0" id="jHo-vn-vhe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ntB-P8-ngb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3097.1014492753625" y="2122.0982142857142"/>
+            <point key="canvasLocation" x="3096" y="2616"/>
         </scene>
         <!--Notifications-->
         <scene sceneID="CaY-wO-kZy">
@@ -378,25 +368,6 @@
             </objects>
             <point key="canvasLocation" x="1745" y="-611"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Cxl-Ek-nh9">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8ob-sO-xzQ" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="2rN-Fa-O9w"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="d6J-fi-Bsy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="zbG-HP-KE5" kind="relationship" relationship="rootViewController" id="OEk-Jz-Iyy"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2Cu-gh-xNG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2186.9565217391305" y="2122.0982142857142"/>
-        </scene>
         <!--Settings-->
         <scene sceneID="BHp-hj-kVL">
             <objects>
@@ -475,19 +446,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="img-80-H1a">
-                                <rect key="frame" x="183" y="726" width="48" height="30"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="UZE-mv-diP">
+                                <rect key="frame" x="105" y="109.5" width="205" height="176"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Logout"/>
+                                <color key="tintColor" red="1" green="0.86666666670000003" blue="0.57433773170000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="img-80-H1a">
+                                <rect key="frame" x="134" y="716" width="146" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="logoutButtonPressed:" destination="8Mu-bH-F06" eventType="touchUpInside" id="E88-Vm-xWb"/>
                                     <segue destination="1A9-gU-rTY" kind="presentation" identifier="logoutSegue" modalPresentationStyle="fullScreen" id="Xi4-K5-0tq"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="UZE-mv-diP">
-                                <rect key="frame" x="105" y="109.5" width="205" height="176"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5M3-kK-GbQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -584,14 +559,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbG-9I-Fvt">
-                                <rect key="frame" x="158" y="722" width="98" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Save Changes"/>
-                                <connections>
-                                    <action selector="saveButtonPressed:" destination="Krg-h2-L4r" eventType="touchUpInside" id="Ahf-t0-iE2"/>
-                                </connections>
-                            </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fqi-7b-FTb">
                                 <rect key="frame" x="296" y="554" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -603,7 +570,19 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3b8-h0-u9x">
                                 <rect key="frame" x="117" y="95" width="181" height="164"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="1" green="0.86666666670000003" blue="0.57433773170000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbG-9I-Fvt">
+                                <rect key="frame" x="126" y="700" width="163" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <state key="normal" title="Save Changes">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="Krg-h2-L4r" eventType="touchUpInside" id="Ahf-t0-iE2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4ar-Gs-Tq2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1204,19 +1183,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cC-2s-2Yz">
-                                <rect key="frame" x="133" y="629" width="124" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="quaternaryLabelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Add a Review!">
-                                    <color key="titleColor" systemColor="systemYellowColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="addReview:" destination="kur-Xu-Sz7" eventType="touchUpInside" id="kRp-c6-oIR"/>
-                                    <segue destination="dch-kI-VmT" kind="show" identifier="singlePostToReviewSegue" id="d4f-Gl-hBP"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sjf-9c-0cw">
                                 <rect key="frame" x="256" y="523" width="138" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1240,12 +1206,25 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRs-6O-slB">
                                 <rect key="frame" x="324" y="577" width="64" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" systemColor="systemPinkColor"/>
+                                <color key="tintColor" systemColor="systemYellowColor"/>
                                 <state key="normal" title=" Save" image="heart.circle.fill" catalog="system">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="saveProject:" destination="kur-Xu-Sz7" eventType="touchUpInside" id="Jxj-uo-JRO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cC-2s-2Yz">
+                                <rect key="frame" x="130" y="629" width="153" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Add a Review!">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addReview:" destination="kur-Xu-Sz7" eventType="touchUpInside" id="kRp-c6-oIR"/>
+                                    <segue destination="dch-kI-VmT" kind="show" identifier="singlePostToReviewSegue" id="d4f-Gl-hBP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1368,9 +1347,71 @@
             </objects>
             <point key="canvasLocation" x="6633" y="-80"/>
         </scene>
+        <!--saved projects-->
+        <scene sceneID="ZvC-Lh-iDu">
+            <objects>
+                <viewController title="saved projects" id="bRl-gP-HXQ" customClass="SavedProjectsViewController" customModule="Made_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sMH-Yb-rDq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Check out the projects you saved for later!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6lO-vS-RJ0">
+                                <rect key="frame" x="20" y="23" width="374" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="340" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FeY-3O-jCI">
+                                <rect key="frame" x="20" y="113" width="374" height="669"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="savedProjectsCell" rowHeight="340" id="3oc-Ef-rh7" customClass="SavedProjectsCell" customModule="Made_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="340"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3oc-Ef-rh7" id="Ptw-Qa-1iO">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="340"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cmN-nr-hxw">
+                                                    <rect key="frame" x="20" y="71" width="354" height="251"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLq-6T-viX">
+                                                    <rect key="frame" x="20" y="27" width="354" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="photo" destination="cmN-nr-hxw" id="Gle-Zu-SmL"/>
+                                            <outlet property="title" destination="cLq-6T-viX" id="p6b-r0-sFB"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oNH-bI-HUp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" id="1la-Pc-HXA"/>
+                    <navigationItem key="navigationItem" title="made" id="TBq-UZ-9C9"/>
+                    <connections>
+                        <outlet property="table" destination="FeY-3O-jCI" id="1ML-ik-6Vk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="108-sI-hfu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2186.9565217391305" y="2143.5267857142858"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dTc-Lv-U9q"/>
+        <segue reference="uoM-kF-p4l"/>
         <segue reference="xAN-1k-Mar"/>
         <segue reference="4dZ-At-CNh"/>
     </inferredMetricsTieBreakers>
@@ -1395,9 +1436,6 @@
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="quaternaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.17999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -1409,9 +1447,6 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
