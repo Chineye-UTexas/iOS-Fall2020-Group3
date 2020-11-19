@@ -31,6 +31,7 @@ class LoginViewController: UIViewController {
             // check credentials & sign in
             Auth.auth().signIn(withEmail: loginEmail.text!, password: loginPassword.text!) {
               user, error in
+                print("check credentials")
               if let error = error, user == nil {
                 let alert = UIAlertController(
                   title: "Sign in failed",
@@ -41,6 +42,7 @@ class LoginViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
                 return
               } else {
+                print("every thing is fine")
                 uniqueID = self.loginEmail.text!
                 self.loginEmail.text = nil
                 self.loginPassword.text = nil

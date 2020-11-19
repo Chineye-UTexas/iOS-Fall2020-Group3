@@ -60,6 +60,8 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
         print("in single view , getting firebase post id:")
         print(self.firebasePostID)
         
+        var username: NSMutableString = ""
+        
         let postTree = ref.child("posts").child(self.firebasePostID).observeSingleEvent(of: .value, with:
             { (snapshot) in
 //            print(snapshot)
@@ -84,8 +86,8 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
                 
                 let category = postDict["category"] as? NSString
                 
-                let username = postDict["user"] as? NSMutableString
-                self.posterUsername.text = username as String?
+                username = postDict["user"] as? NSMutableString ?? NSMutableString()
+                self.posterUsername.text = username as String
                 
                 let time = postDict["time"] as? NSString
                 
@@ -101,36 +103,60 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
                 
                 let description = postDict["description"] as! NSString
                 self.postCaption.text = description as String
-                                
+                    
+                /*
+                 Profile picture
+                 */
+                self.ref.child("users/\(username)/profilePicture").observeSingleEvent(of: .value, with: {
+                    (snapshot) in
+                    print(snapshot)
+                    profilePictureName = snapshot.value as! String
+                    // set image
+                    if profilePictureName != "" {
+                        // Create a reference from a Google Cloud Storage URI
+                        let gsReference = self.storage.reference(forURL: profilePictureName)
+                        // Download in memory with a maximum allowed size of 5MB (5 * 1024 * 1024 bytes)
+                        gsReference.getData(maxSize: 5 * 1024 * 1024) { data, error in
+                          if let error = error {
+                            // Uh-oh, an error occurred!
+                            print(error.localizedDescription)
+                          } else {
+                            // Data for image path is returned
+                            self.posterProfilePhoto.image = UIImage(data: data!)
+                          }
+                        }
+                    }
+                })
+                
             }
         )
         { (error) in
             print(error.localizedDescription)
         }
         
-        /*
-         Profile picture
-         */
-        self.ref.child("users/\(id[0])/profilePicture").observeSingleEvent(of: .value, with: {
-            (snapshot) in
-            print(snapshot)
-            profilePictureName = snapshot.value as! String
-            // set image
-            if profilePictureName != "" {
-                // Create a reference from a Google Cloud Storage URI
-                let gsReference = self.storage.reference(forURL: profilePictureName)
-                // Download in memory with a maximum allowed size of 5MB (5 * 1024 * 1024 bytes)
-                gsReference.getData(maxSize: 5 * 1024 * 1024) { data, error in
-                  if let error = error {
-                    // Uh-oh, an error occurred!
-                    print(error.localizedDescription)
-                  } else {
-                    // Data for image path is returned
-                    self.posterProfilePhoto.image = UIImage(data: data!)
-                  }
-                }
-            }
-        })
+//        /*
+//         Profile picture
+//         */
+//        self.ref.child("users/\(username)/profilePicture").observeSingleEvent(of: .value, with: {
+//            (snapshot) in
+//            print(snapshot)
+//            profilePictureName = snapshot.value as! String
+//            // set image
+//            if profilePictureName != "" {
+//                // Create a reference from a Google Cloud Storage URI
+//                let gsReference = self.storage.reference(forURL: profilePictureName)
+//                // Download in memory with a maximum allowed size of 5MB (5 * 1024 * 1024 bytes)
+//                gsReference.getData(maxSize: 5 * 1024 * 1024) { data, error in
+//                  if let error = error {
+//                    // Uh-oh, an error occurred!
+//                    print(error.localizedDescription)
+//                  } else {
+//                    // Data for image path is returned
+//                    self.posterProfilePhoto.image = UIImage(data: data!)
+//                  }
+//                }
+//            }
+//        })
     
 
     }
@@ -142,7 +168,7 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
         reviewTableView.dataSource = self
         
         posterProfilePhoto.layer.masksToBounds = true
-        posterProfilePhoto.layer.cornerRadius = posterProfilePhoto.bounds.width / 2
+        // posterProfilePhoto.layer.cornerRadius = posterProfilePhoto.bounds.width / 2
         /*
          Retrieve the reviews
          */
@@ -200,8 +226,8 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
          */
             let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { (action : UIAlertAction!) -> Void in })
 
-            alertController.addAction(saveAction)
             alertController.addAction(cancelAction)
+            alertController.addAction(saveAction)
             
             self.present(alertController, animated: true, completion: nil)
     }

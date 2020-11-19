@@ -132,7 +132,7 @@ class UserProfileViewController: UIViewController, UICollectionViewDelegate, UIC
         ref = Database.database().reference()
         let id = uniqueID.split(separator: ".")
         var profilePictureName = ""
-
+        
         self.ref.child("users/\(id[0])/profilePicture").observeSingleEvent(of: .value, with: {
             (snapshot) in
             print(snapshot)
