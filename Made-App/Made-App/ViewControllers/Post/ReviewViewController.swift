@@ -50,7 +50,7 @@ class ReviewViewController: UIViewController {
         ref = Database.database().reference()
         let id = uniqueID.split(separator: ".")
         // todo chnage post title to post idm, to prevent duplicates
-        let snapshotReviewList = self.ref.child("users/\(id[0])/projects/\(self.postTitle)/reviews")
+        let snapshotReviewList = self.ref.child("projects/\(self.postID)/reviews")
     
         ref.observe(.value, with: {
             (snapshot: DataSnapshot!) in

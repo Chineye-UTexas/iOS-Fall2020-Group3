@@ -15,7 +15,15 @@ class DisplayInstructionsViewController: UIViewController {
     
     var projectInstructions = ""
     var projectTitle = ""
+    var postID = ""
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.instructionProjectTitle.text = self.projectTitle
+        //self.instructionScrollView.te
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

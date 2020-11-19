@@ -10,7 +10,7 @@ import Firebase
 import CoreData
 import SDWebImage
 
-var reviews: NSArray = []
+var reviews: [NSString] = []
 
 
 class SinglePostViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -23,6 +23,7 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var postTitle: UILabel!
     @IBOutlet weak var postCaption: UILabel!
     
+    @IBOutlet weak var addReviewButton: UIButton!
     
     // sent from PostFormVC
     var singlePost = Project()
@@ -90,6 +91,7 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
                 let difficulty = postDict["difficulty"] as! NSString
                 
                 let instructions = postDict["instructions"] as! NSString
+                self.projectInstructions = instructions as String
                 
                 let creationTime = postDict["creationTime"] as! NSMutableString
                 self.dateOfPost.text = creationTime as String
@@ -108,8 +110,13 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
         let reviewTree = ref.child("posts-reviews").child(self.firebasePostID).observeSingleEvent(of: .value, with:
             { (snapshot) in
                 
+                let tempReviews = snapshot.value as? [NSString]
                 
-                let reviews = snapshot.value as? NSArray ?? []
+                print(tempReviews?.first!)
+                
+           //     self.reviews = Array(tempReviews)
+                //self.reviews = tempReviews as! Array<DataSnapshot>
+               // self.reviews = (tempReviews as Array)
                 
             })
         { (error) in
@@ -141,36 +148,7 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         })
         
-        
-//
-//        // the data from the Project object we sent
-//        reviews = singlePost.reviews as! Array<DataSnapshot>
-//        postTitle.text = titleOfPost // String(singlePost.title)
-//        postCaption.text = caption // String(singlePost.description)
-//        posterUsername.text = postName
-//        postImage.image = postPhoto
-     //  postImage.backgroundColor = UIColor.systemPink
-//        let placeholderImage = postPhoto
-//
-//        // make to a loading photo placeholder
-//        if photoURL != nil && !photoURL.isEmpty {
-//            print("photoURL not empty")
-//        postImage.sd_setImage(with: URL(string: photoURL), placeholderImage: placeholderImage)
-//        }
-        
-      //  dateOfPost.text = date // String(singlePost.creationDate)
-       
-//        self.ref.child("users/\(id[0])/projects/\(String(describing: titleOfPost))/reviews")
-//            .observeSingleEvent(of: .value, with: { (snapshot) in
-//
-//                for child in snapshot.children {
-//                        let snap = child as! DataSnapshot
-//                        let key = snap.key
-//                        let value = snap.value
-//                        print("key = \(key)  value = \(value!)")
-//                    self.reviewCommentaryList.append(value as! NSMutableString)
-//                    }
-//            })
+
         reviewTableView.reloadData()
     }
     
@@ -184,6 +162,17 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
         posterProfilePhoto.layer.cornerRadius = posterProfilePhoto.bounds.width / 2
         
     }
+    
+    
+    
+    @IBAction func addReview(_ sender: Any) {
+        
+        
+        
+        
+    }
+    
+    
     
     
     /*
@@ -232,6 +221,7 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
         else if segue.identifier == "displayInstructionsSegue",
             let nextVC = segue.destination as? DisplayInstructionsViewController
         {
+            nextVC.postID = self.firebasePostID
             nextVC.projectTitle = self.titleOfPost
             nextVC.projectInstructions = self.projectInstructions
             
