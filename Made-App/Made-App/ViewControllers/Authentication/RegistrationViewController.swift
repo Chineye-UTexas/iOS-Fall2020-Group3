@@ -20,9 +20,12 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var newUserPassword: UITextField!
     @IBOutlet weak var confirmNewUserPassword: UITextField!
     @IBOutlet weak var newUserScreenName: UITextField!
+    @IBOutlet weak var completeRegButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.completeRegButton.layer.cornerRadius = 5
     }
     
     @IBAction func registerDidTouch(_ sender: Any) {

@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13AFE0C52561C7630011BECC /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AFE0C42561C7630011BECC /* NotificationsViewController.swift */; };
-		13AFE0CD2561C8EB0011BECC /* NotificationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AFE0CC2561C8EB0011BECC /* NotificationsTableViewCell.swift */; };
 		13AFE0D6256429E20011BECC /* ExploreFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AFE0D5256429E20011BECC /* ExploreFeedViewController.swift */; };
-		3580F0BB254207A9006349CA /* Chineye.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3580F0BA254207A9006349CA /* Chineye.storyboard */; };
+		356004E12565A798008C612D /* Chineye.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 356004E02565A798008C612D /* Chineye.storyboard */; };
+		3560053C2565B8FF008C612D /* DisplayInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3560053B2565B8FF008C612D /* DisplayInstructionsViewController.swift */; };
 		3580F12D25420AE8006349CA /* Ira.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3580F12C25420AE7006349CA /* Ira.storyboard */; };
 		3580F13225420AF3006349CA /* Marissa.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3580F13125420AF3006349CA /* Marissa.storyboard */; };
 		3580F16D25420D09006349CA /* Alpha1.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3580F16C25420D09006349CA /* Alpha1.storyboard */; };
@@ -24,7 +23,6 @@
 		3587929425415CC700AEC5EB /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3587928D25415CC700AEC5EB /* FeedTableViewCell.swift */; };
 		35EC4E29252F9E100093E430 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E28252F9E100093E430 /* AppDelegate.swift */; };
 		35EC4E2B252F9E100093E430 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E2A252F9E100093E430 /* SceneDelegate.swift */; };
-		35EC4E2D252F9E100093E430 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E2C252F9E100093E430 /* ViewController.swift */; };
 		35EC4E32252F9E120093E430 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35EC4E31252F9E120093E430 /* Assets.xcassets */; };
 		35EC4E35252F9E120093E430 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35EC4E33252F9E120093E430 /* LaunchScreen.storyboard */; };
 		35EC4E40252F9E120093E430 /* Made_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EC4E3F252F9E120093E430 /* Made_AppTests.swift */; };
@@ -70,12 +68,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		13AFE0C42561C7630011BECC /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationsViewController.swift; path = "Made-App/ViewControllers/NotificationsViewController.swift"; sourceTree = SOURCE_ROOT; };
-		13AFE0CC2561C8EB0011BECC /* NotificationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationsTableViewCell.swift; path = "Made-App/ViewControllers/NotificationsTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		13AFE0D5256429E20011BECC /* ExploreFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreFeedViewController.swift; sourceTree = "<group>"; };
 		17013FE31B35600939AADA9F /* Pods-Made-AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Made-AppTests.release.xcconfig"; path = "Target Support Files/Pods-Made-AppTests/Pods-Made-AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		23029750A5BCCCF4198CA317 /* Pods-Made-App-Made-AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Made-App-Made-AppUITests.release.xcconfig"; path = "Target Support Files/Pods-Made-App-Made-AppUITests/Pods-Made-App-Made-AppUITests.release.xcconfig"; sourceTree = "<group>"; };
-		3580F0BA254207A9006349CA /* Chineye.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chineye.storyboard; sourceTree = "<group>"; };
+		356004E02565A798008C612D /* Chineye.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chineye.storyboard; sourceTree = "<group>"; };
+		3560053B2565B8FF008C612D /* DisplayInstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayInstructionsViewController.swift; sourceTree = "<group>"; };
 		3580F12C25420AE7006349CA /* Ira.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Ira.storyboard; sourceTree = "<group>"; };
 		3580F13125420AF3006349CA /* Marissa.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Marissa.storyboard; sourceTree = "<group>"; };
 		3580F16C25420D09006349CA /* Alpha1.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Alpha1.storyboard; sourceTree = "<group>"; };
@@ -90,7 +87,6 @@
 		35EC4E25252F9E100093E430 /* Made-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Made-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35EC4E28252F9E100093E430 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35EC4E2A252F9E100093E430 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		35EC4E2C252F9E100093E430 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		35EC4E31252F9E120093E430 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35EC4E34252F9E120093E430 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35EC4E36252F9E120093E430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -156,6 +152,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		356004E52565AB53008C612D /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				35879261254148BC00AEC5EB /* PostFormViewController.swift */,
+				3587926C254148DE00AEC5EB /* SinglePostViewController.swift */,
+				7CD76618256500F7002928C9 /* UploadInstructionsViewController.swift */,
+				7C58D80C25565F630032A736 /* ReviewViewController.swift */,
+				3560053B2565B8FF008C612D /* DisplayInstructionsViewController.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		356004E62565AB6B008C612D /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 		3580F272254274F1006349CA /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,7 +179,7 @@
 				3580F12C25420AE7006349CA /* Ira.storyboard */,
 				7C58D78E255617290032A736 /* Megan.storyboard */,
 				3580F13125420AF3006349CA /* Marissa.storyboard */,
-				3580F0BA254207A9006349CA /* Chineye.storyboard */,
+				356004E02565A798008C612D /* Chineye.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -183,16 +198,11 @@
 			children = (
 				7CD7663B256501CD002928C9 /* UserProfile */,
 				7CD7662E25650190002928C9 /* Authentication */,
-				35EC4E2C252F9E100093E430 /* ViewController.swift */,
 				7CD766242565016D002928C9 /* ExploreView */,
 				7CD7662025650151002928C9 /* Settings */,
-				13AFE0C42561C7630011BECC /* NotificationsViewController.swift */,
-				13AFE0CC2561C8EB0011BECC /* NotificationsTableViewCell.swift */,
+				356004E62565AB6B008C612D /* Notifications */,
 				3580F28B2542758A006349CA /* FeedView */,
-				3587926C254148DE00AEC5EB /* SinglePostViewController.swift */,
-				35879261254148BC00AEC5EB /* PostFormViewController.swift */,
-				7C58D80C25565F630032A736 /* ReviewViewController.swift */,
-				7CD76618256500F7002928C9 /* UploadInstructionsViewController.swift */,
+				356004E52565AB53008C612D /* Post */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -458,9 +468,9 @@
 				3580F13225420AF3006349CA /* Marissa.storyboard in Resources */,
 				3587929025415CC700AEC5EB /* FeedTableViewCell.xib in Resources */,
 				3580F12D25420AE8006349CA /* Ira.storyboard in Resources */,
-				3580F0BB254207A9006349CA /* Chineye.storyboard in Resources */,
 				7C0B7C33254B444F005456C7 /* Alpha.storyboard in Resources */,
 				7CC95FC82536DBA2005B0304 /* GoogleService-Info.plist in Resources */,
+				356004E12565A798008C612D /* Chineye.storyboard in Resources */,
 				35EC4E32252F9E120093E430 /* Assets.xcassets in Resources */,
 				3580F16D25420D09006349CA /* Alpha1.storyboard in Resources */,
 				7C58D78F255617290032A736 /* Megan.storyboard in Resources */,
@@ -591,7 +601,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13AFE0CD2561C8EB0011BECC /* NotificationsTableViewCell.swift in Sources */,
 				13AFE0D6256429E20011BECC /* ExploreFeedViewController.swift in Sources */,
 				7C58D7EC25562CA10032A736 /* ProfilePicViewController.swift in Sources */,
 				3587928F25415CC700AEC5EB /* MadeFeedViewController.swift in Sources */,
@@ -609,11 +618,10 @@
 				7CC960362536FA8E005B0304 /* LoginViewController.swift in Sources */,
 				7CC960D925401649005B0304 /* UserProfileViewController.swift in Sources */,
 				7C58D711255274A90032A736 /* MadeImageCell.swift in Sources */,
-				35EC4E2D252F9E100093E430 /* ViewController.swift in Sources */,
-				13AFE0C52561C7630011BECC /* NotificationsViewController.swift in Sources */,
 				35EC4E29252F9E100093E430 /* AppDelegate.swift in Sources */,
 				3587929225415CC700AEC5EB /* SettingsViewController.swift in Sources */,
 				7C58D719255290AF0032A736 /* SavedProjectsViewController.swift in Sources */,
+				3560053C2565B8FF008C612D /* DisplayInstructionsViewController.swift in Sources */,
 				7C58D72D2554D5860032A736 /* Review.swift in Sources */,
 				35EC4E2B252F9E100093E430 /* SceneDelegate.swift in Sources */,
 				3587928E25415CC700AEC5EB /* EditSettingsViewController.swift in Sources */,

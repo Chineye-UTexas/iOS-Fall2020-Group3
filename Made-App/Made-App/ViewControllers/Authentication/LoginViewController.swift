@@ -15,8 +15,14 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginEmail: UITextField!
     @IBOutlet weak var loginPassword: UITextField!
     
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var registrationButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.loginButton.layer.cornerRadius = 5
+        self.registrationButton.layer.cornerRadius = 5
     }
     
     

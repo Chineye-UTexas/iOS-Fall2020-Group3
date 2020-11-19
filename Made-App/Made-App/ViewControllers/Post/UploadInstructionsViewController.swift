@@ -40,15 +40,9 @@ class UploadInstructionsViewController: UIViewController {
         
         let otherVC = delegate as! InstructionUpdate
         otherVC.onSaveInstructions(type: textViewContent)
-        
-//        delegate?.onSaveInstructions(type: self.instructionTextView.text)
-        
+
         self.dismiss(animated: true, completion: nil)
-       // let vc = PostFormViewController()
-     //   vc.projectInstructions = textViewContent
-      //  navigationController?.pushViewController(vc, animated: true)
-        
-       // print(vc.projectInstructions)
+
         
     }
     
