@@ -10,6 +10,7 @@ import CoreData
 import Firebase
 import SDWebImage
 import Foundation
+import AVFoundation
 
 class UserProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -49,29 +50,31 @@ class UserProfileViewController: UIViewController, UICollectionViewDelegate, UIC
         print("before post stuff")
         self.ref.child("user-posts/\(id[0])").observeSingleEvent(of: .value, with: {
             (snapshot) in
-                for child in snapshot.children {
-                    // each child is a project
-                    let snap = child as! DataSnapshot
-                    let projectID = snap.key
-                    let value = snap.value as! NSDictionary
-                    let images = value["images"] as! NSArray
-                    let imageURL = images[0] as! String
-                    print("key = \(projectID)  value = \(value)")
-                    print("imageURL = \(imageURL)")
-                    if !self.postImageList.contains(imageURL) {
-                        self.postImageList.append(imageURL)
-                    }
-                    self.collectionView.reloadData()
-                    print("after getting database user projects")
+            for child in snapshot.children {
+                // each child is a project
+                let snap = child as! DataSnapshot
+                let projectID = snap.key
+                let value = snap.value as! NSDictionary
+                let images = value["images"] as! NSArray
+                let imageURL = images[0] as! String
+                print("key = \(projectID)  value = \(value)")
+                print("imageURL = \(imageURL)")
+                if !self.postImageList.contains(imageURL) {
+                    self.postImageList.append(imageURL)
                 }
-            })
+            }
+            print("after getting database user projects")
+            self.imageCounter = 0
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        })
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         settingsReload()
         reloadProfilePicture()
-        // collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -81,6 +84,8 @@ class UserProfileViewController: UIViewController, UICollectionViewDelegate, UIC
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "userProfileImageCell", for: indexPath) as! MadeImageCell
         print("in the collection view cell maker")
+        print(imageCounter)
+        print(postImageList)
         
         // this could be cool customizable!
         // convert the string to UIColor
@@ -103,7 +108,12 @@ class UserProfileViewController: UIViewController, UICollectionViewDelegate, UIC
                 print(error.localizedDescription)
               } else {
                 // Data for image path is returned
-                cell.image.image = UIImage(data: data!)
+                DispatchQueue.main.async {
+                    cell.image.image = UIImage(data: data!)
+                    print("update image number : ")
+                    print(self.imageCounter)
+                }
+                // cell.image.image = UIImage(data: data!)
               }
             }
         }
