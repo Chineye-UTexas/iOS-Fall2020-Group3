@@ -24,6 +24,7 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var postCaption: UILabel!
     
     @IBOutlet weak var addReviewButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
     
     // sent from PostFormVC
     var singlePost = Project()
@@ -57,6 +58,8 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
         let id = uniqueID.split(separator: ".")
         var profilePictureName = ""
         
+        print("in single view , getting firebase post id:")
+        print(self.firebasePostID)
         
         let postTree = ref.child("posts").child(self.firebasePostID).observeSingleEvent(of: .value, with:
             { (snapshot) in
@@ -106,7 +109,7 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         
         
-        
+        print("before review tree firebase path")
         let reviewTree = ref.child("post-reviews").child(self.firebasePostID).observeSingleEvent(of: .value, with:
             { (snapshot) in
                 
@@ -123,7 +126,7 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
             print(error.localizedDescription)
         }
     
-        
+        print("before profile picture firebase path")
         /*
          Profile picture
          */
@@ -205,6 +208,12 @@ class SinglePostViewController: UIViewController, UITableViewDelegate, UITableVi
     // another view for people to leave a review
 
     
+    @IBAction func saveProject(_ sender: Any) {
+        ref = Database.database().reference()
+        let emailID = uniqueID.split(separator: ".")
+        ref.child("users/\(emailID[0])/saved-projects/\(firebasePostID)").setValue(titleOfPost)
+        saveButton.titleLabel?.text = "Saved!"
+    }
     
     // MARK: - Navigation
 

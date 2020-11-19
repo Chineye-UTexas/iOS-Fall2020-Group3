@@ -114,7 +114,7 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
                                   description: description, instructions: instructions,
                                   timeValue: time,
                                   timeUnit: timeUnit, difficulty: self.difficulty, images: images,
-                                  creationDate: datetime, username: username, reviews: reviews as NSArray)
+                                  creationDate: datetime, username: username, reviews: reviews as NSArray, firebaseProjectID: "")
         
         if title.length == 0 {
             message = "Please add a project title"
@@ -124,6 +124,9 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         }
         if description.length == 0 && message.isEmpty {
             message = "Please add a project description"
+        }
+        if description.length > 35 {
+            message = "Please adjust project description to 35 characters or less"
         }
         if instructions.length == 0 && message.isEmpty {
             message = "Please add project instructions"
@@ -169,7 +172,9 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         
         guard let postAutoIDKey = postAutoID.key else { return }
         self.postAutoID = postAutoIDKey
+        print(postAutoIDKey)
         
+        self.newProject?.firebaseProjectID = postAutoIDKey
         
         /*
          Add post entry to the masterlist of posts
@@ -186,13 +191,13 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
         allPostsPath.child("difficulty").setValue(difficulty)
         allPostsPath.child("images").setValue(images)
         allPostsPath.child("creationTime").setValue(datetime)
-        
+        print("before path for reviews")
         
         /*
          Create path for reviews
          */
         let postReviewPath: Void = self.ref.child("post-reviews/\(String(describing: postAutoIDKey))/").setValue("")
-                
+        print("after path for reviews")
     }
     
     
@@ -377,7 +382,8 @@ class PostFormViewController: UIViewController, UIImagePickerControllerDelegate,
 
         if segue.identifier == "postCreatedSegueIdentifier",
         let nextVC = segue.destination as? SinglePostViewController {
-
+            print("before segue")
+            print(self.postAutoID)
             nextVC.singlePost = self.newProject!
             nextVC.titleOfPost = self.projectTitle.text
             nextVC.caption = self.projectDescription.text

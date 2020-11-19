@@ -18,8 +18,9 @@ class Project{
     var creationDate = NSString()
     var username = NSString()
     var reviews: NSArray = []
+    var firebaseProjectID = String()
     
-    init(title: NSString, category: NSString, description: NSString, instructions: NSString, timeValue: NSString, timeUnit: NSString, difficulty: NSString, images: NSArray, creationDate: NSString, username: NSString, reviews: NSArray) {
+    init(title: NSString, category: NSString, description: NSString, instructions: NSString, timeValue: NSString, timeUnit: NSString, difficulty: NSString, images: NSArray, creationDate: NSString, username: NSString, reviews: NSArray, firebaseProjectID: String) {
         self.title = title
         self.category = category
         self.description = description
@@ -31,6 +32,7 @@ class Project{
         self.creationDate = creationDate
         self.username = username
         self.reviews = reviews
+        self.firebaseProjectID = firebaseProjectID
     }
     
     init() {

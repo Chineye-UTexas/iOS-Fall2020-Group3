@@ -40,7 +40,6 @@ class ExploreViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: tableCellIdentifier, for: indexPath as IndexPath) as! ExploreTableViewCell
         let row = indexPath.row
         let category = filterCategories[row]
-        //currCategory = category
         cell.categoryLabel?.text = category
         cell.categoryImage.image = UIImage(named: category)
         return cell

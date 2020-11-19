@@ -41,33 +41,33 @@ class MadeFeedViewController: UIViewController, UITableViewDataSource, UITableVi
             .observeSingleEvent(of: .value, with: { (snapshot) in
 
                 for child in snapshot.children {
-                        let snap = child as! DataSnapshot
-                        let key = snap.key
-                        let value = snap.value
-                        print("key = \(key)  value = \(value!)")
+                    let snap = child as! DataSnapshot
+                    let key = snap.key
+                    let value = snap.value
+                    print("key = \(key)  value = \(value!)")
+                
+                    title = snapshot.childSnapshot(forPath: "\(key)/project-title").value as! NSString
+                    print(title)
+                    creationDate = snapshot.childSnapshot(forPath: "\(key)/creationTime").value as! NSString
+                    print(creationDate)
+                    description = snapshot.childSnapshot(forPath: "\(key)/description").value as! NSString
+                    print(description)
+                    category = snapshot.childSnapshot(forPath: "\(key)/category").value as! NSString
+                    print(category)
+                    difficulty = snapshot.childSnapshot(forPath: "\(key)/difficulty").value as! NSString
+                    print(difficulty)
+                    instructions = snapshot.childSnapshot(forPath: "\(key)/instructions").value as! NSString
+                    print(instructions)
+                    images = snapshot.childSnapshot(forPath: "\(key)/images").value as! NSArray
+                    timeValue = snapshot.childSnapshot(forPath: "\(key)/time").value as! NSString
+                    username = snapshot.childSnapshot(forPath: "\(key)/user").value as! NSString
+                    print(images)
+                    timeUnit = snapshot.childSnapshot(forPath: "\(key)/timeUnit").value as! NSString
+                    print(timeUnit)
                     
-                        title = snapshot.childSnapshot(forPath: "\(key)/project-title").value as! NSString
-                        print(title)
-                        creationDate = snapshot.childSnapshot(forPath: "\(key)/creationTime").value as! NSString
-                        print(creationDate)
-                        description = snapshot.childSnapshot(forPath: "\(key)/description").value as! NSString
-                        print(description)
-                        category = snapshot.childSnapshot(forPath: "\(key)/category").value as! NSString
-                        print(category)
-                        difficulty = snapshot.childSnapshot(forPath: "\(key)/difficulty").value as! NSString
-                        print(difficulty)
-                        instructions = snapshot.childSnapshot(forPath: "\(key)/instructions").value as! NSString
-                        print(instructions)
-                        images = snapshot.childSnapshot(forPath: "\(key)/images").value as! NSArray
-                        timeValue = snapshot.childSnapshot(forPath: "\(key)/time").value as! NSString
-                        username = snapshot.childSnapshot(forPath: "\(key)/user").value as! NSString
-                        print(images)
-                        timeUnit = snapshot.childSnapshot(forPath: "\(key)/timeUnit").value as! NSString
-                        print(timeUnit)
-                        
-                        //self.models.append(currPost)
-                    self.models.append(Project(title: title, category: category, description: description, instructions: instructions, timeValue: timeValue, timeUnit: timeUnit, difficulty: difficulty, images: images, creationDate: creationDate, username: username, reviews: ["ok"]))
-                   
+                    //self.models.append(currPost)
+                    self.models.append(Project(title: title, category: category, description: description, instructions: instructions, timeValue: timeValue, timeUnit: timeUnit, difficulty: difficulty, images: images, creationDate: creationDate, username: username, reviews: [], firebaseProjectID: key))
+               
                 }
                 self.table.reloadData()
             })
@@ -88,7 +88,7 @@ class MadeFeedViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        performSegue(withIdentifier: "feedToSingleViewSegue", sender: indexPath.row)
     }
     
     // check these values
@@ -96,20 +96,34 @@ class MadeFeedViewController: UIViewController, UITableViewDataSource, UITableVi
         return 120 + 140 + view.frame.size.width
     }
     
-
+    func getCellPosition() -> Int {
+        let indexPath = table.indexPathForSelectedRow
+        return indexPath!.row
+    }
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        
-//        if segue.identifier == "SinglePostSegueIdentifier",
-//           let nextVC = segue.destination as? SinglePostViewController
-//        {
-//            nextVC.delegate = self
-//            self.models[1] = nextVC.testPost //testing data being moved properly
-////            models = nextVC.models
-////            nextVC.testPost = models[0]
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "feedToSingleViewSegue",
+           let nextVC = segue.destination as? SinglePostViewController
+        {
+            print("in segue to single view")
+            nextVC.delegate = self
+            // self.models[1] = nextVC.testPost //testing data being moved properly
+//            models = nextVC.models
+//            nextVC.testPost = models[0]
+            let row = getCellPosition()
+            let model = models[row]
+            nextVC.singlePost = model
+            nextVC.titleOfPost = model.title as String
+            nextVC.caption = model.description as String
+            nextVC.postName = model.username as String
+            nextVC.photoURL = (model.images)[0] as? String
+            nextVC.firebasePostID = model.firebaseProjectID
+            nextVC.projectInstructions = model.instructions as String
+        }
+    }
+    
 }

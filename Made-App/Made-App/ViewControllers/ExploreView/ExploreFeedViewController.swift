@@ -67,7 +67,7 @@ class ExploreFeedViewController: UIViewController, UITableViewDataSource, UITabl
                             timeUnit = snapshot.childSnapshot(forPath: "\(key)/timeUnit").value as! NSString
                             print(timeUnit)
                             
-                            self.models.append(Project(title: title, category: category, description: description, instructions: instructions, timeValue: timeValue, timeUnit: timeUnit, difficulty: difficulty, images: images, creationDate: creationDate, username: username, reviews: ["ok"]))
+                            self.models.append(Project(title: title, category: category, description: description, instructions: instructions, timeValue: timeValue, timeUnit: timeUnit, difficulty: difficulty, images: images, creationDate: creationDate, username: username, reviews: [], firebaseProjectID: key))
                         }
                 }
                 self.table.reloadData()
@@ -89,7 +89,7 @@ class ExploreFeedViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        performSegue(withIdentifier: "exploreFeedToSingleViewSegue", sender: indexPath.row)
     }
     
     // check these values
@@ -97,15 +97,34 @@ class ExploreFeedViewController: UIViewController, UITableViewDataSource, UITabl
         return 120 + 140 + view.frame.size.width
     }
     
+    func getCellPosition() -> Int {
+        let indexPath = table.indexPathForSelectedRow
+        return indexPath!.row
+    }
+    
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "exploreFeedToSingleViewSegue",
+           let nextVC = segue.destination as? SinglePostViewController
+        {
+            print("in explore feed segue to single view")
+            nextVC.delegate = self
+            let row = getCellPosition()
+            let model = models[row]
+            nextVC.singlePost = model
+            nextVC.titleOfPost = model.title as String
+            nextVC.caption = model.description as String
+            nextVC.postName = model.username as String
+            nextVC.photoURL = (model.images)[0] as? String
+            nextVC.firebasePostID = model.firebaseProjectID
+            nextVC.projectInstructions = model.instructions as String
+        }
     }
-    */
 
 }
