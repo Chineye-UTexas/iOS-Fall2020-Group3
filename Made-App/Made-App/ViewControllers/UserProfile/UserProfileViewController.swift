@@ -49,6 +49,7 @@ class UserProfileViewController: UIViewController, UICollectionViewDelegate, UIC
         reloadProfilePicture()
 
         print("before post stuff")
+        models = []
         self.ref.child("user-posts/\(id[0])").observeSingleEvent(of: .value, with: {
             (snapshot) in
             for child in snapshot.children {

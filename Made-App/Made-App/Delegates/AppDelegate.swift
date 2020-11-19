@@ -27,33 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         })
         
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return false
-          }
-        let managedContext = appDelegate.persistentContainer.viewContext
-        // Initialize Fetch Request
-        let fetchRequest: NSFetchRequest<NSManagedObject> = NSFetchRequest(entityName: "User")
-
-        // Configure Fetch Request
-        fetchRequest.includesPropertyValues = false
-        
-        do {
-            let items = try managedContext.fetch(fetchRequest) as! [User]
-
-            for item in items {
-                managedContext.delete(item)
-            }
-
-            // Save Changes
-            try managedContext.save()
-
-        } catch {
-            // Error Handling
-            // ...
-            print("error")
-            print(error.localizedDescription)
-        }
-        
         return true
     }
 
