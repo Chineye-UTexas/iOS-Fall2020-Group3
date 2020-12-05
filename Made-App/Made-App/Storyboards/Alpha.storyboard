@@ -195,57 +195,6 @@
             </objects>
             <point key="canvasLocation" x="2186.9565217391305" y="1380.8035714285713"/>
         </scene>
-        <!--Saved Projects-->
-        <scene sceneID="Xpo-eA-rJ7">
-            <objects>
-                <viewController id="zbG-HP-KE5" userLabel="Saved Projects" customClass="SavedProjectsViewController" customModule="Made_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="icC-pW-T2A">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kgO-G4-l0V">
-                                <rect key="frame" x="20" y="169" width="374" height="639"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Pis-XI-UCe">
-                                    <size key="itemSize" width="175" height="170"/>
-                                    <size key="estimatedItemSize" width="175" height="170"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="savedProjectsCellIdentifier" id="rW5-8t-YMc" customClass="MadeImageCell" customModule="Made_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="175" height="170"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="175" height="170"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JZe-MC-nsm">
-                                                    <rect key="frame" x="0.0" y="0.0" width="175" height="170"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                            </subviews>
-                                        </view>
-                                        <size key="customSize" width="175" height="170"/>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="DH7-It-NxM"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Saved Projects" id="eqr-VA-Akh">
-                        <barButtonItem key="backBarButtonItem" title="Profile" id="TC0-cI-XnU"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="savedProjectsHeader" destination="6lO-vS-RJ0" id="jHo-vn-vhe"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ntB-P8-ngb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3096" y="2616"/>
-        </scene>
         <!--Notifications-->
         <scene sceneID="CaY-wO-kZy">
             <objects>
@@ -1413,7 +1362,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="uoM-kF-p4l"/>
         <segue reference="xAN-1k-Mar"/>
-        <segue reference="nL6-9D-nlr"/>
+        <segue reference="gMQ-mq-KkU"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bell.badge" catalog="system" width="128" height="124"/>
